@@ -1,100 +1,151 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import * as Variables from './Variables';
+import * as Variables from "./Variables";
 
 const HeaderStyle = styled.header`
-    position:absolute;
-    top:36px;
-    width:100%;
-    z-index:99;
-`;
-
-const Menu = styled.div`
-    display:flex;
-    position:fixed;
-    top:36px;
-    &.fixedMenu{
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        &:before, &:after{
-            background: ${Variables.ColorTuna};
-            content:"";
-            height:2px;
-            position:absolute;
-            top:32px;
-            width:44px;
-        }
-        &:after{
-            top:48px;
-        }
-    }
-    &.open{
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(24px);
-    }
+	position: absolute;
+	top: 36px;
+	width: 100%;
+	z-index: 99;
 `;
 
 const Logo = styled.img`
-    position:absolute;
-    top:0;
-    left:0;
+	position: absolute;
+	top: 0;
+	left: 0;
+`;
+
+const Menu = styled.div`
+	display: flex;
+	position: fixed;
+	top: 36px;
+	display: flex;
+	padding: 16px 36px;
+	border-radius: 32px;
+	transition: 0.5s;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	&.menuUp {
+		top: 36px;
+		background: rgba(255, 255, 255, 0.7);
+		backdrop-filter: blur(24px);
+		a {
+			color: ${Variables.ColorTuna};
+			&:hover {
+				&:before {
+					left: -9px;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	&.menuDown {
+		top: -61px;
+	}
+	&.open {
+		&:before,
+		&:after {
+			background: ${Variables.ColorTuna};
+			content: "";
+			height: 2px;
+			position: absolute;
+			top: 32px;
+			width: 44px;
+		}
+		&:after {
+			top: 48px;
+		}
+	}
 `;
 
 const MenuLink = styled(Link)`
-    color:#fff;
-    display:block;
-    font-size: 18px;
-    line-height: 28px;
-    transition:.4s;
-    + a{
-        margin-left: 24px;
-    }
-    &:hover{
-        filter: blur(0px) !important;
-    }
+	color: #fff;
+	display: block;
+	font-size: 18px;
+	line-height: 28px;
+	position: relative;
+	transition: 0.3s;
+	&:before {
+		background-color: #5754ea;
+		border-radius: 5px;
+		content: "";
+		height: 5px;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 13px;
+		transition: 0.3s;
+		width: 5px;
+	}
+	+ a {
+		margin-left: 24px;
+	}
+	&:hover {
+		filter: blur(0px) !important;
+	}
 `;
 
 const Container = styled.div`
-    display:flex;
-    align-items:center;
-    justify-content:end;
+	display: flex;
+	align-items: center;
+	justify-content: end;
 `;
 
 const Header = ({ logo }) => {
-    const [blur, setBlur] = useState(false);
-    const [scrollTop, setScrollTop] = useState(0);
-    const [scrolling, setScrolling] = useState(false);
+	const [blur, setBlur] = useState(false);
+	const prevScrollY = useRef(0);
+	const [menuUp, setMenuUp] = useState();
 
-    const handleHover = () => setBlur(!blur);
-    const handleStyle = {
-        filter: `blur(${blur ? "2px" : "0px"})`,
-    }
+	const handleHover = () => setBlur(!blur);
+	const handleStyle = {
+		filter: `blur(${blur ? "2px" : "0px"})`
+	};
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 50) {
+				const currentScrollY = window.scrollY;
+				if (prevScrollY.current < currentScrollY) {
+					setMenuUp("menuDown");
+				}
+				if (prevScrollY.current > currentScrollY) {
+					setMenuUp("menuUp");
+				}
 
-    useEffect(() => {
-        const onScroll = e => {
-            setScrollTop(e.target.documentElement.scrollTop);
-            setScrolling(e.target.documentElement.scrollTop > scrollTop);
-        };
-        
-        window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
-    }, [scrollTop]);
-    
+				prevScrollY.current = currentScrollY;
+			} else {
+				setMenuUp();
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll, { passive: true });
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, [menuUp]);
+
 	return (
-        <HeaderStyle>
-            <Container className="container">
-                <Link to="/">
-                    <Logo src={ logo } alt="Fiinu Logo" />
-                </Link>
-                <Menu className={scrollTop > 0 ? "fixedMenu" : false}>
-                    <MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/">Fintech solutions</MenuLink>
-                    <MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/banking-solutions">Banking solutions</MenuLink>
-                    <MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/investors">Investors</MenuLink>
-                    <MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/about">About</MenuLink>
-                    <MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/careers">Careers</MenuLink>
-                </Menu>
-            </Container>
+		<HeaderStyle>
+			<Container className="container">
+				<Link to="/">
+					<Logo src={logo} alt="Fiinu Logo" />
+				</Link>
+				<Menu className={menuUp}>
+					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/">
+						Fintech solutions
+					</MenuLink>
+					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/banking-solutions">
+						Banking solutions
+					</MenuLink>
+					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/investors">
+						Investors
+					</MenuLink>
+					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/about">
+						About
+					</MenuLink>
+					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/careers">
+						Careers
+					</MenuLink>
+				</Menu>
+			</Container>
 		</HeaderStyle>
 	);
 };

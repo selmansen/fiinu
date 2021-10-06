@@ -73,32 +73,36 @@ const Second1 = styled.div`
 		margin-top: 70px;
 	}
 `;
-// const Second2 = styled(SecondItem)`
-// 	align-items: flex-end;
-// 	text-align: center;
-// 	height: ${Variables.SHeight};
-// 	min-height: ${Variables.SMinHeight};
-
-// `;
 const Third = styled(Section)`
 	min-height: 100vh;
 	position: sticky;
-    top: 0;
-	&:before {
-		content: "";
-		background: url(${DevelopmentBanner}) center center;
+	top: 0;
+	margin-bottom: 50vh;
+`;
+
+const ThirdBgCover = styled.div`
+	width: 50%;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	overflow: hidden;
+	#s3_a1 {
 		background-size: cover;
-		width: 50%;
+		background: url(${DevelopmentBanner}) center center no-repeat;
+		content: "";
 		height: 100%;
 		position: absolute;
-		right: 0;
 		top: 0;
+		width: 100%;
+		transform: scale(1.5);
 	}
 `;
+
 const ThirdContent = styled.div`
 	width: 50%;
 	min-height: 100vh;
-	padding: 70px 40px 70px 0px;
+	padding: 30px 40px 30px 0px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -205,39 +209,57 @@ const HomePage = ({ data }) => {
 		}
 	};
 
-	
-
 	useEffect(() => {
-		
 		const onScroll = () => {
 			setScrollTop(window.pageYOffset);
 			const secondHeight = document.querySelector("#second").clientHeight,
 				secondTop = document.querySelector("#second").offsetTop,
 				secondContent = 3,
 				secondCenter = secondHeight / secondContent / 2,
-				a1Start = scrollTop + secondCenter > secondTop,
-				a1 = document.querySelector("#s2_a1"),
-				a2 = document.querySelector("#s2_a2"),
-				a3 = document.querySelector("#s2_a3");
-				
-			if (a1Start) {
-				const animateOpacity = (scrollTop - secondTop + secondCenter) / secondCenter,
-					opacity = animateOpacity.toFixed(2),
-					animateTransform = (opacity - 2) * 150,
-					transformY = animateTransform.toFixed(3);
-				
-				a1.style.opacity = opacity > 1 ? "1" : opacity < 0 ? "0" : opacity;
-				a2.style.opacity = opacity - 1 > 1 ? "1" : opacity - 1 < 0 ? "0" : opacity - 1;
-				a3.style.opacity = opacity - 2 > 1 ? "1" : opacity - 2 < 0 ? "0" : opacity - 2;
-				a3.style.transform = `translateY(${ 150 - transformY > 150 ? "150" : (150 - transformY) < 0 ? "0": (150-transformY) }px)`
+				s2Start = scrollTop + secondCenter > secondTop,
+				s2Stop = secondHeight / secondContent < document.querySelector("#second").getBoundingClientRect().bottom,
+				s2a1 = document.querySelector("#s2_a1"),
+				s2a2 = document.querySelector("#s2_a2"),
+				s2a3 = document.querySelector("#s2_a3");
+
+			if (s2Start) {
+				if (s2Stop) {
+					const animateValue = (scrollTop - secondTop + secondCenter) / secondCenter,
+						opacity = animateValue.toFixed(2),
+						animateTransform = (opacity - 2) * 150,
+						transformY = animateTransform.toFixed(3);
+
+					s2a1.style.opacity = opacity > 1 ? "1" : opacity < 0 ? "0" : opacity;
+					s2a2.style.opacity = opacity - 1 > 1 ? "1" : opacity - 1 < 0 ? "0" : opacity - 1;
+					s2a3.style.opacity = opacity - 2 > 1 ? "1" : opacity - 2 < 0 ? "0" : opacity - 2;
+					s2a3.style.transform = `translateY(${150 - transformY > 150 ? "150" : 150 - transformY < 0 ? "0" : 150 - transformY}px)`;
+				}
 			} else {
-				a1.style.opacity = "0";
-				a2.style.opacity = "0";
-				a3.style.opacity = "0";
+				s2a1.style.opacity = "0";
+				s2a2.style.opacity = "0";
+				s2a3.style.opacity = "0";
 			}
+
+			const thirdHeight = document.querySelector("#third").clientHeight,
+				thirdTop = document.querySelector("#third").offsetTop,
+				thirdContent = 1,
+				thirdCenter = thirdHeight / thirdContent / 2,
+				s3Start = scrollTop + thirdCenter > thirdTop,
+				s3Stop = thirdHeight / thirdContent < document.querySelector("#third").getBoundingClientRect().bottom,
+				s3a1 = document.querySelector("#s3_a1");
 			
+			if (s3Start) {
+				if (s3Stop) {
+					const animateValue = (scrollTop - thirdTop + thirdCenter) / thirdCenter,
+						transformY = animateValue.toFixed(2);
+
+					s3a1.style.transform = `scale(0${1.5 - transformY / 2})`;
+				}
+			}else {
+				s3a1.style.transform = "scale(1.5)";
+			}
 		};
-		onScroll(document);
+		onScroll();
 		window.addEventListener("scroll", onScroll);
 		return () => window.removeEventListener("scroll", onScroll);
 	}, [scrollTop]);
@@ -269,12 +291,15 @@ const HomePage = ({ data }) => {
 			</Second>
 
 			<Third id="third" background={Variables.ColorGoldenYellow}>
+				<ThirdBgCover>
+					<div id="s3_a1"></div>
+				</ThirdBgCover>
 				<div className="container h100">
 					<ThirdContent>
 						<H3>R&D firm developing intelligent fintech and alternative data insight solutions.</H3>
 						<P>Our technology arm will generate revenue from licencing Open Banking enabled technology and alternative data solutions. </P>
 						<List data={ThirdContent_Data} />
-						<Button mtop="110px" href="/">
+						<Button mtop="100px" href="/">
 							Fintech solutions
 						</Button>
 					</ThirdContent>
