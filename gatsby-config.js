@@ -16,6 +16,7 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

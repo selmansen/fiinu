@@ -1,6 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { createGlobalStyle } from "styled-components";
+import "./Typography.css";
 import * as Variables from './Variables';
 import Header from './Header';
 
@@ -63,10 +64,6 @@ const GlobalStyle = createGlobalStyle`
     .clear{clear:both;}
     * {
         box-sizing: border-box;
-    }
-
-    h2,h3,h4{
-        font-family:serif;
     }
     &.h100{
         height:100%;
