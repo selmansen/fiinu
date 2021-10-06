@@ -152,8 +152,8 @@ const ThirdBgCover = styled.div`
 	top: 0;
 	overflow: hidden;
 	#s3_a1 {
-		background-size: cover;
 		background: url(${DevelopmentBanner}) center center no-repeat;
+		background-size: cover;
 		content: "";
 		height: 100%;
 		position: absolute;
