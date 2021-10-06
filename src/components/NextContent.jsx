@@ -13,6 +13,7 @@ const NextSection = styled.div`
 	left: 0;
 	position: absolute;
 	width: 100%;
+	z-index:3;
 `;
 const NextSectionButton = styled.span`
 	font-size: 24px;

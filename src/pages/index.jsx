@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -20,6 +20,28 @@ import DevelopmentBanner from "../images/development-banner.jpg";
 import Iphone from "../images/iphone.jpg";
 import Content from "../api/team.json";
 
+const frameScale = keyframes`
+  from {
+	filter: blur(24px);
+	transform:scale(1.2);
+  }
+
+  to {
+	filter: blur(0px);
+	transform:scale(1);
+  }
+`;
+
+const frameTransformY = keyframes`
+  from {
+    transform: translateY(360px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+`;
+
 //SECTION
 const Section = styled.section`
 	background: ${({ background }) => background};
@@ -30,13 +52,55 @@ const Section = styled.section`
 `;
 const First = styled(Section)`
 	height: ${Variables.SHeight};
-	min-height:	height: ${Variables.SMinHeight};
+	min-height: ${Variables.SMinHeight};
+	overflow: hidden;
+	&:before {
+		content: "";
+		background:url(${EaseBanner}) center center no-repeat;
+		background-size:cover;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		transition: 0.4s;
+		filter: blur(24px);
+		transform:scale(1.2);
+		position: absolute;
+		z-index: -1;
+	}
+	&.started {
+		&:before{
+			animation: ${frameScale} .8s ease-in-out;
+			animation-fill-mode: both;
+		}
+		h2 {
+			span {
+				animation: ${frameTransformY} 0.4s ease-in-out;
+				animation-fill-mode: both;
+			}
+		}
+	}
 	h2 {
-		font-size:120px;
-		line-height:96px;
+		font-size: 120px;
+		line-height: 96px;
 		position: absolute;
 		bottom: 57px;
 		left: 0;
+		z-index: 2;
+		span {
+			display: block;
+			&:nth-child(1) {
+				animation-delay: 0.4s;
+				transform: translateY(360px);
+			}
+			&:nth-child(2) {
+				animation-delay: 0.55s;
+				transform: translateY(260px);
+			}
+			&:nth-child(3) {
+				animation-delay: 0.7s;
+				transform: translateY(168px);
+			}
+		}
 	}
 `;
 const Second = styled(Section)`
@@ -194,6 +258,7 @@ const ThirdContent_Data = ["Open Banking enabled tech licensing and alternative 
 const HomePage = ({ data }) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [scrollTop, setScrollTop] = useState(0);
+	const [pageLoad, setPageLoad] = useState(false);
 	const settings = {
 		dots: false,
 		infinite: true,
@@ -247,7 +312,7 @@ const HomePage = ({ data }) => {
 				s3Start = scrollTop + thirdCenter > thirdTop,
 				s3Stop = thirdHeight / thirdContent < document.querySelector("#third").getBoundingClientRect().bottom,
 				s3a1 = document.querySelector("#s3_a1");
-			
+
 			if (s3Start) {
 				if (s3Stop) {
 					const animateValue = (scrollTop - thirdTop + thirdCenter) / thirdCenter,
@@ -255,25 +320,33 @@ const HomePage = ({ data }) => {
 
 					s3a1.style.transform = `scale(0${1.5 - transformY / 2})`;
 				}
-			}else {
+			} else {
 				s3a1.style.transform = "scale(1.5)";
 			}
 		};
 		onScroll();
-		window.addEventListener("scroll", onScroll);
+		window.addEventListener("scroll", onScroll, { passive: true });
 		return () => window.removeEventListener("scroll", onScroll);
 	}, [scrollTop]);
+
+	useEffect(() => {
+		setPageLoad(true);
+	}, [pageLoad]);
 
 	return (
 		<Layout logo={Logo}>
 			<Seo title="Home" />
 
-			<First background={`url(${EaseBanner})`}>
+			<First className={pageLoad ? "started" : false}>
 				<div className="container h100">
 					<H2>
-						Pre-IPO fintech <br />
-						with an expected <br />
-						bank licence
+						<span>
+							Pre-IPO fintech <br />
+						</span>
+						<span>
+							with an expected <br />
+						</span>
+						<span>bank licence</span>
 					</H2>
 				</div>
 				<NextContent nextContent="second" background="white">
