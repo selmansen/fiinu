@@ -31,12 +31,6 @@ const Menu = styled.div`
 		backdrop-filter: blur(24px);
 		a {
 			color: ${Variables.ColorTuna};
-			&:hover {
-				&:before {
-					left: -9px;
-					opacity: 1;
-				}
-			}
 		}
 	}
 	&.menuDown {
@@ -83,6 +77,12 @@ const MenuLink = styled(Link)`
 	&:hover {
 		filter: blur(0px) !important;
 	}
+    &.active {
+        &:before {
+            left: -9px;
+            opacity: 1;
+        }
+    }
 `;
 
 const Container = styled.div`
@@ -129,19 +129,19 @@ const Header = ({ logo }) => {
 					<Logo src={logo} alt="Fiinu Logo" />
 				</Link>
 				<Menu className={menuUp}>
-					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/">
+					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/">
 						Fintech solutions
 					</MenuLink>
-					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/banking-solutions">
+					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/banking-solutions">
 						Banking solutions
 					</MenuLink>
-					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/investors">
+					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/investors">
 						Investors
 					</MenuLink>
-					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/about">
+					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/about">
 						About
 					</MenuLink>
-					<MenuLink onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/careers">
+					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/careers">
 						Careers
 					</MenuLink>
 				</Menu>
