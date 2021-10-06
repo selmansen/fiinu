@@ -20,6 +20,7 @@ import DevelopmentBanner from "../images/development-banner.jpg";
 import Iphone from "../images/iphone.jpg";
 import Content from "../api/team.json";
 
+//KEYFRAMES
 const frameScale = keyframes`
   from {
 	filter: blur(24px);
@@ -55,21 +56,20 @@ const First = styled(Section)`
 	min-height: ${Variables.SMinHeight};
 	overflow: hidden;
 	&:before {
+		background: url(${EaseBanner}) center center / cover no-repeat;
 		content: "";
-		background:url(${EaseBanner}) center center no-repeat;
-		background-size:cover;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		transition: 0.4s;
 		filter: blur(24px);
-		transform:scale(1.2);
+		height: 100%;
 		position: absolute;
+		top: 0;
+		transform: scale(1.2);
+		transition: 0.4s;
+		width: 100%;
 		z-index: -1;
 	}
 	&.started {
-		&:before{
-			animation: ${frameScale} .8s ease-in-out;
+		&:before {
+			animation: ${frameScale} 0.8s ease-in-out;
 			animation-fill-mode: both;
 		}
 		h2 {
@@ -80,11 +80,11 @@ const First = styled(Section)`
 		}
 	}
 	h2 {
+		bottom: 57px;
 		font-size: 120px;
+		left: 0;
 		line-height: 96px;
 		position: absolute;
-		bottom: 57px;
-		left: 0;
 		z-index: 2;
 		span {
 			display: block;
@@ -105,30 +105,29 @@ const First = styled(Section)`
 `;
 const Second = styled(Section)`
 	display: inline-block;
-	height: calc(100vh + 50vh * 2);
+	height: calc(${Variables.SHeight} + ${Variables.SDeadHeight} * 2);
 	min-height: calc(820px * 2);
 `;
-
 const Second1 = styled.div`
 	align-items: center;
-	justify-content: center;
-	flex-direction: column;
 	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	min-height: 820px;
 	position: sticky;
 	top: 0;
-	height: 100vh;
-	min-height: 820px;
 	h2 {
-		font-size: 360px;
-		line-height: 130px;
-		width: 7855px;
-		display: flex;
-		position: absolute;
-		left: calc(50% - 1935px);
-		right: 0;
 		bottom: 15px;
+		display: flex;
+		font-size: 360px;
+		left: calc(50% - 1935px);
+		line-height: 130px;
 		opacity: 0;
+		position: absolute;
+		right: 0;
 		transform: translateY(150px);
+		width: 7855px;
 	}
 	h4 {
 		opacity: 0;
@@ -138,55 +137,55 @@ const Second1 = styled.div`
 	}
 `;
 const Third = styled(Section)`
-	min-height: 100vh;
+	margin-bottom: ${Variables.SDeadHeight};
+	min-height: ${Variables.SHeight};
 	position: sticky;
 	top: 0;
-	margin-bottom: 50vh;
 `;
-
 const ThirdBgCover = styled.div`
-	width: 50%;
 	height: 100%;
+	overflow: hidden;
 	position: absolute;
 	right: 0;
 	top: 0;
-	overflow: hidden;
+	width: 50%;
 	#s3_a1 {
-		background: url(${DevelopmentBanner}) center center no-repeat;
-		background-size: cover;
+		background: url(${DevelopmentBanner}) center center / cover no-repeat;
 		content: "";
 		height: 100%;
 		position: absolute;
 		top: 0;
-		width: 100%;
 		transform: scale(1.5);
+		width: 100%;
 	}
 `;
-
 const ThirdContent = styled.div`
-	width: 50%;
-	min-height: 100vh;
-	padding: 30px 40px 30px 0px;
+	align-items: flex-start;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
+	min-height: 100vh;
+	padding: 30px 40px 30px 0px;
+	width: 50%;
 	p {
 		&:after {
-			content: "";
-			display: block;
 			border-bottom: 10px solid ${Variables.ColorTuna};
 			border-radius: 10px;
-			margin-top: 44px;
+			content: "";
+			display: block;
 			margin-bottom: 50px;
+			margin-top: 44px;
 		}
 	}
 `;
-const SectionFourth = styled(Section)`
+const Fourth = styled(Section)`
 	display: inline-block;
-	height: calc(${Variables.SHeight} * 4);
+	height: calc(${Variables.SHeight} * 2 + ${Variables.SDeadHeight});
+	&:before{
+		opacity:0;
+	}
 `;
-const SectionFourth1 = styled.div`
+const Fourth1 = styled.div`
 	display: flex;
 	position: sticky;
 	top: 0;
@@ -194,21 +193,62 @@ const SectionFourth1 = styled.div`
 	justify-content: center;
 	height: ${Variables.SHeight};
 	min-height: ${Variables.SMinHeight};
-	#s4_img {
-		transform: scale(0.2);
-		position: absolute;
+	overflow:hidden;
+	&.start{
+		&:before{
+			content:"";
+			position:absolute;
+			top:0;
+			width:100%;
+			height:100%;
+			background:rgba(255, 255, 255, 0.4);
+			z-index: 2;
+			opacity:1;
+		}
 	}
-	#s4_h2 {
-		visibility: hidden;
+	#s4_a1 {
+		transform: scale(0);
 		position: absolute;
+		width: 100%;
+		z-index:1;
 	}
-	#s4_h4 {
-		visibility: hidden;
+	#s4_a2 {
 		position: absolute;
+		color:${Variables.ColorWarmBlue};
+		transition.4s;
+		width:2570px;
+		text-align:center;
+		transform: translateY(0) scale(1) ;
+		transition:.4s;
+		opacity:0;
+		z-index:3;
+		&.start{
+			color:#fff;
+			transform: translateY(50vh) scale(2.2);
+			margin-bottom:150px;
+		}
 	}
-	#s4_button {
-		visibility: hidden;
+	#s4_a3 {
 		position: absolute;
+		opacity:0;
+		margin-top:0;
+		transition:.4s;
+		z-index:4;
+		&.start{
+			opacity:1;
+			margin-top: -205px;
+		}
+	}
+	#s4_a4 {
+		position: absolute;
+		opacity:0;
+		margin-top:0;
+		transition:.4s;
+		z-index:5;
+		&.start{
+			opacity:1;
+			margin-top: 150px;
+		}
 	}
 `;
 
@@ -276,55 +316,73 @@ const HomePage = ({ data }) => {
 
 	useEffect(() => {
 		const onScroll = () => {
+			const movingArea = document.querySelectorAll(".moving-area");
 			setScrollTop(window.pageYOffset);
-			const secondHeight = document.querySelector("#second").clientHeight,
-				secondTop = document.querySelector("#second").offsetTop,
-				secondContent = 3,
-				secondCenter = secondHeight / secondContent / 2,
-				s2Start = scrollTop + secondCenter > secondTop,
-				s2Stop = secondHeight / secondContent < document.querySelector("#second").getBoundingClientRect().bottom,
-				s2a1 = document.querySelector("#s2_a1"),
-				s2a2 = document.querySelector("#s2_a2"),
-				s2a3 = document.querySelector("#s2_a3");
 
-			if (s2Start) {
-				if (s2Stop) {
-					const animateValue = (scrollTop - secondTop + secondCenter) / secondCenter,
-						opacity = animateValue.toFixed(2),
-						animateTransform = (opacity - 2) * 150,
-						transformY = animateTransform.toFixed(3);
+			function animate(id, itemCount) {
+				const height = document.querySelector(`#${id}`).clientHeight,
+					offsetTop = document.querySelector(`#${id}`).offsetTop,
+					count = itemCount,
+					center = height / count / 2,
+					start = scrollTop + center > offsetTop,
+					stop = height / count < document.querySelector(`#${id}`).getBoundingClientRect().bottom,
+					animateValue = (scrollTop - offsetTop + count) / center,
+					s2a1 = document.querySelector("#s2_a1"),
+					s2a2 = document.querySelector("#s2_a2"),
+					s2a3 = document.querySelector("#s2_a3"),
+					s3a1 = document.querySelector("#s3_a1"),
+					s4a1 = document.querySelector("#s4_a1"),
+					s4a2 = document.querySelector("#s4_a2"),
+					s4a3 = document.querySelector("#s4_a3"),
+					s4a4 = document.querySelector("#s4_a4");
 
-					s2a1.style.opacity = opacity > 1 ? "1" : opacity < 0 ? "0" : opacity;
-					s2a2.style.opacity = opacity - 1 > 1 ? "1" : opacity - 1 < 0 ? "0" : opacity - 1;
-					s2a3.style.opacity = opacity - 2 > 1 ? "1" : opacity - 2 < 0 ? "0" : opacity - 2;
-					s2a3.style.transform = `translateY(${150 - transformY > 150 ? "150" : 150 - transformY < 0 ? "0" : 150 - transformY}px)`;
+				if (start) {
+					if (stop) {
+						switch (id) {
+							case "second":
+								const opacity = animateValue.toFixed(2),
+									animateTransform = (opacity - 2) * 150,
+									s2a3transformY = animateTransform.toFixed(3);
+
+								s2a1.style.opacity = opacity > 1 ? "1" : opacity < 0 ? "0" : opacity;
+								s2a2.style.opacity = opacity - 1 > 1 ? "1" : opacity - 1 < 0 ? "0" : opacity - 1;
+								s2a3.style.opacity = opacity - 2 > 1 ? "1" : opacity - 2 < 0 ? "0" : opacity - 2;
+								s2a3.style.transform = `translateY(${150 - s2a3transformY > 150 ? "150" : 150 - s2a3transformY < 0 ? "0" : 150 - s2a3transformY}px)`;
+								break;
+							case "third":
+								s3a1.style.transform = `scale(${1.5 - (animateValue + 1) / 2})`;
+								break;
+							case "fourth":
+								const s4a1Scale = animateValue.toFixed(2);
+								s4a1.style.transform = `scale(${s4a1Scale > 0 ? (s4a1Scale < 1 ? s4a1Scale : "1") : "0"})`;
+								s4a2.style.opacity = s4a1Scale - 1 > 1 ? "1" : s4a1Scale - 1 < 0 ? "0" : s4a1Scale - 1;
+								if (s4a1Scale > 1) document.querySelector(`#fourth-wr`).classList.add("start");
+								else document.querySelector(`#fourth-wr`).classList.remove("start");
+								if (s4a1Scale > 2.5) s4a2.classList.add("start");
+								else s4a2.classList.remove("start");
+								if (s4a1Scale > 3) {
+									s4a3.classList.add("start");
+									s4a4.classList.add("start");
+								} else {
+									s4a3.classList.remove("start");
+									s4a4.classList.remove("start");
+								}
+								break;
+
+							default:
+								break;
+						}
+					}
 				}
-			} else {
-				s2a1.style.opacity = "0";
-				s2a2.style.opacity = "0";
-				s2a3.style.opacity = "0";
 			}
 
-			const thirdHeight = document.querySelector("#third").clientHeight,
-				thirdTop = document.querySelector("#third").offsetTop,
-				thirdContent = 1,
-				thirdCenter = thirdHeight / thirdContent / 2,
-				s3Start = scrollTop + thirdCenter > thirdTop,
-				s3Stop = thirdHeight / thirdContent < document.querySelector("#third").getBoundingClientRect().bottom,
-				s3a1 = document.querySelector("#s3_a1");
-
-			if (s3Start) {
-				if (s3Stop) {
-					const animateValue = (scrollTop - thirdTop + thirdCenter) / thirdCenter,
-						transformY = animateValue.toFixed(2);
-
-					s3a1.style.transform = `scale(0${1.5 - transformY / 2})`;
-				}
-			} else {
-				s3a1.style.transform = "scale(1.5)";
-			}
+			movingArea.forEach((item) => {
+				animate(item.id, parseInt(item.getAttribute("data-child"), 10));
+			});
 		};
+
 		onScroll();
+
 		window.addEventListener("scroll", onScroll, { passive: true });
 		return () => window.removeEventListener("scroll", onScroll);
 	}, [scrollTop]);
@@ -354,7 +412,7 @@ const HomePage = ({ data }) => {
 				</NextContent>
 			</First>
 
-			<Second id="second" background={Variables.ColorFantasy}>
+			<Second className="moving-area" data-child="3" id="second" background={Variables.ColorFantasy}>
 				<Second1 className="container">
 					<H4 id="s2_a1">Fiinu is a pre-IPO fintech group with an expected deposit-taking banking licence from the Bank of England regulators. </H4>
 					<H4 id="s2_a2">Subject to the London Stock Exchange admission approval the group will enter the AIM-market with a ticker ‘BANK’ </H4>
@@ -363,7 +421,7 @@ const HomePage = ({ data }) => {
 				</Second1>
 			</Second>
 
-			<Third id="third" background={Variables.ColorGoldenYellow}>
+			<Third className="moving-area" data-child="1" id="third" background={Variables.ColorGoldenYellow}>
 				<ThirdBgCover>
 					<div id="s3_a1"></div>
 				</ThirdBgCover>
@@ -379,20 +437,20 @@ const HomePage = ({ data }) => {
 				</div>
 			</Third>
 
-			<SectionFourth background="#e5e7e9">
-				<SectionFourth1>
-					<img id="s4_img" src={Iphone} alt="" />
-					<H2 id="s4_h2" ColorWarmBlue>
+			<Fourth className="moving-area" data-child="4" id="fourth" background="#e5e7e9">
+				<Fourth1 id="fourth-wr">
+					<img id="s4_a1" src={Iphone} alt="" />
+					<H2 id="s4_a2" ColorWarmBlue>
 						Fiinu 2 Limited
 					</H2>
-					<H4 id="s4_h4" className="container">
-						Fiinu 2 Limited is anticipating obtaining a UK deposit-taking banking licence from the Prudential Regulation Authority (PRA) and the Financial Conduct Authority (FCA) in 2021.
+					<H4 id="s4_a3">
+						<div className="container">Fiinu 2 Limited is anticipating obtaining a UK deposit-taking banking licence from the Prudential Regulation Authority (PRA) and the Financial Conduct Authority (FCA) in 2021.</div>
 					</H4>
-					<div id="s4_button">
+					<div id="s4_a4">
 						<Button href="/">Visit Fiinu Bank</Button>
 					</div>
-				</SectionFourth1>
-			</SectionFourth>
+				</Fourth1>
+			</Fourth>
 			<Leadership>
 				<div className="container">
 					<H3>Leadership team</H3>
