@@ -608,7 +608,7 @@ const HomePage = ({ data }) => {
 						<P>Fiinu 2 Ltd is which is expected to receive a deposit-taking banking licence from the Bank of England regulators and soft-launch in 2022. The firm will on successful completion of the authorisation process be renamed as Fiinu Bank Ltd. </P>
 						<WarmButton to="/investors">More Info</WarmButton>
 					</HoldingsContent>
-					<Information theme="white" />
+					<Information />
 				</div>
 			</Holdings>
 			
