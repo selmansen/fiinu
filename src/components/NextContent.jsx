@@ -1,7 +1,7 @@
 
 import * as React from 'react';
-import scrollTo from 'gatsby-plugin-smoothscroll';
 import styled from 'styled-components';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 
 const NextSection = styled.div`

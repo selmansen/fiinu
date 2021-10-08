@@ -1,9 +1,12 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { createGlobalStyle } from "styled-components";
+
+import Header from "./Header";
+import Footer from "./Footer";
+
 import "./Typography.css";
-import * as Variables from './Variables';
-import Header from './Header';
+import * as Variables from "./Variables";
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -82,10 +85,11 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout = ({ logo, children }) => {
 	return (
-        <>
-            <GlobalStyle />
-            <Header logo={logo} />
+		<>
+			<GlobalStyle />
+			<Header logo={logo} />
 			<main>{children}</main>
+			<Footer />
 		</>
 	);
 };

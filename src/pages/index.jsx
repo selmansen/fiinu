@@ -10,6 +10,7 @@ import Seo from "../components/Seo";
 import NextContent from "../components/NextContent";
 import List from "../components/List";
 import Information from "../components/Information";
+import Investors from "../components/Investors";
 
 import * as Variables from "../components/Variables";
 import { H2, H3, H4, P } from "../components/Typography";
@@ -18,7 +19,6 @@ import Logo from "../images/fiinu-logo-white.svg";
 import EaseBanner from "../images/ease-banner.jpg";
 import DevelopmentBanner from "../images/development-banner.jpg";
 import Iphone from "../images/iphone.jpg";
-
 
 //KEYFRAMES
 const frameScale = keyframes`
@@ -54,14 +54,13 @@ const TunaButton = styled(Link)`
 	justify-content: flex-start;
 	line-height: 28px;
 	padding: 16px 24px;
-	transition:.4s;
+	transition: 0.4s;
 	margin-top: ${({ marginTop }) => marginTop};
 	svg {
 		margin-left: 15px;
 	}
-	&:hover{
-		background:#0f1216;
-
+	&:hover {
+		background: #0f1216;
 	}
 `;
 const WarmButton = styled(Link)`
@@ -73,10 +72,10 @@ const WarmButton = styled(Link)`
 	line-height: 28px;
 	padding: 12px 20px;
 	text-align: center;
-	transition:.4s;
-	&:hover{
+	transition: 0.4s;
+	&:hover {
 		background: ${Variables.ColorWarmBlue};
-		color:#fff;
+		color: #fff;
 	}
 `;
 
@@ -204,7 +203,7 @@ const ThirdContent = styled.div`
 	padding: 30px 40px 30px 0px;
 	width: 50%;
 	p {
-		margin-top:24px;
+		margin-top: 24px;
 		&:after {
 			border-bottom: 10px solid ${Variables.ColorTuna};
 			border-radius: 10px;
@@ -214,8 +213,8 @@ const ThirdContent = styled.div`
 			margin-top: 44px;
 		}
 	}
-	a{
-		margin-top:100px;
+	a {
+		margin-top: 100px;
 	}
 `;
 const Fourth = styled(Section)`
@@ -341,7 +340,7 @@ const Slide = styled(Link)`
 `;
 const SlickControl = styled.div`
 	font-size: 16px;
-	margin-top: 90px;
+	margin-top: 90px !important;
 	line-height: 24px;
 	span {
 		font-size: 24px;
@@ -407,23 +406,24 @@ const SlickNext = styled(SlickPrev)`
 	}
 `;
 const Holdings = styled.section`
-	background:#fff;
-	position:relative;
-	z-index:1;
-	.container{
-		display:flex;
+	background: #fff;
+	position: relative;
+	padding-bottom: 113px;
+	z-index: 1;
+	.container {
+		display: flex;
 	}
-	a{
-		margin-top:45px;
+	a {
+		margin-top: 45px;
 	}
 `;
 const HoldingsContent = styled.div`
-	padding-right:40px;
-	width:50%;
-	p{
-		margin-top:35px;
+	padding-right: 40px;
+	width: 50%;
+	p {
+		margin-top: 35px;
 	}
-`
+`;
 
 //DATA
 const ThirdContent_Data = ["Open Banking enabled tech licensing and alternative data.", "Become a leader in collection of transactional source data.", "The UK alt-data market projected to grow 62,000% by 2028."];
@@ -511,7 +511,6 @@ const HomePage = ({ data }) => {
 		touchThreshold: 100,
 		swipeToSlide: true,
 		arrows: false,
-		nextArrow: <SlickNext />,
 		afterChange: function (index) {
 			setCurrentSlide(index);
 		}
@@ -556,9 +555,7 @@ const HomePage = ({ data }) => {
 						<H3>R&D firm developing intelligent fintech and alternative data insight solutions.</H3>
 						<P>Our technology arm will generate revenue from licencing Open Banking enabled technology and alternative data solutions. </P>
 						<List data={ThirdContent_Data} />
-						<WarmButton to="/banking-solutions">
-							Fintech solutions
-						</WarmButton>
+						<WarmButton to="/fintech-solutions">Fintech solutions</WarmButton>
 					</ThirdContent>
 				</div>
 			</Third>
@@ -573,7 +570,7 @@ const HomePage = ({ data }) => {
 						<div className="container">Fiinu 2 Limited is anticipating obtaining a UK deposit-taking banking licence from the Prudential Regulation Authority (PRA) and the Financial Conduct Authority (FCA) in 2021.</div>
 					</H4>
 					<div id="s4_a4">
-						<TunaButton href="/">Visit Fiinu Bank</TunaButton>
+						<TunaButton to="/investors">Visit Fiinu Bank</TunaButton>
 					</div>
 				</Fourth1>
 			</Fourth>
@@ -592,7 +589,7 @@ const HomePage = ({ data }) => {
 						</Slide>
 					))}
 				</Carousel>
-				<SlickControl className="sCt container">
+				<SlickControl className="container">
 					<SlickPrev onClick={() => slider.current.slickPrev()}></SlickPrev>
 					<SlickNext onClick={() => slider.current.slickNext()}></SlickNext>
 					<i>{currentSlide + 1}</i> <span>/</span> {data.allMdx.nodes.length}
@@ -603,15 +600,19 @@ const HomePage = ({ data }) => {
 				<div className="container">
 					<HoldingsContent>
 						<H3>Fiinu Holdings Ltd </H3>
-						<P><b>Fiinu Holdings Ltd is a group holding company which will operate in the field of fintech, big data and digital banking. Subject to the London Stock Exchange admission approval, the group will enter the AIM with a ticker ‘BANK’.</b></P>
+						<P>
+							<b>Fiinu Holdings Ltd is a group holding company which will operate in the field of fintech, big data and digital banking. Subject to the London Stock Exchange admission approval, the group will enter the AIM with a ticker ‘BANK’.</b>
+						</P>
 						<P>The group has two subsidiaries;</P>
 						<P>Fiinu Services Ltd developing intellectual property and fintech modules, which will include a range of innovative new products including big data insights, and; </P>
 						<P>Fiinu 2 Ltd is which is expected to receive a deposit-taking banking licence from the Bank of England regulators and soft-launch in 2022. The firm will on successful completion of the authorisation process be renamed as Fiinu Bank Ltd. </P>
 						<WarmButton to="/investors">More Info</WarmButton>
 					</HoldingsContent>
-					<Information />
+					<Information theme="white" />
 				</div>
 			</Holdings>
+			
+			<Investors />
 		</Layout>
 	);
 };

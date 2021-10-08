@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+
+import MenuLink from "./MenuLink";
 import * as Variables from "./Variables";
 
 import LogoBlack from "../images/fiinu-logo-black.svg";
@@ -54,39 +56,6 @@ const Menu = styled.div`
 	}
 `;
 
-const MenuLink = styled(Link)`
-	color: #fff;
-	display: block;
-	font-size: 18px;
-	line-height: 28px;
-	position: relative;
-	transition: 0.3s;
-	&:before {
-		background-color: #5754ea;
-		border-radius: 5px;
-		content: "";
-		height: 5px;
-		left: 0;
-		opacity: 0;
-		position: absolute;
-		top: 13px;
-		transition: 0.3s;
-		width: 5px;
-	}
-	+ a {
-		margin-left: 24px;
-	}
-	&:hover {
-		filter: blur(0px) !important;
-	}
-    &.active {
-        &:before {
-            left: -9px;
-            opacity: 1;
-        }
-    }
-`;
-
 const Container = styled.div`
 	display: flex;
 	align-items: center;
@@ -94,14 +63,9 @@ const Container = styled.div`
 `;
 
 const Header = ({ logo }) => {
-	const [blur, setBlur] = useState(false);
 	const prevScrollY = useRef(0);
 	const [menuUp, setMenuUp] = useState(null);
 
-	const handleHover = () => setBlur(!blur);
-	const handleStyle = {
-		filter: `blur(${blur ? "2px" : "0px"})`
-	};
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 50) {
@@ -131,21 +95,7 @@ const Header = ({ logo }) => {
 					<Logo src={logo || LogoBlack} alt="Fiinu Logo" />
 				</Link>
 				<Menu className={menuUp}>
-					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/">
-						Fintech solutions
-					</MenuLink>
-					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/banking-solutions">
-						Banking solutions
-					</MenuLink>
-					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/investors">
-						Investors
-					</MenuLink>
-					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/about">
-						About
-					</MenuLink>
-					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/careers">
-						Careers
-					</MenuLink>
+					<MenuLink color="#fff" />
 				</Menu>
 			</Container>
 		</HeaderStyle>
