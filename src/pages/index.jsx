@@ -256,12 +256,15 @@ const Fourth1 = styled.div`
 		}
 	}
 `;
-const Leadership = styled(Section)`
+const Leadership = styled.section`
 	background: #fff;
 	padding-top: 128px;
-	>.container {
+	position: relative;
+	z-index: 1;
+	> .container {
 		display: flex;
-		> h3, > p {
+		> h3,
+		> p {
 			width: 50%;
 		}
 	}
@@ -273,9 +276,9 @@ const Carousel = styled(Slider)`
 	}
 `;
 const Slide = styled(Link)`
-	color:${Variables.ColorTuna};
+	color: ${Variables.ColorTuna};
 	width: 336px !important;
-	margin-left:50px;
+	margin-left: 50px;
 	h5 {
 		font-size: 24px;
 		font-weight: 700;
@@ -295,72 +298,73 @@ const Slide = styled(Link)`
 	}
 `;
 const SlickControl = styled.div`
-	font-size:16px;
-	margin-top:90px;
-	line-height:24px;
-	span{
-		font-size:24px;
-		font-weight:700;
-		padding:0 3px;
+	font-size: 16px;
+	margin-top: 90px;
+	line-height: 24px;
+	span {
+		font-size: 24px;
+		font-weight: 700;
+		padding: 0 3px;
 	}
-	i{
-		font-style:normal;
-		color:${Variables.ColorWarmBlue}
+	i {
+		font-style: normal;
+		color: ${Variables.ColorWarmBlue};
 	}
 `;
 const SlickPrev = styled.div`
-	width:28px;
-	height:18px;
-	cursor:pointer;
-	position:relative;
-	&:before{
-		content:"";
-		width:12px;
-		height:12px;
-		border-left:2px solid #DAD9D7;
-		border-top:2px solid #DAD9D7;
-		position:absolute;
+	width: 28px;
+	height: 18px;
+	cursor: pointer;
+	position: relative;
+	&:before {
+		content: "";
+		width: 12px;
+		height: 12px;
+		border-left: 2px solid #dad9d7;
+		border-top: 2px solid #dad9d7;
+		position: absolute;
 		left: 2px;
 		top: 3px;
-		transition:.4s;
-		transform:rotate(-45deg);
+		transition: 0.4s;
+		transform: rotate(-45deg);
 	}
-	&:after{
-		content:"";
-		height:2px;
-		width:28px;
-		background:#DAD9D7;
-		position:absolute;
+	&:after {
+		content: "";
+		height: 2px;
+		width: 28px;
+		background: #dad9d7;
+		position: absolute;
 		left: 1px;
 		top: 9px;
-		transition:.4s;
+		transition: 0.4s;
 	}
-	&:hover{
-		&:before{
-			border-color:${Variables.ColorTuna};
+	&:hover {
+		&:before {
+			border-color: ${Variables.ColorTuna};
 		}
-		&:after{
-			background:${Variables.ColorTuna};
+		&:after {
+			background: ${Variables.ColorTuna};
 		}
 	}
 `;
 const SlickNext = styled(SlickPrev)`
-	margin-left:20px;
-	margin-right:25px;
-	&:before{
-		border:0;
-		border-right:2px solid #DAD9D7;
-		border-top:2px solid #DAD9D7;
+	margin-left: 20px;
+	margin-right: 25px;
+	&:before {
+		border: 0;
+		border-right: 2px solid #dad9d7;
+		border-top: 2px solid #dad9d7;
 		left: auto;
-		right:0;
+		right: 0;
 		top: 3px;
-		transform:rotate(45deg);
+		transform: rotate(45deg);
 	}
-	&:after{
+	&:after {
 		left: 1px;
 		top: 9px;
 	}
 `;
+const Holdings = styled.section``;
 
 //DATA
 const ThirdContent_Data = ["Open Banking enabled tech licensing and alternative data.", "Become a leader in collection of transactional source data.", "The UK alt-data market projected to grow 62,000% by 2028."];
@@ -403,7 +407,7 @@ const HomePage = ({ data }) => {
 							s2a3.style.transform = `translateY(${150 - s2a3transformY > 150 ? "150" : 150 - s2a3transformY < 0 ? "0" : 150 - s2a3transformY}px)`;
 							break;
 						case "third":
-							s3a1.style.transform = `scale(${animateValue + 1 < 0.8 ? 1.5 - (animateValue + 1) / 2 : "1"})`;
+							s3a1.style.transform = `scale(${animateValue + 1 < 0.9 ? 1.5 - (animateValue + 1) / 2 : "1"})`;
 							break;
 						case "fourth":
 							const s4a1Scale = animateValue.toFixed(2);
@@ -447,7 +451,7 @@ const HomePage = ({ data }) => {
 		variableWidth: true,
 		touchThreshold: 100,
 		swipeToSlide: true,
-		arrows:false,
+		arrows: false,
 		nextArrow: <SlickNext />,
 		afterChange: function (index) {
 			setCurrentSlide(index);
@@ -523,7 +527,7 @@ const HomePage = ({ data }) => {
 				<Carousel ref={slider} {...settings}>
 					{data.allMdx.nodes.map((node) => (
 						<Slide to={`/about/${node.slug}`} key={node.frontmatter.number}>
-							<GatsbyImage image={node.frontmatter.image.childImageSharp.gatsbyImageData} />
+							<GatsbyImage image={node.frontmatter.image.childImageSharp.gatsbyImageData} alt={node.frontmatter.title} />
 							<h5>{node.frontmatter.title}</h5>
 							<h6>{node.frontmatter.position}</h6>
 						</Slide>
@@ -535,6 +539,20 @@ const HomePage = ({ data }) => {
 					<i>{currentSlide + 1}</i> <span>/</span> {data.allMdx.nodes.length}
 				</SlickControl>
 			</Leadership>
+
+			<Holdings>
+				<div className="container">
+					<div>
+						<H3>Fiinu Holdings Ltd </H3>
+						<P>Fiinu Holdings Ltd is a group holding company which will operate in the field of fintech, big data and digital banking. Subject to the London Stock Exchange admission approval, the group will enter the AIM with a ticker ‘BANK’.</P>
+						<P>The group has two subsidiaries;</P>
+						<P>Fiinu Services Ltd developing intellectual property and fintech modules, which will include a range of innovative new products including big data insights, and; </P>
+						<P>Fiinu 2 Ltd is which is expected to receive a deposit-taking banking licence from the Bank of England regulators and soft-launch in 2022. The firm will on successful completion of the authorisation process be renamed as Fiinu Bank Ltd. </P>
+						{/* <WarmButton>More Info</WarmButton> */}
+					</div>
+					<div></div>
+				</div>
+			</Holdings>
 		</Layout>
 	);
 };
@@ -551,12 +569,7 @@ export const query = graphql`
 					position
 					image {
 						childImageSharp {
-							gatsbyImageData(
-								width: 336
-								height: 351
-								backgroundColor: "#fff"
-								placeholder: BLURRED
-							  )
+							gatsbyImageData(width: 336, height: 351, backgroundColor: "#fff", placeholder: BLURRED)
 						}
 					}
 				}
