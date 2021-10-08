@@ -69,7 +69,7 @@ function Seo({ description, lang, meta, title }) {
 Seo.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  description: "Pre-IPO fintech with an expected bank licence",
 }
 
 Seo.propTypes = {

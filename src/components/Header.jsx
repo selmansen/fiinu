@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import * as Variables from "./Variables";
 
+import LogoBlack from "../images/fiinu-logo-black.svg";
+
 const HeaderStyle = styled.header`
 	position: absolute;
 	top: 36px;
@@ -94,7 +96,7 @@ const Container = styled.div`
 const Header = ({ logo }) => {
 	const [blur, setBlur] = useState(false);
 	const prevScrollY = useRef(0);
-	const [menuUp, setMenuUp] = useState();
+	const [menuUp, setMenuUp] = useState(null);
 
 	const handleHover = () => setBlur(!blur);
 	const handleStyle = {
@@ -126,7 +128,7 @@ const Header = ({ logo }) => {
 		<HeaderStyle>
 			<Container className="container">
 				<Link to="/">
-					<Logo src={logo} alt="Fiinu Logo" />
+					<Logo src={logo || LogoBlack} alt="Fiinu Logo" />
 				</Link>
 				<Menu className={menuUp}>
 					<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/">
