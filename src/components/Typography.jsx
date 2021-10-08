@@ -28,7 +28,10 @@ const TypeH4 = styled.h4`
 const TypeP = styled.p`
     font-size:24px;
     line-height:36px;
-    `;
+    b{
+        font-weight:700;
+    }
+`;
 
 const H2 = ({ id, children }) => {
     return (
