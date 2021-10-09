@@ -17,7 +17,7 @@ const HeaderStyle = styled.header`
 const Logo = styled(Link)`
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 15px;
 `;
 
 const Menu = styled.div`

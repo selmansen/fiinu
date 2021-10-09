@@ -118,7 +118,7 @@ const First = styled(Section)`
 	h2 {
 		bottom: 57px;
 		font-size: 120px;
-		left: 0;
+		left: 15px;
 		line-height: 96px;
 		position: absolute;
 		z-index: 2;
@@ -142,16 +142,18 @@ const First = styled(Section)`
 const Second = styled(Section)`
 	height: calc(${Variables.SHeight}* 2 + ${Variables.SDeadHeight});
 	min-height: calc(820px * 2);
+	@media (max-width:${Variables.ScreenLg}){
+		min-height: calc(740px * 2);
+	}
 `;
 const Second1 = styled.div`
-	align-items: center;
-	display: flex;
-	flex-direction: column;
 	height: 100vh;
-	justify-content: center;
 	min-height: 820px;
 	position: sticky;
 	top: 0;
+	@media (max-width:${Variables.ScreenLg}){
+		min-height: 740px;
+	}
 	h2 {
 		bottom: 15px;
 		display: flex;
@@ -166,19 +168,44 @@ const Second1 = styled.div`
 	}
 	h4 {
 		opacity: 0;
-		@media (max-width:${Variables.ScreenLg}){
-			margin-top:-130px;
+		@media (max-width: ${Variables.ScreenLg}) {
+			margin-top: -150px;
 		}
 	}
 	h4:nth-child(2) {
 		margin-top: 70px;
 	}
 `;
+const SecondOverflow = styled.div`
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	.container {
+		position: initial;
+	}
+`;
 const Third = styled(Section)`
 	margin-bottom: ${Variables.SDeadHeight};
-	min-height: ${Variables.SHeight};
+	height: ${Variables.SHeight};
+	min-height:780px;
 	position: sticky;
 	top: 0;
+	@media (max-height: 780px) and (min-width:calc( ${Variables.ScreenLg} + 1px ) ){
+		position:relative;
+		margin-bottom: 0;
+	}
+	@media (max-width: ${Variables.ScreenLg} ){
+		min-height:724px;
+		@media (max-height: 724px ){
+			position:relative;
+			margin-bottom: 0;
+		}
+	}
+
 `;
 const ThirdBgCover = styled.div`
 	height: 100%;
@@ -187,6 +214,9 @@ const ThirdBgCover = styled.div`
 	right: 0;
 	top: 0;
 	width: 50%;
+	@media (max-width: ${Variables.ScreenLg}) {
+		width: 45%;
+	}
 	#s3_a1 {
 		background: url(${DevelopmentBanner}) center center / cover no-repeat;
 		content: "";
@@ -205,6 +235,9 @@ const ThirdContent = styled.div`
 	min-height: 100vh;
 	padding: 30px 40px 30px 0px;
 	width: 50%;
+	@media (max-width: ${Variables.ScreenLg}) {
+		width: 55%;
+	}
 	p {
 		margin-top: 24px;
 		&:after {
@@ -218,6 +251,9 @@ const ThirdContent = styled.div`
 	}
 	a {
 		margin-top: 100px;
+		@media (max-width: ${Variables.ScreenLg}) {
+			margin-top: 44px;
+		}
 	}
 `;
 const Fourth = styled(Section)`
@@ -261,10 +297,9 @@ const Fourth1 = styled.div`
 	#s4_a2 {
 		position: absolute;
 		color:${Variables.ColorWarmBlue};
-		transition.4s;
 		width:2570px;
 		text-align:center;
-		transform: translateY(0) scale(1) ;
+		transform: translateY(0) scale(1);
 		transition:.4s;
 		opacity:0;
 		z-index:3;
@@ -272,7 +307,7 @@ const Fourth1 = styled.div`
 			color:#fff;
 			transform: translateY(calc(50vh - 80px)) scale(2.2);
 			@media (max-height:${Variables.SMinHeight}){
-				transform: translateY(370px) scale(2.2);
+				transform: translateY(300px) scale(2.2);
 			}
 		}
 	}
@@ -550,11 +585,15 @@ const HomePage = ({ data }) => {
 			</First>
 
 			<Second className="moving-area" data-child="3" id="second" background={Variables.ColorFantasy}>
-				<Second1 className="container">
-					<H4 id="s2_a1">Fiinu is a pre-IPO fintech group with an expected deposit-taking banking licence from the Bank of England regulators. </H4>
-					<H4 id="s2_a2">Subject to the London Stock Exchange admission approval the group will enter the AIM-market with a ticker ‘BANK’ </H4>
-					<H2 id="s2_a3">Pre-IPO fintech with an expected bank licence</H2>
-					<NextContent nextContent="third">Next—Services</NextContent>
+				<Second1>
+					<SecondOverflow>
+						<div className="container">
+							<H4 id="s2_a1">Fiinu is a pre-IPO fintech group with an expected deposit-taking banking licence from the Bank of England regulators. </H4>
+							<H4 id="s2_a2">Subject to the London Stock Exchange admission approval the group will enter the AIM-market with a ticker ‘BANK’ </H4>
+							<H2 id="s2_a3">Pre-IPO fintech with an expected bank licence</H2>
+							<NextContent nextContent="third">Next—Services</NextContent>
+						</div>
+					</SecondOverflow>
 				</Second1>
 			</Second>
 
@@ -576,7 +615,7 @@ const HomePage = ({ data }) => {
 				<Fourth1 id="fourth-wr">
 					<img id="s4_a1" src={Iphone} alt="" />
 					<H2 id="s4_a2" ColorWarmBlue>
-						Fiinu 2 Limited
+						<div className="container">Fiinu 2 Limited</div>
 					</H2>
 					<H4 id="s4_a3">
 						<div className="container">Fiinu 2 Limited is anticipating obtaining a UK deposit-taking banking licence from the Prudential Regulation Authority (PRA) and the Financial Conduct Authority (FCA) in 2021.</div>
@@ -623,7 +662,7 @@ const HomePage = ({ data }) => {
 					<Information />
 				</div>
 			</Holdings>
-			
+
 			<Investors />
 		</Layout>
 	);
