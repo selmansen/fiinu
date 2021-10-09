@@ -14,7 +14,7 @@ const HeaderStyle = styled.header`
 	z-index: 99;
 `;
 
-const Logo = styled.img`
+const Logo = styled(Link)`
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -59,7 +59,7 @@ const Menu = styled.div`
 const Container = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: end;
+	justify-content: flex-end;
 `;
 
 const Header = ({ logo }) => {
@@ -82,7 +82,7 @@ const Header = ({ logo }) => {
 				setMenuUp();
 			}
 		};
-
+		handleScroll();
 		window.addEventListener("scroll", handleScroll, { passive: true });
 
 		return () => window.removeEventListener("scroll", handleScroll);
@@ -91,9 +91,9 @@ const Header = ({ logo }) => {
 	return (
 		<HeaderStyle>
 			<Container className="container">
-				<Link to="/">
-					<Logo src={logo || LogoBlack} alt="Fiinu Logo" />
-				</Link>
+				<Logo to="/">
+					<img src={logo || LogoBlack} alt="Fiinu Logo" />
+				</Logo>
 				<Menu className={menuUp}>
 					<MenuLink color="#fff" />
 				</Menu>

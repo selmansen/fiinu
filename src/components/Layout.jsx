@@ -78,7 +78,16 @@ const GlobalStyle = createGlobalStyle`
         margin:auto;
         padding:0 15px;
         @media (max-width:${Variables.ScreenLg}){
-            max-width:1360px;
+            max-width:1350px;
+        }
+        @media (max-width:${Variables.ScreenMd}){
+            max-width:1014px;
+        }
+        @media (max-width:${Variables.ScreenSm}){
+            max-width:758px;
+        }
+        @media (max-width:${Variables.ScreenXs}){
+            max-width:500px;
         }
     }
 `;

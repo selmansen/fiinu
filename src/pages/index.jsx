@@ -162,10 +162,13 @@ const Second1 = styled.div`
 		position: absolute;
 		right: 0;
 		transform: translateY(150px);
-		width: 7855px;
+		width: 7865px;
 	}
 	h4 {
 		opacity: 0;
+		@media (max-width:${Variables.ScreenLg}){
+			margin-top:-130px;
+		}
 	}
 	h4:nth-child(2) {
 		margin-top: 70px;
@@ -267,8 +270,7 @@ const Fourth1 = styled.div`
 		z-index:3;
 		&.start{
 			color:#fff;
-			transform: translateY(50vh) scale(2.2);
-			margin-bottom:150px;
+			transform: translateY(calc(50vh - 80px)) scale(2.2);
 			@media (max-height:${Variables.SMinHeight}){
 				transform: translateY(370px) scale(2.2);
 			}
@@ -283,6 +285,11 @@ const Fourth1 = styled.div`
 		&.start{
 			opacity:1;
 			margin-top: -205px;
+			@media not all and (min-resolution:.001dpcm) { @media
+				{
+					margin-top:-102px;
+				}
+			}
 		}
 	}
 	#s4_a4 {
@@ -294,6 +301,11 @@ const Fourth1 = styled.div`
 		&.start{
 			opacity:1;
 			margin-top: 150px;
+			@media not all and (min-resolution:.001dpcm) { @media
+				{
+					margin-top:75px;
+				}
+			}
 		}
 	}
 `;

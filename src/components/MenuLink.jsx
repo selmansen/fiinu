@@ -38,7 +38,9 @@ const MenuLink = styled(Link)`
 const MenuLinks = ({ color }) => {
 	const [blur, setBlur] = useState(false);
 
-	const handleHover = () => setBlur(!blur);
+	const handleEnter = () => setBlur(true);
+	const handleLeave = () => setBlur(false);
+
 	const handleStyle = {
 		filter: `blur(${blur ? "2px" : "0px"})`
 	};
@@ -49,19 +51,19 @@ const MenuLinks = ({ color }) => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/fintech-solutions">
+			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/fintech-solutions">
 				Fintech solutions
 			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/banking-solutions">
+			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/banking-solutions">
 				Banking solutions
 			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/investors">
+			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/investors">
 				Investors
 			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/about">
+			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/about">
 				About
 			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleHover} onMouseLeave={handleHover} style={handleStyle} to="/careers">
+			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/careers">
 				Careers
 			</MenuLink>
 		</ThemeProvider>
