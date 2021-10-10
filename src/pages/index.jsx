@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { graphql, Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { BgImage } from 'gbimage-bridge';
 import styled, { keyframes } from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -636,6 +637,7 @@ const HoldingsContent = styled.div`
 //DATA
 const ThirdContent_Data = ["Open Banking enabled tech licensing and alternative data.", "Become a leader in collection of transactional source data.", "The UK alt-data market projected to grow 62,000% by 2028."];
 
+
 const HomePage = ({ data }) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [scrollTop, setScrollTop] = useState(0);
@@ -725,10 +727,12 @@ const HomePage = ({ data }) => {
 		}
 	};
 
+	const easeBackground = getImage(data.easeBackground);
+
 	return (
 		<Layout logo={Logo}>
 			<Seo title="Home" />
-
+			<BgImage image={easeBackground} className="bg" />
 			<First className={pageLoad ? "started" : false}>
 				<div className="container h100">
 					<H2>
@@ -834,19 +838,29 @@ export default HomePage;
 
 export const query = graphql`
 	query {
-		allMdx(sort: { fields: frontmatter___number }) {
+		allMdx(sort: {fields: frontmatter___number}) {
 			nodes {
-				frontmatter {
-					number
-					title
-					position
-					image {
-						childImageSharp {
-							gatsbyImageData(width: 336, height: 351, backgroundColor: "#fff", placeholder: BLURRED)
-						}
-					}
+			  frontmatter {
+				number
+				title
+				position
+				image {
+				  childImageSharp {
+					gatsbyImageData(
+					  width: 336
+					  height: 351
+					  backgroundColor: "#fff"
+					  placeholder: BLURRED
+					)
+				  }
 				}
-				slug
+			  }
+			  slug
+			}
+		}
+		easeBackground: file(relativePath: {eq: "ease-banner.jpg"}) {
+			childImageSharp {
+				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
 			}
 		}
 	}
