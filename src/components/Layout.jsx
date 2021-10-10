@@ -87,7 +87,8 @@ const GlobalStyle = createGlobalStyle`
             max-width:758px;
         }
         @media (max-width:${Variables.ScreenXs}){
-            max-width:500px;
+            max-width:100%;
+            padding:0 10px;
         }
     }
 `;

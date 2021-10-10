@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
+import { ScreenSm } from "./Variables";
 
 const MenuLink = styled(Link)`
 	color: ${(props) => props.theme.color};
@@ -23,6 +24,10 @@ const MenuLink = styled(Link)`
 	}
 	+ a {
 		margin-left: 24px;
+		@media (max-width: ${ScreenSm}) {
+			margin-left:0;
+			margin-top:16px;
+		}
 	}
 	&:hover {
 		filter: blur(0px) !important;

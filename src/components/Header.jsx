@@ -3,9 +3,10 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import MenuLink from "./MenuLink";
-import * as Variables from "./Variables";
+import { ColorTuna, ScreenSm } from "./Variables";
 
 import LogoBlack from "../images/fiinu-logo-black.svg";
+
 
 const HeaderStyle = styled.header`
 	position: absolute;
@@ -18,6 +19,11 @@ const Logo = styled(Link)`
 	position: absolute;
 	top: 0;
 	left: 15px;
+	@media (max-width: ${ScreenSm}) {
+		img{
+			width:100px;
+		}
+	}
 `;
 
 const Menu = styled.div`
@@ -29,12 +35,15 @@ const Menu = styled.div`
 	border-radius: 32px;
 	transition: 0.5s;
 	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	@media (max-width: ${ScreenSm}) {
+		display:none !important
+	}
 	&.menuUp {
 		top: 36px;
 		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(24px);
 		a {
-			color: ${Variables.ColorTuna};
+			color: ${ColorTuna};
 		}
 	}
 	&.menuDown {
@@ -43,7 +52,7 @@ const Menu = styled.div`
 	&.open {
 		&:before,
 		&:after {
-			background: ${Variables.ColorTuna};
+			background: ${ColorTuna};
 			content: "";
 			height: 2px;
 			position: absolute;

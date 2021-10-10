@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { ColorTuna } from "./Variables";
+import { ColorTuna, ScreenMd } from "./Variables";
 import { H3, P } from "./Typography";
 
 import IconLink from "../images/icon-target-link.svg";
@@ -13,6 +13,9 @@ const InvestorsStyle = styled.section`
 	position: relative;
 	padding: 120px 0px;
 	z-index: 1;
+	@media (max-width: ${ScreenMd}) {
+		padding:36px 0px;
+	}
 	p {
 		margin-top: 16px;
 	}
@@ -64,6 +67,9 @@ const H6 = styled.h6`
 	font-size: 16px;
 	line-height: 24px;
 	margin-top: 64px;
+	@media (max-width: ${ScreenMd}) {
+		margin-top:36px;
+	}
 `;
 
 const List = [

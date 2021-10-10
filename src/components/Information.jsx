@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import { P } from "./Typography";
-import { ColorFantasy, ColorTuna, ColorWarmBlue } from "../components/Variables";
+import { ColorFantasy, ColorTuna, ColorWarmBlue, ScreenMd, ScreenXs } from "../components/Variables";
 
 import Location from "../images/icon-location.svg";
 import Info from "../images/icon-info.svg";
@@ -14,6 +14,14 @@ const InfoStyle = styled.div`
 	border-radius: 16px;
 	padding: 64px;
 	width: 50%;
+	@media (max-width: ${ScreenMd}) {
+		width: 100%;
+		margin-top: 36px;
+		padding: 24px 20px;
+	}
+	@media (max-width: ${ScreenXs}) {
+		padding:24px 10px 36px 10px;
+	}
 	h5 {
 		font-size: 24px;
 		line-height: 36px;
@@ -33,6 +41,17 @@ const InfoStyle = styled.div`
 		margin: auto;
 		color: ${(props) => (props.theme === "white" ? "#DAD9D7" : ColorTuna)};
 		display: block;
+		&.mobile{
+			display:none;
+		}
+		@media (max-width: ${ScreenXs}) {
+			&.desktop{
+				display:none;
+			}
+			&.mobile{
+				display:block;
+			}
+		}
 	}
 `;
 const Our = styled.span`
@@ -48,7 +67,7 @@ const Our = styled.span`
 	margin-top: 16px;
 	img {
 		margin-right: 10px;
-		margin-top: 1px;
+		margin-top: 2px;
 	}
 `;
 const Chart = styled.div`
@@ -78,10 +97,19 @@ const Chart = styled.div`
 const ChartFlex = styled.div`
 	display: flex;
 	margin-top: 12px;
+	@media (max-width: ${ScreenXs}) {
+		display: block;
+	}
 	> div {
 		width: 50%;
+		@media (max-width: ${ScreenXs}) {
+			width: 100%;
+		}
 		&:first-child {
 			margin-right: 36px;
+			@media (max-width: ${ScreenXs}) {
+				margin-right:0;
+				margin-bottom:16px;
 		}
 	}
 	span {
@@ -131,10 +159,15 @@ const Information = ({ theme }) => (
 				<b>Co. No. 10544700</b>
 			</P>
 		</Chart>
-		<svg width="326" height="86" viewBox="0 0 326 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+		<svg className="desktop" width="326" height="86" viewBox="0 0 326 86" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M6 86L11.7735 76H0.226497L6 86ZM162 0V30.1463H164V0H162ZM147 45.1463H22V47.1463H147V45.1463ZM5 62.1463V77H7V62.1463H5ZM22 45.1463C12.6112 45.1463 5 52.7575 5 62.1463H7C7 53.8621 13.7157 47.1463 22 47.1463V45.1463ZM162 30.1463C162 38.4306 155.284 45.1463 147 45.1463V47.1463C156.389 47.1463 164 39.5352 164 30.1463H162Z" fill="currentColor" />
 			<path d="M320 86L314.226 76H325.774L320 86ZM164 0V30.1463H162V0H164ZM179 45.1463H304V47.1463H179V45.1463ZM321 62.1463V77H319V62.1463H321ZM304 45.1463C313.389 45.1463 321 52.7575 321 62.1463H319C319 53.8621 312.284 47.1463 304 47.1463V45.1463ZM164 30.1463C164 38.4306 170.716 45.1463 179 45.1463V47.1463C169.611 47.1463 162 39.5352 162 30.1463H164Z" fill="currentColor" />
 		</svg>
+		<svg className="mobile" width="12" height="52" viewBox="0 0 12 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M6 52L11.7735 42H0.226497L6 52ZM5 0V43H7V0H5Z" fill="currentColor" />
+		</svg>
+
 		<ChartFlex>
 			<div>
 				<ChartOut>
