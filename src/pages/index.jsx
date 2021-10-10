@@ -721,7 +721,7 @@ const HomePage = ({ data }) => {
 			setCurrentSlide(index);
 		}
 	};
-	
+
 	const easeBackground = getImage(data.easeBackground.childImageSharp.gatsbyImageData);
 
 	return (
@@ -851,7 +851,7 @@ export const query = graphql`
 		easeBackground: file(relativePath: { eq: "ease-banner.jpg" }) {
 			id
 			childImageSharp {
-				gatsbyImageData( placeholder: BLURRED, quality: 100, webpOptions: { quality: 100 })
+				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
 			}
 		}
 	}
