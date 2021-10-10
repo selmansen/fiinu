@@ -10,8 +10,7 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         fileName: false,
-        ssr: false,
-        displayName: false,
+        displayName: false
       },
     },
     `gatsby-plugin-react-helmet`,
