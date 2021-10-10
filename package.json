@@ -34,11 +34,13 @@
     "gatsby-plugin-styled-components": "^4.14.0",
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-transformer-sharp": "^3.14.0",
+    "gbimage-bridge": "^0.1.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-slick": "^0.28.1",
+    "react-wow": "^1.0.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.1"
   },

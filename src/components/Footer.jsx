@@ -11,22 +11,22 @@ const FooterStyle = styled.footer`
 	background: #fff;
 	padding: 88px 0 52px;
 	@media (max-width: ${ScreenMd}) {
-		padding:36px 0px;
+		padding: 36px 0px;
 	}
 	.container {
 		justify-content: space-between;
 		align-items: center;
 		display: flex;
 		@media (max-width: ${ScreenSm}) {
-			display:block;
+			display: block;
 		}
 	}
 `;
 const Menu = styled.div`
 	display: flex;
 	@media (max-width: ${ScreenSm}) {
-		display:block;
-		margin-top:24px;
+		display: block;
+		margin-top: 24px;
 	}
 `;
 

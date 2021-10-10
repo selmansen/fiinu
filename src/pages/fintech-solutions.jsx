@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { graphql, Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { BgImage } from "gbimage-bridge";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled, { keyframes } from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -17,6 +16,7 @@ import * as Variables from "../components/Variables";
 import { H2, H3, H4, P } from "../components/Typography";
 
 import Logo from "../images/fiinu-logo-white.svg";
+import EaseBanner from "../images/ease-banner.jpg";
 import DevelopmentBanner from "../images/development-banner.jpg";
 import Iphone from "../images/iphone.jpg";
 
@@ -91,32 +91,35 @@ const First = styled(Section)`
 	height: ${Variables.SHeight};
 	min-height: 750px;
 	overflow: hidden;
-	@media (max-width: ${Variables.ScreenMd}) {
-		min-height: 568px;
+	@media (max-width:${Variables.ScreenMd}){
+		min-height:568px;
 	}
-	@media (max-width: ${Variables.ScreenXs}) {
-		min-height: auto;
-		height: auto;
+	@media (max-width:${Variables.ScreenXs}){
+		min-height:auto;
+		height:auto;
 		padding-bottom: 75px;
 	}
-	.bg {
+	&:before {
+		background: url(${EaseBanner}) center center / cover no-repeat;
+		content: "";
 		filter: blur(24px);
 		height: 100%;
-		position: absolute !important;
+		position: absolute;
 		top: 0;
 		transform: scale(1.2);
 		transition: 0.4s;
 		width: 100%;
 		z-index: -1;
-		@media (max-width: ${Variables.ScreenXs}) {
-			position: relative !important;
+		@media (max-width:${Variables.ScreenXs}){
+			background-position:top center;
+			position:relative;
 			height: 50vh;
-			display: block;
+			display:block;
 			min-height: 274px;
 		}
 	}
 	&.started {
-		.bg {
+		&:before {
 			animation: ${frameScale} 0.8s ease-in-out;
 			animation-fill-mode: both;
 		}
@@ -134,26 +137,26 @@ const First = styled(Section)`
 		line-height: 96px;
 		position: absolute;
 		z-index: 2;
-		@media (max-width: ${Variables.ScreenMd}) {
-			font-size: 88px;
-			line-height: 72px;
-			bottom: 60px;
+		@media (max-width:${Variables.ScreenMd}){
+			font-size:88px;
+			line-height:72px;
+			bottom:60px;
 		}
-		@media (max-width: ${Variables.ScreenXs}) {
-			font-size: 56px;
-			line-height: 50px;
-			position: relative;
-			color: ${Variables.ColorTuna};
-			left: 0;
-			bottom: 0;
-			margin-top: 20px;
+		@media (max-width:${Variables.ScreenXs}){
+			font-size:56px;
+			line-height:50px;
+			position:relative;
+			color:${Variables.ColorTuna};
+			left:0;
+			bottom:0;
+			margin-top:20px;
 		}
 		span {
 			display: block;
-			@media (max-width: ${Variables.ScreenXs}) {
-				display: inline;
-				br {
-					display: none;
+			@media (max-width:${Variables.ScreenXs}){
+				display:inline;
+				br{
+					display:none;
 				}
 			}
 			&:nth-child(1) {
@@ -174,10 +177,10 @@ const First = styled(Section)`
 const Second = styled(Section)`
 	height: calc(${Variables.SHeight}* 2 + ${Variables.SDeadHeight});
 	min-height: calc(820px * 2);
-	@media (max-width: ${Variables.ScreenLg}) {
+	@media (max-width:${Variables.ScreenLg}){
 		min-height: calc(740px * 2);
 	}
-	@media (max-width: ${Variables.ScreenMd}) {
+	@media (max-width:${Variables.ScreenMd}){
 		min-height: calc(568px * 2);
 	}
 `;
@@ -186,10 +189,10 @@ const Second1 = styled.div`
 	min-height: 820px;
 	position: sticky;
 	top: 0;
-	@media (max-width: ${Variables.ScreenLg}) {
+	@media (max-width:${Variables.ScreenLg}){
 		min-height: 740px;
 	}
-	@media (max-width: ${Variables.ScreenMd}) {
+	@media (max-width:${Variables.ScreenMd}){
 		min-height: 568px;
 	}
 	h2 {
@@ -203,13 +206,13 @@ const Second1 = styled.div`
 		right: 0;
 		transform: translateY(150px);
 		width: 7865px;
-		@media (max-width: ${Variables.ScreenMd}) {
+		@media (max-width:${Variables.ScreenMd}){
 			width: 5990px;
 			left: calc(50% - 1335px);
 			bottom: -10px;
 			font-size: 240px;
 		}
-		@media (max-width: ${Variables.ScreenXs}) {
+		@media (max-width:${Variables.ScreenXs}){
 			width: 4130px;
 			left: calc(50% - 1000px);
 			bottom: -7px;
@@ -222,14 +225,14 @@ const Second1 = styled.div`
 		@media (max-width: ${Variables.ScreenLg}) {
 			margin-top: -150px;
 		}
-		@media (max-width: ${Variables.ScreenMd}) {
-			margin-top: -50px;
+		@media (max-width:${Variables.ScreenMd}){
+			margin-top:-50px;
 		}
 	}
 	h4:nth-child(2) {
 		margin-top: 70px;
-		@media (max-width: ${Variables.ScreenMd}) {
-			margin-top: 50px;
+		@media (max-width:${Variables.ScreenMd}){
+			margin-top:50px;
 		}
 	}
 `;
@@ -243,9 +246,9 @@ const SecondOverflow = styled.div`
 	justify-content: center;
 	.container {
 		position: initial;
-		> div {
-			@media (max-width: ${Variables.ScreenXs}) {
-				display: none;
+		> div{
+			@media (max-width:${Variables.ScreenXs}){
+				display:none;
 			}
 		}
 	}
@@ -289,8 +292,8 @@ const ThirdBgCover = styled.div`
 		width: 50%;
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-		position: relative;
-		height: 300px;
+		position:relative;
+		height:300px;
 		width: 100%;
 	}
 	#s3_a1 {
@@ -318,12 +321,12 @@ const ThirdContent = styled.div`
 		width: 50%;
 	}
 	@media (max-width: ${Variables.ScreenMd}) {
-		padding: 36px 15px 36px 0px;
+		padding:36px 15px 36px 0px;
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-		width: 100%;
-		padding: 24px 0 36px;
-		min-height: auto;
+		width:100%;
+		padding:24px 0 36px;
+		min-height:auto;
 	}
 	p {
 		margin-top: 24px;
@@ -335,7 +338,7 @@ const ThirdContent = styled.div`
 			margin-bottom: 50px;
 			margin-top: 44px;
 			@media (max-width: ${Variables.ScreenMd}) {
-				margin: 36px 0px;
+				margin:36px 0px;
 			}
 		}
 	}
@@ -464,21 +467,21 @@ const Leadership = styled.section`
 	position: relative;
 	z-index: 1;
 	@media (max-width: ${Variables.ScreenMd}) {
-		padding: 56px 0 45px;
+		padding:56px 0 45px;
 	}
 	> .container {
 		display: flex;
 		@media (max-width: ${Variables.ScreenXs}) {
-			display: block;
-			p {
-				margin-top: 24px;
+			display:block;
+			p{
+				margin-top:24px;
 			}
 		}
 		> h3,
 		> p {
 			width: 50%;
 			@media (max-width: ${Variables.ScreenXs}) {
-				width: 100%;
+				width:100%;
 			}
 		}
 	}
@@ -486,10 +489,10 @@ const Leadership = styled.section`
 const Carousel = styled(Slider)`
 	margin-top: 120px;
 	@media (max-width: ${Variables.ScreenMd}) {
-		margin-top: 36px;
+		margin-top:36px;
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-		margin-left: -15px;
+		margin-left:-15px;
 	}
 	.slick-track {
 		display: flex;
@@ -501,7 +504,7 @@ const Slide = styled(Link)`
 	margin-left: 50px;
 	@media (max-width: ${Variables.ScreenMd}) {
 		width: 220px !important;
-		margin-left: 24px;
+		margin-left:24px;
 	}
 	h5 {
 		font-size: 24px;
@@ -526,10 +529,10 @@ const SlickControl = styled.div`
 	margin-top: 90px !important;
 	line-height: 24px;
 	@media (max-width: ${Variables.ScreenMd}) {
-		margin-top: 50px !important;
+		margin-top:50px !important;
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-		display: flex !important;
+		display:flex !important;
 	}
 	span {
 		font-size: 24px;
@@ -605,13 +608,13 @@ const Holdings = styled.section`
 	.container {
 		display: flex;
 		@media (max-width: ${Variables.ScreenMd}) {
-			display: block;
+			display:block;
 		}
 	}
 	a {
 		margin-top: 45px;
 		@media (max-width: ${Variables.ScreenMd}) {
-			margin-top: 24px;
+			margin-top:24px;
 		}
 	}
 `;
@@ -619,13 +622,13 @@ const HoldingsContent = styled.div`
 	padding-right: 40px;
 	width: 50%;
 	@media (max-width: ${Variables.ScreenMd}) {
-		width: 100%;
-		padding-right: 0;
+		width:100%;
+		padding-right:0;
 	}
 	p {
 		margin-top: 35px;
 		@media (max-width: ${Variables.ScreenMd}) {
-			margin-top: 24px;
+			margin-top:24px;
 		}
 	}
 `;
@@ -721,14 +724,12 @@ const HomePage = ({ data }) => {
 			setCurrentSlide(index);
 		}
 	};
-	
-	const easeBackground = getImage(data.easeBackground.childImageSharp.gatsbyImageData);
 
 	return (
 		<Layout logo={Logo}>
 			<Seo title="Home" />
+
 			<First className={pageLoad ? "started" : false}>
-				<BgImage className="bg" image={easeBackground}></BgImage>
 				<div className="container h100">
 					<H2>
 						<span>
@@ -846,12 +847,6 @@ export const query = graphql`
 					}
 				}
 				slug
-			}
-		}
-		easeBackground: file(relativePath: { eq: "ease-banner.jpg" }) {
-			id
-			childImageSharp {
-				gatsbyImageData( placeholder: BLURRED, quality: 100, webpOptions: { quality: 100 })
 			}
 		}
 	}

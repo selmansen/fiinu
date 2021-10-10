@@ -25,8 +25,8 @@ const MenuLink = styled(Link)`
 	+ a {
 		margin-left: 24px;
 		@media (max-width: ${ScreenSm}) {
-			margin-left:0;
-			margin-top:16px;
+			margin-left: 0;
+			margin-top: 16px;
 		}
 	}
 	&:hover {
@@ -39,6 +39,8 @@ const MenuLink = styled(Link)`
 		}
 	}
 `;
+
+const MenuText = ["Fintech solutions", "Banking solutions", "Investors", "About", "Careers"];
 
 const MenuLinks = ({ color }) => {
 	const [blur, setBlur] = useState(false);
@@ -56,21 +58,17 @@ const MenuLinks = ({ color }) => {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/fintech-solutions">
-				Fintech solutions
-			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/banking-solutions">
-				Banking solutions
-			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/investors">
-				Investors
-			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/about">
-				About
-			</MenuLink>
-			<MenuLink activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to="/careers">
-				Careers
-			</MenuLink>
+			{MenuText.map((text, i) => (
+				<MenuLink
+					key={i}
+					activeClassName="active" o
+					nMouseEnter={handleEnter}
+					onMouseLeave={handleLeave}
+					style={handleStyle}
+					to={`/${text.toLowerCase().replace(" ", "-")}`}>
+					{text}
+				</MenuLink>
+			))}
 		</ThemeProvider>
 	);
 };

@@ -9,19 +9,19 @@ const Li = styled.li`
 	padding-left: 50px;
 	position: relative;
 	line-height: 36px;
-	@media (max-width:${ScreenMd}){
-		font-size:21px;
-		line-height:32px;
-		padding-left:30px;
+	@media (max-width: ${ScreenMd}) {
+		font-size: 21px;
+		line-height: 32px;
+		padding-left: 30px;
 	}
-	@media (max-width:${ScreenSm}){
-		font-size:18px;
-		line-height:28px;
+	@media (max-width: ${ScreenSm}) {
+		font-size: 18px;
+		line-height: 28px;
 	}
 	+ li {
 		margin-top: 16px;
-		@media (max-width:${ScreenMd}){
-			margin-top:12px;
+		@media (max-width: ${ScreenMd}) {
+			margin-top: 12px;
 		}
 	}
 	&:before {
@@ -33,23 +33,21 @@ const Li = styled.li`
 		background-size: 33px;
 		width: 33px;
 		height: 33px;
-		@media (max-width:${ScreenMd}){
+		@media (max-width: ${ScreenMd}) {
 			background-size: 22px;
-			width:22px;
-			height:22px;
-			top:5px;
+			width: 22px;
+			height: 22px;
+			top: 5px;
 		}
 	}
 `;
 
-const List = ({ data }) => {
-	return (
-		<ul>
-			{data.map((li, i) => (
-				<Li key={i}>{li}</Li>
-			))}
-		</ul>
-	);
-};
+const List = ({ data }) => (
+	<ul>
+		{data.map((li, i) => (
+			<Li key={i}>{li}</Li>
+		))}
+	</ul>
+);
 
 export default List;

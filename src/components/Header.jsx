@@ -7,7 +7,6 @@ import { ColorTuna, ScreenSm } from "./Variables";
 
 import LogoBlack from "../images/fiinu-logo-black.svg";
 
-
 const HeaderStyle = styled.header`
 	position: absolute;
 	top: 36px;
@@ -104,7 +103,7 @@ const Header = ({ logo }) => {
 					<img src={logo || LogoBlack} alt="Fiinu Logo" />
 				</Logo>
 				<Menu className={menuUp}>
-					<MenuLink color="#fff" />
+					<MenuLink color={logo ? "#fff": ColorTuna } />
 				</Menu>
 			</Container>
 		</HeaderStyle>
