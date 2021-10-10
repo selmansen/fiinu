@@ -61,8 +61,8 @@ const MenuLinks = ({ color }) => {
 			{MenuText.map((text, i) => (
 				<MenuLink
 					key={i}
-					activeClassName="active" o
-					nMouseEnter={handleEnter}
+					activeClassName="active"
+					onMouseEnter={handleEnter}
 					onMouseLeave={handleLeave}
 					style={handleStyle}
 					to={`/${text.toLowerCase().replace(" ", "-")}`}>

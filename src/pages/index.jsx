@@ -722,13 +722,13 @@ const HomePage = ({ data }) => {
 		}
 	};
 
-	const easeBackground = getImage(data.easeBackground.childImageSharp.gatsbyImageData);
+	const easeBackground = getImage(data.easeBackground);
 
 	return (
 		<Layout logo={Logo}>
 			<Seo title="Home" />
 			<First className={pageLoad ? "started" : false}>
-				<BgImage className="bg" image={easeBackground}></BgImage>
+				<BgImage className="bg" image={easeBackground} />
 				<div className="container h100">
 					<H2>
 						<span>
@@ -849,7 +849,6 @@ export const query = graphql`
 			}
 		}
 		easeBackground: file(relativePath: { eq: "ease-banner.jpg" }) {
-			id
 			childImageSharp {
 				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
 			}
