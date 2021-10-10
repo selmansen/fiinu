@@ -68,8 +68,8 @@ const H4 = ({ id, children }) => {
 	return <TypeH4 id={id}>{children}</TypeH4>;
 };
 
-const P = ({ id, children }) => {
-	return <TypeP id={id}>{children}</TypeP>;
+const P = ({ id, children, className }) => {
+	return <TypeP id={id} className={className}>{children}</TypeP>;
 };
 
 export { H2, H3, H4, P };
