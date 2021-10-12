@@ -355,9 +355,10 @@ const CreditUnderwriting = styled.section`
 `;
 
 const CreditUnderTable = styled.img`
+	display: block;
+	height:auto;
 	margin: 120px 0 -168px;
 	width: 100%;
-	display: block;
 	@media (max-width: ${Variables.ScreenMd}) {
 		margin: 24px 0 -36px;
 	}
@@ -567,7 +568,7 @@ const FintechSolutionsPage = ({ data }) => {
 				<div className="container">
 					<H5>Credit Underwriting</H5>
 					<P>Our retail credit underwriting module will provide you a pre-configured, near-live overview of customers financial health. The solution will use agile processes to adapt to changing customer behaviour and it can used for all credit underwriting purposes, including creditworthiness and affordability assessments. </P>
-					{isMobile ? <CreditUnderTable src={creditUnderwritingImage} alt="Template Report" /> : <CreditImage image={creditUnderwritingImageMobile} alt="Template Report" />}
+					{isMobile ? <CreditUnderTable src={creditUnderwritingImage} width="1495" height="1039" alt="Template Report" /> : <CreditImage image={creditUnderwritingImageMobile} alt="Template Report" />}
 				</div>
 			</CreditUnderwriting>
 		</Layout>

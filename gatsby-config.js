@@ -21,16 +21,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-preload-fonts`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `lato`,
-          `lato\:400,700`
-        ],
-        display: 'swap'
-      }
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
