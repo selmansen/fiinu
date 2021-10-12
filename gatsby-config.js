@@ -25,7 +25,7 @@ module.exports = {
       options: {
         fonts: [
           `lato`,
-          `lato\:,400,,700`
+          `lato\:400,700`
         ],
         display: 'swap'
       }
