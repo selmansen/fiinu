@@ -836,7 +836,7 @@ export const query = graphql`
 					position
 					image {
 						childImageSharp {
-							gatsbyImageData(width: 336, height: 351, backgroundColor: "#fff", placeholder: BLURRED)
+							gatsbyImageData(width: 336, height: 351, backgroundColor: "#fff", placeholder: BLURRED, quality: 100)
 						}
 					}
 				}
@@ -845,7 +845,7 @@ export const query = graphql`
 		}
 		easeBackground: file(relativePath: { eq: "ease-banner.jpg" }) {
 			childImageSharp {
-				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
 			}
 		}
 	}

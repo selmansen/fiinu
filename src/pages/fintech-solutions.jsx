@@ -15,6 +15,7 @@ import dataImg1 from "../images/solutions-data-img1.svg";
 import dataImg2 from "../images/solutions-data-img2.svg";
 import dataImg3 from "../images/solutions-data-img3.svg";
 import dataImg4 from "../images/solutions-data-img4.svg";
+import creditUnderwritingImage from "../images/credit-underwriting-img.svg";
 
 const PageBannerText = styled.section`
 	background: #fff;
@@ -324,13 +325,16 @@ const CreditUnderwriting = styled.section`
 		padding:36px 0px 0px;
 		margin-bottom:36px;
 	}
-	@media (max-width:${Variables.ScreenSm}){
+	@media (max-width:${Variables.ScreenXs}){
 		padding-bottom:36px;
 	}
 	.container {
+		display: flex;
+		flex-wrap: wrap;
+		@media (max-width:${Variables.ScreenSm}){
+			flex-direction:column;
+		}
 		@media (min-width:calc(${Variables.ScreenSm} + 1px)){
-			display: flex;
-			flex-wrap: wrap;
 			h5,
 			p {
 				width: 50%;
@@ -349,12 +353,18 @@ const CreditUnderwriting = styled.section`
 		border-radius:16px;
 	}
 `;
-const CreditImage = styled(GatsbyImage)`
+
+const CreditUnderTable = styled.img`
 	margin: 120px 0 -168px;
 	width: 100%;
+	display: block;
 	@media (max-width: ${Variables.ScreenMd}) {
 		margin: 24px 0 -36px;
 	}
+`;
+
+const CreditImage = styled(GatsbyImage)`
+	width: 100%;
 	@media (max-width: ${Variables.ScreenXs}) {
 		margin: 24px 0 0px;
 	}
@@ -415,7 +425,6 @@ const FintechSolutionsPage = ({ data }) => {
 
 	const devBackground = getImage(data.devBackground);
 	const solutionsImage = getImage(data.solutionsImage);
-	const creditUnderwritingImage = getImage(data.creditUnderwritingImage);
 	const creditUnderwritingImageMobile = getImage(data.creditUnderwritingImageMobile);
 
 	const readHeightOpen = {
@@ -431,8 +440,14 @@ const FintechSolutionsPage = ({ data }) => {
 		transform: `translateX(${transform > 1 ? (transform < 100 ? 100 - transform : "0") : "100"}vw)`
 	};
 	const s1a3Animate = {
-		transform: `translateY(${transform > 1 ? (transform < 100 ? 100 - transform : "0") : "100"}vw)`,
+		transform: `translateY(${transform > 1 ? (transform < 110 ? 110 - transform : "0") : "100"}vw)`,
 		opacity: animate > 3 ? "1" : animate < 2 ? "0" : animate - 2
+	};
+	const s1a4Animate = {
+		opacity: animate > 3.7 ? "1" : animate < 2.7 ? "0" : animate - 2.7
+	};
+	const s1a5Animate = {
+		opacity: animate > 4 ? "1" : animate < 3 ? "0" : animate - 3
 	};
 
 	return (
@@ -465,7 +480,7 @@ const FintechSolutionsPage = ({ data }) => {
 							</P>
 						</div>
 						<ReadMoreBtn onClick={readMoreClick}>
-							Read more
+							{`${readMore ? "Read less" : "Read more"}`}
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M2 2L22 22" stroke="currentColor" strokeMiterlimit="10" />
 								<path d="M10 2H2V10" stroke="currentColor" strokeMiterlimit="10" strokeLinecap="square" />
@@ -485,10 +500,12 @@ const FintechSolutionsPage = ({ data }) => {
 							</H2>
 							<SolutionsContent style={s1a3Animate}>
 								<div>
-									<H3>Personal Finance Management app with integrated Plugin Overdraft®</H3>
-									<P>Fiinu’s proprietary transaction tagging technology will analyse the user’s spending into categories, providing an automatically updating, consolidated view of their financial lives. We collect anonymised transactional banking data with our Open Banking enabled app with integrated Plugin Overdraft, allowing users to benefit from intelligent cost-saving nudges relating to their connected bank accounts, credit cards or store cards in one secure place. </P>
+									<H3 style={s1a4Animate}>Personal Finance Management app with integrated Plugin Overdraft®</H3>
+									<P style={s1a5Animate}>Fiinu’s proprietary transaction tagging technology will analyse the user’s spending into categories, providing an automatically updating, consolidated view of their financial lives. We collect anonymised transactional banking data with our Open Banking enabled app with integrated Plugin Overdraft, allowing users to benefit from intelligent cost-saving nudges relating to their connected bank accounts, credit cards or store cards in one secure place. </P>
 								</div>
-								<GatsbyImage image={solutionsImage} alt="Personal Finance Management app with integrated Plugin Overdraf" />
+								<div>
+									<GatsbyImage image={solutionsImage} alt="Personal Finance Management app with integrated Plugin Overdraf" />
+								</div>
 							</SolutionsContent>
 						</div>
 						<SolutionsBg style={s1a2Animate} />
@@ -550,7 +567,7 @@ const FintechSolutionsPage = ({ data }) => {
 				<div className="container">
 					<H5>Credit Underwriting</H5>
 					<P>Our retail credit underwriting module will provide you a pre-configured, near-live overview of customers financial health. The solution will use agile processes to adapt to changing customer behaviour and it can used for all credit underwriting purposes, including creditworthiness and affordability assessments. </P>
-					{isMobile ? <CreditImage image={creditUnderwritingImage} alt="Template Report" /> : <CreditImage image={creditUnderwritingImageMobile} alt="Template Report" />}
+					{isMobile ? <CreditUnderTable src={creditUnderwritingImage} alt="Template Report" /> : <CreditImage image={creditUnderwritingImageMobile} alt="Template Report" />}
 				</div>
 			</CreditUnderwriting>
 		</Layout>
@@ -563,22 +580,17 @@ export const query = graphql`
 	query {
 		devBackground: file(relativePath: { eq: "development-banner-x.jpg" }) {
 			childImageSharp {
-				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
 			}
 		}
 		solutionsImage: file(relativePath: { eq: "personal-finance.png" }) {
 			childImageSharp {
-				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-			}
-		}
-		creditUnderwritingImage: file(relativePath: { eq: "credit-underwriting-img.png" }) {
-			childImageSharp {
-				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
 			}
 		}
 		creditUnderwritingImageMobile: file(relativePath: { eq: "credit-underwriting-img-mobile.png" }) {
 			childImageSharp {
-				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
+				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100, layout: FULL_WIDTH)
 			}
 		}
 	}
