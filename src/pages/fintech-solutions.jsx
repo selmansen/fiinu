@@ -310,6 +310,8 @@ const Data = styled.section`
 		display: block;
 		margin: auto;
 		max-width:100%;
+		height:auto;
+		width: auto;
 		@media (max-width:${Variables.ScreenSm}){
 			margin-top:24px;
 		}
@@ -422,7 +424,7 @@ const FintechSolutionsPage = ({ data }) => {
 		return () => window.removeEventListener("resize", handleResize);
 	}, [readMore]);
 
-	const yellowListData = ["Open Banking enabled tech licensing and alternative data.", "Become a leader in collection of transactional source data.", "The UK alt-data market projected to grow 62,000% by 2018."];
+	const yellowListData = ["Open Banking enabled tech licensing and alternative data.", "Become a leader in collection of transactional source data.", "The UK alt-data market projected to grow 62,000% by 2028."];
 
 	const devBackground = getImage(data.devBackground);
 	const solutionsImage = getImage(data.solutionsImage);
@@ -476,8 +478,7 @@ const FintechSolutionsPage = ({ data }) => {
 						<List data={yellowListData} />
 						<div className={`hidden ${readMore ? "show" : false}`} style={readHeightOpen}>
 							<P>
-								Alternative data market to grow 25x in half a decade. 58.5% CAGR of alternative data market 2021-2018. Whilst the company will develop technology and modules for its sister company, we believe that the rising demand for alternative data will come from Open Banking innovation, hedge funds and other investors. More than half of hedge fund managers are now using alternative data to gain a competitive edge by generating outperformance and supporting the risk management processes. The
-								global alternative data market size in 2021 is $2.76 billion and is expected to expand at a compound annual growth rate (CAGR) of 58.5% from 2021 to 2028 to about $70 billion market. Fiinu Services will play a part in this growth opportunity.
+							The UK alternative data insights market is projected to grow 62,000% between 2020 and 2028, an average 67.5% compound annual growth rate. The global alternative data market size in 2021 is $2.76 billion and it is expected to expand at a compound annual growth rate of 58.5% from 2021 to 2028 to about $70 billion market. Fiinu Services will become a leader in this growing market opportunity. The  company is uniquely positioned to source anonymised transactional data from its sister.
 							</P>
 						</div>
 						<ReadMoreBtn onClick={readMoreClick}>
@@ -527,7 +528,7 @@ const FintechSolutionsPage = ({ data }) => {
 					<TrackVisibility className="right" once offset={200}>
 						{({ isVisible }) => (
 							<div className={`animated ${isVisible ? "fadeInUp" : ""}`}>
-								<img src={dataImg1} alt="Data Aggregation" />
+								<img src={dataImg1} width="422" height="422" alt="Data Aggregation" />
 							</div>
 						)}
 					</TrackVisibility>
@@ -536,7 +537,7 @@ const FintechSolutionsPage = ({ data }) => {
 					<TrackVisibility className="left" once offset={200}>
 						{({ isVisible }) => (
 							<div className={`animated ${isVisible ? "fadeInUp" : ""}`}>
-								<img src={dataImg2} alt="Data Aggregation" />
+								<img src={dataImg2} width="491" height="431" alt="Data Aggregation" />
 							</div>
 						)}
 					</TrackVisibility>
@@ -559,7 +560,7 @@ const FintechSolutionsPage = ({ data }) => {
 						)}
 					</TrackVisibility>
 					<TrackVisibility className="right" once offset={200}>
-						{({ isVisible }) => <div className={`animated ${isVisible ? "fadeInUp" : ""}`}>{isMobile ? <img src={dataImg3} alt="Data Enrichment" /> : <img src={dataImg4} alt="Data Enrichment" />}</div>}
+						{({ isVisible }) => <div className={`animated ${isVisible ? "fadeInUp" : ""}`}>{isMobile ? <img src={dataImg3} width="584" height="529" alt="Data Enrichment" /> : <img src={dataImg4} width="302" height="478" alt="Data Enrichment" />}</div>}
 					</TrackVisibility>
 				</div>
 			</Data>
