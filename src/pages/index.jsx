@@ -99,7 +99,7 @@ const First = styled(Section)`
 		height: auto;
 		padding-bottom: 75px;
 	}
-	.bg{
+	.bg {
 		filter: blur(24px);
 		height: 100%;
 		position: absolute !important;
@@ -503,22 +503,15 @@ const Slide = styled(Link)`
 		width: 220px !important;
 		margin-left: 24px;
 	}
-	h5 {
-		font-size: 24px;
-		font-weight: 700;
-		letter-spacing: -0.02em;
-		line-height: 29px;
+	.gatsby-image-wrapper {
+		border-radius: 16px;
+	}
+	p {
 		margin-top: 24px;
 	}
 	h6 {
 		font-size: 18px;
 		line-height: 28px;
-		margin-top: 2px;
-	}
-	p {
-		font-size: 16px;
-		line-height: 24px;
-		margin-top: 8px;
 	}
 `;
 const SlickControl = styled.div`
@@ -722,7 +715,7 @@ const HomePage = ({ data }) => {
 		}
 	};
 
-	const easeBackground = getImage(data.easeBackground.childImageSharp.gatsbyImageData);
+	const easeBackground = getImage(data.easeBackground);
 
 	return (
 		<Layout logo={Logo}>
@@ -775,7 +768,7 @@ const HomePage = ({ data }) => {
 			<Fourth className="moving-area" data-child="4" id="fourth" background="#e5e7e9">
 				<Fourth1 id="fourth-wr">
 					<img id="s4_a1" src={Iphone} alt="" />
-					<H2 id="s4_a2" ColorWarmBlue>
+					<H2 id="s4_a2">
 						<div className="container">Fiinu 2 Limited</div>
 					</H2>
 					<H4 id="s4_a3">
@@ -796,7 +789,9 @@ const HomePage = ({ data }) => {
 					{data.allMdx.nodes.map((node) => (
 						<Slide to={`/about/${node.slug}`} key={node.frontmatter.number}>
 							<GatsbyImage image={node.frontmatter.image.childImageSharp.gatsbyImageData} alt={node.frontmatter.title} />
-							<h5>{node.frontmatter.title}</h5>
+							<P>
+								<b>{node.frontmatter.title}</b>
+							</P>
 							<h6>{node.frontmatter.position}</h6>
 						</Slide>
 					))}

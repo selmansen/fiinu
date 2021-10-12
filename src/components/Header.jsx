@@ -34,9 +34,6 @@ const Menu = styled.div`
 	border-radius: 32px;
 	transition: 0.5s;
 	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	@media (max-width: ${ScreenSm}) {
-		display:none !important
-	}
 	&.menuUp {
 		top: 36px;
 		background: rgba(255, 255, 255, 0.7);
