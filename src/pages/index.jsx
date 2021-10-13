@@ -508,10 +508,23 @@ const Slide = styled(Link)`
 	}
 	p {
 		margin-top: 24px;
+		transition:.4s;
 	}
 	h6 {
 		font-size: 18px;
 		line-height: 28px;
+	}
+	img{
+		transition:.4s;
+		filter:hue-rotate(0deg);
+	}
+	&:hover{
+		img{
+			filter:hue-rotate(25deg);
+		}
+		p{
+			color:${Variables.ColorWarmBlue};
+		}
 	}
 `;
 const SlickControl = styled.div`

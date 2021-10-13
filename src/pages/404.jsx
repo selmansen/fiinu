@@ -1,12 +1,10 @@
-import * as React from "react"
 
-import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+const NotFound = () => {
+  if (typeof window !== 'undefined') {
+    window.location = '/';
+  }
 
-const NotFoundPage = () => (
-  <Layout>
-    <Seo title="404: Not found" />
-  </Layout>
-)
+  return null;
+}
 
-export default NotFoundPage
+export default NotFound;
