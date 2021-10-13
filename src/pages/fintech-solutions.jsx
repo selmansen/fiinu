@@ -118,7 +118,7 @@ const ReadMoreBtn = styled.span`
 
 const Solutions = styled.section`
 	height: calc(${Variables.SHeight}* 3);
-	min-height: calc(880px * 3);
+	min-height: calc(940px * 3);
 	@media (max-width: ${Variables.ScreenLg}) {
 		min-height: calc(800px * 3);
 	}
@@ -132,7 +132,7 @@ const Solutions = styled.section`
 
 const SolutionsDisplay = styled.div`
 	height: ${Variables.SHeight};
-	min-height: 880px;
+	min-height: 940px;
 	position: sticky;
 	top: 0;
 	@media (max-width: ${Variables.ScreenLg}) {
@@ -221,6 +221,15 @@ const SolutionsContent = styled.div`
 				max-width:500px;
 				margin:auto;
 			}
+		}
+	}
+	.personal-image{
+		max-width:727px;
+		border-radius:32px;
+		box-shadow: 0px 70px 100px -50px rgba(51, 61, 71, 0.2);
+		margin-bottom:75px;
+		@media (max-width:${Variables.ScreenLg}){
+			max-width: 617px;
 		}
 	}
 	h3{
@@ -506,7 +515,7 @@ const FintechSolutionsPage = ({ data }) => {
 									<P style={s1a5Animate}>Fiinu’s proprietary transaction tagging technology will analyse the user’s spending into categories, providing an automatically updating, consolidated view of their financial lives. We collect anonymised transactional banking data with our Open Banking enabled app with integrated Plugin Overdraft, allowing users to benefit from intelligent cost-saving nudges relating to their connected bank accounts, credit cards or store cards in one secure place. </P>
 								</div>
 								<div>
-									<GatsbyImage image={solutionsImage} alt="Personal Finance Management app with integrated Plugin Overdraf" />
+									<GatsbyImage className="personal-image" image={solutionsImage} alt="Personal Finance Management app with integrated Plugin Overdraf" />
 								</div>
 							</SolutionsContent>
 						</div>
@@ -585,7 +594,7 @@ export const query = graphql`
 				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
 			}
 		}
-		solutionsImage: file(relativePath: { eq: "personal-finance.png" }) {
+		solutionsImage: file(relativePath: { eq: "personal-finance.jpg" }) {
 			childImageSharp {
 				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
 			}
