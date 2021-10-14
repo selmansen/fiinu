@@ -56,6 +56,11 @@ const TunaButton = styled(Link)`
 	padding: 16px 24px;
 	transition: 0.4s;
 	margin-top: ${({ marginTop }) => marginTop};
+	@media (max-width: ${Variables.ScreenXs}) {
+		padding:8px 20px;
+		font-size:16px;
+		line-height:24px;
+	}
 	svg {
 		margin-left: 15px;
 	}
@@ -73,6 +78,11 @@ const WarmButton = styled(Link)`
 	padding: 12px 20px;
 	text-align: center;
 	transition: 0.4s;
+	@media (max-width: ${Variables.ScreenXs}) {
+		padding:6px 20px;
+		font-size:16px;
+		line-height:24px;
+	}
 	&:hover {
 		background: ${Variables.ColorWarmBlue};
 		color: #fff;
@@ -603,15 +613,29 @@ const SlickNext = styled(SlickPrev)`
 const Holdings = styled.section`
 	background: #fff;
 	position: relative;
-	padding-bottom: 113px;
+	padding:120px 0px 113px;
 	z-index: 1;
 	@media (max-width: ${Variables.ScreenMd}) {
-		padding-bottom: 56px;
+		padding:45px 56px;
 	}
 	.container {
 		display: flex;
+		&:before{
+			content:"";
+			height:1px;
+			background-color:${Variables.ColorLightGray};
+			width:calc(100% - 30px);
+			position:absolute;
+			left:15px;
+			top:-120px;
+			@media (max-width: ${Variables.ScreenMd}) {
+				top:-45px;
+			}
+		}
 		@media (max-width: ${Variables.ScreenMd}) {
 			display: block;
+			
+
 		}
 	}
 	a {

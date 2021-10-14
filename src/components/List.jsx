@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 
 import IconCheck from "../images/icon-check.svg";
-import { ScreenMd, ScreenSm } from "./Variables";
+import { ScreenMd, ScreenXs } from "./Variables";
 
 const Li = styled.li`
 	font-size: 24px;
@@ -14,7 +14,7 @@ const Li = styled.li`
 		line-height: 32px;
 		padding-left: 30px;
 	}
-	@media (max-width: ${ScreenSm}) {
+	@media (max-width: ${ScreenXs}) {
 		font-size: 18px;
 		line-height: 28px;
 	}

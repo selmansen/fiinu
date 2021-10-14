@@ -130,11 +130,6 @@ const GlobalStyle = createGlobalStyle`
       .fadeInUp {
         animation-name: fadeInUp;
       }
-
-
-
-
-
 `;
 
 export default GlobalStyle;
