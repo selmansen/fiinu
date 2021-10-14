@@ -173,7 +173,7 @@ const Information = ({ theme }) => (
 				<ChartOut>
 					<P>
 						Fiinu Services Ltd <br />
-						<b>Co. No. 10544700</b>
+						<b>Co. No. 12973742</b>
 					</P>
 				</ChartOut>
 				<span>Fiinu Services Ltd will provide financial technology and alternative data solutions to the market.</span>
@@ -182,7 +182,7 @@ const Information = ({ theme }) => (
 				<ChartOut>
 					<P>
 						Fiinu 2 Ltd <br />
-						<b>Co. No. 10544700</b>
+						<b>Co. No. 12973786</b>
 					</P>
 				</ChartOut>
 				<span>Fiinu 2 Ltd is the applicant firm which will be renamed as Fiinu Bank Ltd once its authorised by the PRA/FCA.</span>

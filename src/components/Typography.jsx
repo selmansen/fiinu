@@ -64,19 +64,19 @@ const TypeP = styled.p`
 `;
 
 const H2 = ({ id, children, color, style }) => {
-	const h2color = {
+	const h2InlineStyle = {
 		color: color
 	};
 	return (
-		<TypeH2 style={{ ...h2color, ...style }} id={id}>
+		<TypeH2 style={{ ...h2InlineStyle, ...style }} id={id}>
 			{children}
 		</TypeH2>
 	);
 };
 
-const H3 = ({ id, children, style }) => {
+const H3 = ({ id, children, style, className }) => {
 	return (
-		<TypeH3 style={style} id={id}>
+		<TypeH3 style={style} id={id} className={className}>
 			{children}
 		</TypeH3>
 	);
@@ -86,8 +86,12 @@ const H4 = ({ id, children }) => {
 	return <TypeH4 id={id}>{children}</TypeH4>;
 };
 
-const H5 = ({ id, children }) => {
-	return <TypeH5 id={id}>{children}</TypeH5>;
+const H5 = ({ id, children, style, className }) => {
+	return (
+		<TypeH5 className={className} style={style} id={id}>
+			{children}
+		</TypeH5>
+	);
 };
 
 const P = ({ id, children, className, style }) => {

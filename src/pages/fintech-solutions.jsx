@@ -89,7 +89,6 @@ const YellowContent = styled.section`
 		&.show {
 			margin-top: 36px;
 			opacity: 1;
-
 		}
 	}
 `;
@@ -107,10 +106,10 @@ const ReadMoreBtn = styled.span`
 	text-align: center;
 	transition: 0.4s;
 	@media (max-width: ${Variables.ScreenXs}) {
-		padding:8px 20px;
-		font-size:16px;
-		line-height:24px;
-		svg{
+		padding: 8px 20px;
+		font-size: 16px;
+		line-height: 24px;
+		svg {
 			height: 21px;
 		}
 	}
@@ -139,7 +138,7 @@ const Solutions = styled.section`
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
 		min-height: auto;
-		height: calc(${Variables.SHeight}* 4);
+		height: calc(${Variables.SHeight}* 3.6);
 	}
 `;
 
@@ -158,8 +157,8 @@ const SolutionsDisplay = styled.div`
 		min-height: 1075px;
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-		height:auto;
-		min-height:auto;
+		height: auto;
+		min-height: auto;
 	}
 `;
 
@@ -169,7 +168,7 @@ const SolutionsOverflow = styled.div`
 	position: relative;
 	z-index: 1;
 	@media (max-width: ${Variables.ScreenXs}) {
-		padding-bottom:36px;
+		padding-bottom: 36px;
 	}
 	> .container {
 		align-items: center;
@@ -195,7 +194,7 @@ const SolutionsOverflow = styled.div`
 `;
 
 const SolutionsBg = styled.div`
-	background: rgba(253, 243, 239, .8);
+	background: rgba(253, 243, 239, 0.8);
 	backdrop-filter: blur(10px);
 	bottom: 0;
 	height: calc(100% - 82.5px);
@@ -213,9 +212,9 @@ const SolutionsContent = styled.div`
 	display: flex;
 	padding-top: 32px;
 	position: absolute;
-	z-index:3;
+	z-index: 3;
 	left: 15px;
-    right: 15px;
+	right: 15px;
 	@media (max-width: ${Variables.ScreenMd}) {
 		padding-top: 0;
 	}
@@ -224,9 +223,9 @@ const SolutionsContent = styled.div`
 		flex-direction: column-reverse;
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-		left:0;
-		right:0;
-		position:relative;
+		left: 0;
+		right: 0;
+		position: relative;
 	}
 	> div {
 		@media (min-width: calc(${Variables.ScreenSm} + 1px)) {
@@ -261,18 +260,24 @@ const SolutionsContent = styled.div`
 		}
 	}
 	h3 {
-		opacity: 0;
-		transform: translateY(50vh);
 		@media (max-width: ${Variables.ScreenSm}) {
 			margin-top: -32px;
 		}
 	}
 	p {
-		transform: translateY(50vh);
-		opacity: 0;
 		margin-top: 36px;
 		@media (max-width: ${Variables.ScreenSm}) {
 			margin-top: 24px;
+		}
+	}
+	h3,
+	p {
+		opacity: 0;
+		transition: 0.7s;
+		transform: translate3d(0, 50%, 0);
+		&.animate {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
 		}
 	}
 `;
@@ -476,22 +481,14 @@ const FintechSolutionsPage = ({ data }) => {
 
 	const s2a1Animate = {
 		opacity: animate > 1 ? "1" : animate < 0 ? "0" : animate,
-		transform: `translateX(${transform > 1 ? (transform < 100 ? transform : "100") : "0"}vw)`,
+		transform: `translateX(${transform > 1 ? (transform < 100 ? transform : "100") : "0"}vw)`
 	};
-	const s1a2Animate = {
+	const s2a2Animate = {
 		transform: `translateX(${transform > 1 ? (transform < 100 ? 100 - transform : "0") : "100"}vw)`
 	};
-	const s1a3Animate = {
-		transform: `translateY(${transform > 1 ? (transform < 100 ? 100 - transform : "0") : "100"}vh)`,
-		opacity: animate > 2.5 ? "1" : animate < 1.5 ? "0" : animate - 1.5
-	};
-	const s1a4Animate = {
-		transform: `translateY(${transform > 75 ? (transform < 125 ? 125 - transform : "0") : "50"}vh)`,
-		opacity: animate > 3.75 ? "1" : animate < 2.75 ? "0" : animate - 2.75
-	};
-	const s1a5Animate = {
-		transform: `translateY(${transform > 85 ? (transform < 135 ? 135 - transform : "0") : "50"}vh)`,
-		opacity: animate > 4.25 ? "1" : animate < 3.25 ? "0" : animate - 3.25
+	const s2a3Animate = {
+		transform: `translateY(${transform > 25 ? (transform < 125 ? 125 - transform : "0") : "100"}vh)`,
+		opacity: animate > 3.5 ? "1" : animate < 1.5 ? "0" : (animate - 1.5) / 2
 	};
 
 	return (
@@ -536,20 +533,20 @@ const FintechSolutionsPage = ({ data }) => {
 				<SolutionsDisplay>
 					<SolutionsOverflow>
 						<div className="container">
-							<H2 id="s1_a1" color={Variables.ColorWarmBlue} style={s2a1Animate}>
+							<H2 color={Variables.ColorWarmBlue} style={s2a1Animate}>
 								Fintech Solutions
 							</H2>
 							<SolutionsContent>
 								<div>
-									<H3 style={s1a4Animate}>Personal Finance Management app with integrated Plugin Overdraft®</H3>
-									<P style={s1a5Animate}>Fiinu’s proprietary transaction tagging technology will analyse the user’s spending into categories, providing an automatically updating, consolidated view of their financial lives. We collect anonymised transactional banking data with our Open Banking enabled app with integrated Plugin Overdraft, allowing users to benefit from intelligent cost-saving nudges relating to their connected bank accounts, credit cards or store cards in one secure place. </P>
+									<H3 className={animate > 3.3 ? "animate" : false}>Personal Finance Management app with integrated Plugin Overdraft®</H3>
+									<P className={animate > 3.5 ? "animate" : false}>Fiinu’s proprietary transaction tagging technology will analyse the user’s spending into categories, providing an automatically updating, consolidated view of their financial lives. We collect anonymised transactional banking data with our Open Banking enabled app with integrated Plugin Overdraft, allowing users to benefit from intelligent cost-saving nudges relating to their connected bank accounts, credit cards or store cards in one secure place. </P>
 								</div>
-								<div style={s1a3Animate}>
+								<div style={s2a3Animate}>
 									<GatsbyImage className="personal-image" image={solutionsImage} alt="Personal Finance Management app with integrated Plugin Overdraf" />
 								</div>
 							</SolutionsContent>
 						</div>
-						<SolutionsBg style={s1a2Animate} />
+						<SolutionsBg style={s2a2Animate} />
 					</SolutionsOverflow>
 				</SolutionsDisplay>
 			</Solutions>
