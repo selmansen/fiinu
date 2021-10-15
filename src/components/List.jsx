@@ -1,8 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import IconCheck from "../images/icon-check.svg";
 import { ScreenMd, ScreenXs } from "./Variables";
+
+import IconCheck from "../images/icon-check.svg";
 
 const Li = styled.li`
 	font-size: 24px;

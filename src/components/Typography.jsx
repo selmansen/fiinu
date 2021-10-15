@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+
 import { ScreenMd, ScreenXs } from "./Variables";
 
 const TypeH2 = styled.h2`
@@ -63,18 +64,18 @@ const TypeP = styled.p`
 	}
 `;
 
-const H2 = ({ id, children, color, style }) => {
+const H2 = ({ id, className, color, style, children }) => {
 	const h2InlineStyle = {
 		color: color
 	};
 	return (
-		<TypeH2 style={{ ...h2InlineStyle, ...style }} id={id}>
+		<TypeH2 style={{ ...h2InlineStyle, ...style }} className={className} id={id}>
 			{children}
 		</TypeH2>
 	);
 };
 
-const H3 = ({ id, children, style, className }) => {
+const H3 = ({ id, className, style, children }) => {
 	return (
 		<TypeH3 style={style} id={id} className={className}>
 			{children}
@@ -82,13 +83,17 @@ const H3 = ({ id, children, style, className }) => {
 	);
 };
 
-const H4 = ({ id, children }) => {
-	return <TypeH4 id={id}>{children}</TypeH4>;
+const H4 = ({ id, className, style, children }) => {
+	return (
+		<TypeH4 style={style} id={id} className={className}>
+			{children}
+		</TypeH4>
+	);
 };
 
-const H5 = ({ id, children, style, className }) => {
+const H5 = ({ id, className, style, children }) => {
 	return (
-		<TypeH5 className={className} style={style} id={id}>
+		<TypeH5 style={style} id={id} className={className}>
 			{children}
 		</TypeH5>
 	);

@@ -4,12 +4,14 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
+
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import List from "../components/List";
-
 import * as Variables from "../components/Variables";
-import { H2, H3, H4, H5, P } from "../components/Typography";
+import { H3, H4, H5, P } from "../components/Typography";
+import { IsMobile } from "../components/Function";
+import FintechAnimate1 from "../components/FintechAnimate1";
 
 import dataImg1 from "../images/solutions-data-img1.svg";
 import dataImg2 from "../images/solutions-data-img2.svg";
@@ -121,164 +123,6 @@ const ReadMoreBtn = styled.span`
 	&:hover {
 		background: #fff;
 		color: ${Variables.ColorWarmBlue};
-	}
-`;
-
-const Solutions = styled.section`
-	height: calc(${Variables.SHeight}* 3);
-	min-height: calc(940px * 3);
-	@media (max-width: ${Variables.ScreenLg}) {
-		min-height: calc(800px * 3);
-	}
-	@media (max-width: ${Variables.ScreenMd}) {
-		min-height: calc(630px * 3);
-	}
-	@media (max-width: ${Variables.ScreenSm}) {
-		min-height: calc(1075px * 3);
-	}
-	@media (max-width: ${Variables.ScreenXs}) {
-		min-height: auto;
-		height: calc(${Variables.SHeight}* 3.6);
-	}
-`;
-
-const SolutionsDisplay = styled.div`
-	height: ${Variables.SHeight};
-	min-height: 940px;
-	position: sticky;
-	top: 0;
-	@media (max-width: ${Variables.ScreenLg}) {
-		min-height: 800px;
-	}
-	@media (max-width: ${Variables.ScreenMd}) {
-		min-height: 630px;
-	}
-	@media (max-width: ${Variables.ScreenSm}) {
-		min-height: 1075px;
-	}
-	@media (max-width: ${Variables.ScreenXs}) {
-		height: auto;
-		min-height: auto;
-	}
-`;
-
-const SolutionsOverflow = styled.div`
-	height: 100%;
-	overflow: hidden;
-	position: relative;
-	z-index: 1;
-	@media (max-width: ${Variables.ScreenXs}) {
-		padding-bottom: 36px;
-	}
-	> .container {
-		align-items: center;
-		display: flex;
-		height: 100%;
-		justify-content: center;
-		@media (max-width: ${Variables.ScreenSm}) {
-			display: block;
-		}
-	}
-	h2 {
-		opacity: 0;
-		position: absolute;
-		text-align: center;
-		@media (max-width: ${Variables.ScreenMd}) {
-			align-items: center;
-			display: flex;
-			height: 100vh;
-			justify-content: center;
-			width: 100%;
-		}
-	}
-`;
-
-const SolutionsBg = styled.div`
-	background: rgba(253, 243, 239, 0.8);
-	backdrop-filter: blur(10px);
-	bottom: 0;
-	height: calc(100% - 82.5px);
-	position: absolute;
-	right: 0;
-	transform: translateX(100vw);
-	width: 100vw;
-	z-index: 1;
-	@media (max-width: ${Variables.ScreenMd}) {
-		height: 100%;
-	}
-`;
-
-const SolutionsContent = styled.div`
-	display: flex;
-	padding-top: 32px;
-	position: absolute;
-	z-index: 3;
-	left: 15px;
-	right: 15px;
-	@media (max-width: ${Variables.ScreenMd}) {
-		padding-top: 0;
-	}
-	@media (max-width: ${Variables.ScreenSm}) {
-		padding-top: 36px;
-		flex-direction: column-reverse;
-	}
-	@media (max-width: ${Variables.ScreenXs}) {
-		left: 0;
-		right: 0;
-		position: relative;
-	}
-	> div {
-		@media (min-width: calc(${Variables.ScreenSm} + 1px)) {
-			width: 50%;
-		}
-		&:first-child {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding: 80.5px 20px 0px 0px;
-			@media (max-width: ${Variables.ScreenMd}) {
-				padding: 0px;
-			}
-		}
-		&:nth-child(2) {
-			margin-left: 20px;
-			transform: translateY(100vh);
-			opacity: 0;
-			@media (max-width: ${Variables.ScreenSm}) {
-				max-width: 400px;
-				margin: auto;
-			}
-		}
-	}
-	.personal-image {
-		max-width: 727px;
-		border-radius: 32px;
-		box-shadow: 0px 70px 100px -50px rgba(51, 61, 71, 0.2);
-		margin-bottom: 75px;
-		@media (max-width: ${Variables.ScreenLg}) {
-			max-width: 617px;
-		}
-	}
-	h3 {
-		@media (max-width: ${Variables.ScreenSm}) {
-			margin-top: -32px;
-		}
-	}
-	p {
-		margin-top: 36px;
-		@media (max-width: ${Variables.ScreenSm}) {
-			margin-top: 24px;
-		}
-	}
-	h3,
-	p {
-		opacity: 0;
-		transition: 0.7s;
-		transform: translate3d(0, 50%, 0);
-		&.animate {
-			opacity: 1;
-			transform: translate3d(0, 0, 0);
-		}
 	}
 `;
 
@@ -421,45 +265,15 @@ const CreditImage = styled(GatsbyImage)`
 const FintechSolutionsPage = ({ data }) => {
 	const [readMore, setReadMore] = useState(false);
 	const [readHeight, setReadHeight] = useState(0);
-	const [scrollTop, setScrollTop] = useState(0);
-	const [animate, setAnimate] = useState(0);
-	const [transform, setTransform] = useState(0);
-	const [isMobile, setIsMobile] = useState(false);
+
+	const isMobile = IsMobile();
+	const devBackground = getImage(data.devBackground);
+	const creditUnderwritingImageMobile = getImage(data.creditUnderwritingImageMobile);
 
 	const readMoreClick = () => {
 		setReadMore(!readMore);
 		setReadHeight(!readMore ? document.querySelector(".hidden p").clientHeight : "0");
 	};
-
-	useEffect(() => {
-		const onScroll = () => {
-			setScrollTop(window.pageYOffset);
-
-			const height = document.querySelector(`#first`).clientHeight,
-				offsetTop = document.querySelector(`#first`).offsetTop,
-				count = 3,
-				center = height / count / 2,
-				start = scrollTop + center > offsetTop,
-				animateValue = (scrollTop - offsetTop) / center;
-
-			if (start) {
-				setAnimate(animateValue.toFixed(2));
-				setTransform(animateValue.toFixed(2) * 50 - 50);
-			}
-		};
-		onScroll();
-		window.addEventListener("scroll", onScroll, { passive: true });
-		return () => window.removeEventListener("scroll", onScroll);
-	}, [scrollTop]);
-
-	useEffect(() => {
-		function windowResize() {
-			setIsMobile(window.innerWidth > 767);
-		}
-		windowResize();
-		window.addEventListener("resize", windowResize);
-		return () => window.removeEventListener("resize", windowResize);
-	}, [isMobile]);
 
 	useEffect(() => {
 		function handleResize() {
@@ -471,24 +285,8 @@ const FintechSolutionsPage = ({ data }) => {
 
 	const yellowListData = ["Open Banking enabled tech licensing and alternative data.", "Become a leader in collection of transactional source data.", "The UK alt-data market projected to grow 62,000% by 2028."];
 
-	const devBackground = getImage(data.devBackground);
-	const solutionsImage = getImage(data.solutionsImage);
-	const creditUnderwritingImageMobile = getImage(data.creditUnderwritingImageMobile);
-
 	const readHeightOpen = {
 		height: readHeight
-	};
-
-	const s2a1Animate = {
-		opacity: animate > 1 ? "1" : animate < 0 ? "0" : animate,
-		transform: `translateX(${transform > 1 ? (transform < 100 ? transform : "100") : "0"}vw)`
-	};
-	const s2a2Animate = {
-		transform: `translateX(${transform > 1 ? (transform < 100 ? 100 - transform : "0") : "100"}vw)`
-	};
-	const s2a3Animate = {
-		transform: `translateY(${transform > 25 ? (transform < 125 ? 125 - transform : "0") : "100"}vh)`,
-		opacity: animate > 3.5 ? "1" : animate < 1.5 ? "0" : (animate - 1.5) / 2
 	};
 
 	return (
@@ -528,28 +326,8 @@ const FintechSolutionsPage = ({ data }) => {
 					</div>
 				</div>
 			</YellowContent>
-
-			<Solutions id="first">
-				<SolutionsDisplay>
-					<SolutionsOverflow>
-						<div className="container">
-							<H2 color={Variables.ColorWarmBlue} style={s2a1Animate}>
-								Fintech Solutions
-							</H2>
-							<SolutionsContent>
-								<div>
-									<H3 className={animate > 3.3 ? "animate" : false}>Personal Finance Management app with integrated Plugin Overdraft®</H3>
-									<P className={animate > 3.5 ? "animate" : false}>Fiinu’s proprietary transaction tagging technology will analyse the user’s spending into categories, providing an automatically updating, consolidated view of their financial lives. We collect anonymised transactional banking data with our Open Banking enabled app with integrated Plugin Overdraft, allowing users to benefit from intelligent cost-saving nudges relating to their connected bank accounts, credit cards or store cards in one secure place. </P>
-								</div>
-								<div style={s2a3Animate}>
-									<GatsbyImage className="personal-image" image={solutionsImage} alt="Personal Finance Management app with integrated Plugin Overdraf" />
-								</div>
-							</SolutionsContent>
-						</div>
-						<SolutionsBg style={s2a2Animate} />
-					</SolutionsOverflow>
-				</SolutionsDisplay>
-			</Solutions>
+			
+			<FintechAnimate1 />
 
 			<Data>
 				<div className="container">
@@ -617,11 +395,6 @@ export default FintechSolutionsPage;
 export const query = graphql`
 	query {
 		devBackground: file(relativePath: { eq: "development-banner-x.jpg" }) {
-			childImageSharp {
-				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
-			}
-		}
-		solutionsImage: file(relativePath: { eq: "personal-finance.jpg" }) {
 			childImageSharp {
 				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
 			}
