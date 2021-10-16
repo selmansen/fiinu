@@ -84,6 +84,13 @@ const SecondTopic = styled.div`
 	h5 {
 		opacity: 0;
 	}
+	h3{
+		@media (max-width: ${ScreenSm}) {
+			br{
+				display:none;
+			}
+		}
+	}
 	h5 {
 		margin-top: 75px;
 		@media (max-width: ${ScreenMd}) {

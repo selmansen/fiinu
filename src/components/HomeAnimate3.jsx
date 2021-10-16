@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
 import { Animate, IsMobile } from "./Function";
 import { ScreenMd, ScreenXs, SHeight, SDeadHeight, SMinHeight, ColorWarmBlue, ScreenSm, ColorTuna } from "./Variables";
 import { H2, H4 } from "./Typography";
-
-import Iphone from "../images/iphone.jpg";
 
 const Fourth = styled.section`
 	background: #e5e7e9;
@@ -44,12 +44,6 @@ const Fourth1 = styled.div`
 			backdrop-filter: blur(5px);
 			background: rgba(255, 255, 255, 0.4);
 		}
-	}
-	img {
-		transform: scale(0);
-		position: absolute;
-		width: 100%;
-		z-index: 1;
 	}
 	h2 {
 		position: absolute;
@@ -143,12 +137,29 @@ const TunaButton = styled(Link)`
 		background: #0f1216;
 	}
 `;
+const IphoneImage = styled.div`
+	transform: scale(0);
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+`;
 
 const HomeAnimate3 = () => {
 	const [transform, setTransform] = useState(0);
 
+	const data = useStaticQuery(graphql`
+		query {
+			iphoneBig: file(relativePath: { eq: "iphone.jpg" }) {
+				childImageSharp {
+					gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
+				}
+			}
+		}
+	`);
+
 	const animateRatio = Animate("fourth");
 	const isMobile = IsMobile();
+	const iphoneBig = getImage(data.iphoneBig);
 
 	useEffect(() => {
 		setTransform(animateRatio);
@@ -164,7 +175,9 @@ const HomeAnimate3 = () => {
 	return (
 		<Fourth data-child="4" id="fourth">
 			<Fourth1 className={transform > 1 ? "start" : false}>
-				<img src={Iphone} alt="Fiinu Mobile" style={a1} />
+				<IphoneImage style={a1}>
+					<GatsbyImage image={iphoneBig} alt="Fiinu Mobile" />
+				</IphoneImage>
 				<H2 className={transform > 2.5 ? "start" : false} style={a2}>
 					<div className="container">Fiinu 2 Limited</div>
 				</H2>

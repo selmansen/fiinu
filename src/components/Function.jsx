@@ -42,6 +42,21 @@ export const IsMobile = () => {
 	return mobile;
 };
 
+export const IsTablet = () => {
+	const [tablet, setTablet] = useState(false);
+
+	useEffect(() => {
+		function windowResize() {
+			setTablet(window.innerWidth > 1023);
+		}
+		windowResize();
+		window.addEventListener("resize", windowResize);
+		return () => window.removeEventListener("resize", windowResize);
+	}, [tablet]);
+
+	return tablet;
+};
+
 export const ScrollTop = () => {
 	const [scrollTo, setScrollTo] = useState(0);
 

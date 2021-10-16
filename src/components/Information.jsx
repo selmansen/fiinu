@@ -132,7 +132,7 @@ const ChartOut = styled.div`
 const Information = ({ theme }) => (
 	<InfoStyle theme={theme}>
 		<h5>
-			<img src={Location} alt="Country of Incorporation" />
+			<img src={Location} alt="Country of Incorporation" width="18" height="23" />
 			Country of Incorporation
 		</h5>
 		<P>
@@ -140,16 +140,16 @@ const Information = ({ theme }) => (
 			Company number 10544700
 		</P>
 		<Our>
-			<img src={Info} alt="Our main country of operation is the United Kingdom." />
+			<img src={Info} alt="Our main country of operation is the United Kingdom." width="20" height="20" />
 			Our main country of operation is the United Kingdom.
 		</Our>
 		<h5>
-			<img src={Office} alt="Registered office" />
+			<img src={Office} alt="Registered office" width="24" height="24" />
 			Registered office
 		</h5>
 		<P>Brooklands Business Park, Wellington Way, Weybridge, Surrey, England, KT13 0TT, United Kingdom</P>
 		<h5>
-			<img src={Checklist} alt="AIM Rule 26 Checklist" /> AIM Rule 26 Checklist
+			<img src={Checklist} alt="AIM Rule 26 Checklist" width="20" height="24" /> AIM Rule 26 Checklist
 		</h5>
 		<P>Group Structure</P>
 		<P>Fiinu Holdings Ltd is the group holding company</P>

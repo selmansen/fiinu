@@ -34,7 +34,7 @@ const Footer = () => (
 	<FooterStyle>
 		<div className="container">
 			<Link to="/">
-				<img src={LogoBlack} alt="Fiinu Logo" />
+				<img src={LogoBlack} alt="Fiinu Logo" width="165" height="57" />
 			</Link>
 			<Menu>
 				<MenuLink color={ColorTuna} />

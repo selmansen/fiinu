@@ -9,7 +9,7 @@ const MenuLink = styled(Link)`
 	font-size: 18px;
 	line-height: 28px;
 	position: relative;
-	transition: 0.3s;
+	transition: filter 0.3s;
 	&:before {
 		background-color: #5754ea;
 		border-radius: 5px;

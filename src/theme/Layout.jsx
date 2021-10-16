@@ -3,6 +3,16 @@ import { ColorTuna, ScreenLg, ScreenMd, ScreenSm, ScreenXs } from "../components
 import "./Typography.css";
 
 const GlobalStyle = createGlobalStyle`
+  .lock{
+    overflow:hidden;
+   @media (max-width:${ScreenSm}) and (min-width:calc(${ScreenXs} + 1px)){
+    .hamb-menu.active{
+      &:before, &:after{
+        background:${ColorTuna};
+      }
+    }
+   }
+  }
     body{
         margin: 0;
         padding: 0;
@@ -129,6 +139,50 @@ const GlobalStyle = createGlobalStyle`
       }
       .fadeInUp {
         animation-name: fadeInUp;
+      }
+
+      @keyframes flipInY {
+        from {
+          transform: perspective(550px) rotate3d(0, 1, 0, 180deg);
+          opacity: 0;
+        }
+      
+        40% {
+          transform: perspective(550px) rotate3d(0, 1, 0);
+        }
+      
+        60% {
+          transform: perspective(550px) rotate3d(0, 1, 0);
+          
+        }
+      
+        80% {
+          transform: perspective(550px) rotate3d(0, 1, 0);
+        }
+      
+        to {
+          transform: perspective(550px);
+          opacity: 1;
+        }
+      }
+      .flipInY {
+        backface-visibility: visible !important;
+        animation-name: flipInY;
+      }
+      @keyframes fadeInRightBig {
+        from {
+          opacity: 0;
+          transform: translate3d(100vw, 0, 0);
+        }
+      
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+      .fadeInRightBig {
+        -webkit-animation-name: fadeInRightBig;
+        animation-name: fadeInRightBig;
       }
 `;
 
