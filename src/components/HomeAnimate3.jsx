@@ -185,7 +185,7 @@ const HomeAnimate3 = () => {
 					<div className="container">Fiinu 2 Limited is anticipating obtaining a UK deposit-taking banking licence from the Prudential Regulation Authority (PRA) and the Financial Conduct Authority (FCA) in 2021.</div>
 				</H4>
 				<div className={`button-wrapper ${transform > 3 ? "start" : false}`}>
-					<TunaButton to="/investors">Visit Fiinu Bank</TunaButton>
+					<TunaButton to="/banking-solutions">Visit Fiinu Bank</TunaButton>
 				</div>
 			</Fourth1>
 		</Fourth>

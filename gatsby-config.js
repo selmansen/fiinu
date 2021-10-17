@@ -47,8 +47,8 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-offline`
-	]
-	// flags: {
-	//   DEV_SSR: false
-	//  }
+	],
+	flags: {
+	  DEV_SSR: false
+	 }
 };

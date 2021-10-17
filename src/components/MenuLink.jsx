@@ -40,7 +40,7 @@ const MenuLink = styled(Link)`
 	}
 `;
 
-const MenuText = ["Fintech solutions", "Banking solutions", "Investors", "About", "Careers"];
+const MenuText = ["Fintech solutions", "Banking solutions", "Investors", "About"];
 
 const MenuLinks = ({ color }) => {
 	const [blur, setBlur] = useState(false);

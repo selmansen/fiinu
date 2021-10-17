@@ -28,6 +28,9 @@ const Content = styled.section`
 	}
 	.left {
 		padding-right: 150px;
+		@media (max-width: ${ScreenSm}) {
+			padding-right:0;
+		}
 	}
 	.right {
 		@media (max-width: ${ScreenSm}) {
