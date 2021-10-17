@@ -251,7 +251,7 @@ const ConsumersList = styled.div`
 		margin-top: 45px;
 	}
 `;
-const ConsumersBox = styled(TrackVisibility)`
+const ConsumersBox = styled.div`
 	width: 20%;
 	display: flex;
 	align-items: center;
@@ -422,29 +422,29 @@ const BanksContent = [
 		title: "We are removing the unarranged overdraft.",
 		alt: "TSB Logo",
 		src: TSB,
-		width:65,
-		height:24
+		width: 65,
+		height: 24
 	},
 	{
 		title: "You can only make payments if you have enough money available.",
 		alt: "BARCLAYS Logo",
 		src: Barclays,
-		width:119,
-		height:22
+		width: 119,
+		height: 22
 	},
 	{
 		title: "We won’t let you go over to an unarranged overdraft.",
 		alt: "Nationwide Logo",
 		src: Nationwide,
-		width:105,
-		height:21
+		width: 105,
+		height: 21
 	},
 	{
 		title: "If you don’t have enough money, we refuse to make the payment.",
 		alt: "LLOYDS BANK Logo",
 		src: LloydsBank,
-		width:141,
-		height:34
+		width: 141,
+		height: 34
 	}
 ];
 
@@ -452,32 +452,32 @@ const ConsumersContent = [
 	{
 		title: "Consumer makes purchase.",
 		src: Cashier,
-		width:160,
-		height:160
+		width: 160,
+		height: 160
 	},
 	{
 		title: "They have insufﬁcient funds and can’t pay without some form of credit.",
 		src: CalculatorsTrue,
-		width:172,
-		height:174
+		width: 172,
+		height: 174
 	},
 	{
 		title: "Cashier (or online retailer) offers POS credit or BNPL.",
 		src: Cashier,
-		width:160,
-		height:160
+		width: 160,
+		height: 160
 	},
 	{
 		title: "Transaction is accepted by using retailer speciﬁc non-agnostic credit product.",
 		src: CalculatorsFalse,
-		width:160,
-		height:175
+		width: 160,
+		height: 175
 	},
 	{
 		title: "Purchase is completed, but the consumer is unaware of the mark in their credit ﬁle.",
 		src: Service,
-		width:150,
-		height:150
+		width: 150,
+		height: 150
 	}
 ];
 
@@ -584,7 +584,7 @@ const BankingSolutionsPage = ({ data }) => {
 								<div>
 									{BanksContent.map((item, i) =>
 										i < 2 ? (
-											<TrackVisibility once offset={100}>
+											<TrackVisibility key={i} once offset={100}>
 												{({ isVisible }) => (
 													<BankBox className={`animated ${isVisible ? "flipInY" : ""}`}>
 														<H5>{item.title}</H5>
@@ -598,7 +598,7 @@ const BankingSolutionsPage = ({ data }) => {
 								<div>
 									{BanksContent.map((item, i) =>
 										i > 1 ? (
-											<TrackVisibility once offset={100}>
+											<TrackVisibility key={i} once offset={100}>
 												{({ isVisible }) => (
 													<BankBox className={`animated ${isVisible ? "flipInY" : ""}`}>
 														<H5>{item.title}</H5>
@@ -651,13 +651,15 @@ const BankingSolutionsPage = ({ data }) => {
 					{isTablet ? (
 						<ConsumersList>
 							{ConsumersContent.map((item, i) => (
-								<ConsumersBox once offset={100}>
-									{({ isVisible }) => (
-										<div key={i} className={`animated ${isVisible ? "fadeInRightBig" : ""}`}>
-											<img src={item.src} alt={item.title} width={item.width} height={item.height} />
-											<span>{item.title}</span>
-										</div>
-									)}
+								<ConsumersBox key={i} >
+									<TrackVisibility once offset={100}>
+										{({ isVisible }) => (
+											<div className={`animated ${isVisible ? "fadeInRightBig" : ""}`}>
+												<img src={item.src} alt={item.title} width={item.width} height={item.height} />
+												<span>{item.title}</span>
+											</div>
+										)}
+									</TrackVisibility>
 								</ConsumersBox>
 							))}
 						</ConsumersList>
@@ -689,14 +691,14 @@ const BankingSolutionsPage = ({ data }) => {
 						</TrackVisibility>
 					</div>
 					<div className="right">
-						<TrackVisibility once >
+						<TrackVisibility once>
 							{({ isVisible }) => (
 								<div className={`iphone1 animated ${isVisible ? "fadeInRightBig" : ""}`}>
 									<GatsbyImage image={iphone1} alt="Fiinu Mobile" />
 								</div>
 							)}
 						</TrackVisibility>
-						<TrackVisibility once >
+						<TrackVisibility once>
 							{({ isVisible }) => (
 								<div className={`iphone2 animated ${isVisible ? "fadeInRightBig" : ""}`}>
 									<GatsbyImage image={iphone2} alt="Fiinu Mobile" />
