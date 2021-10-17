@@ -9,7 +9,7 @@ import { ColorTuna, ScreenSm, ScreenXs } from "./Variables";
 import LogoBlack from "../images/fiinu-logo-black.svg";
 
 const HeaderStyle = styled.header`
-	min-width: 320px;
+	min-width: 360px;
 	position: absolute;
 	top: 36px;
 	width: 100%;
@@ -45,7 +45,7 @@ const Menu = styled.div`
 		flex-direction: column;
 		height: 100%;
 		left: -100%;
-		min-width: 320px;
+		min-width: 360px;
 		padding: 24px 30px;
 		top: 0;
 		transition-timing-function: ease-in-out;
@@ -180,7 +180,7 @@ const Header = ({ logo }) => {
 
 				{!isTablet ? <Hamburger className={`hamb-menu ${hamMenu ? "active" : ""} ${logo ? "white" : ""}`} onClick={menuToggle} /> : false}
 
-				<Menu className={(menuUp, hamMenu ? "open" : false)}>
+				<Menu className={`${menuUp} ${hamMenu ? "open" : ""}`}>
 					<MenuLink color={logo ? "#fff" : ColorTuna} />
 				</Menu>
 			</Container>

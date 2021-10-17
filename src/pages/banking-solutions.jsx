@@ -11,6 +11,7 @@ import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import BankingAnimate1 from "../components/BankingAnimate1";
 import BankingAnimate2 from "../components/BankingAnimate2";
+import BankingAnimate3 from "../components/BankingAnimate3";
 import { ScrollTop, IsMobile, IsTablet } from "../components/Function";
 import * as Variables from "../components/Variables";
 import { H3, H5, P } from "../components/Typography";
@@ -688,14 +689,14 @@ const BankingSolutionsPage = ({ data }) => {
 						</TrackVisibility>
 					</div>
 					<div className="right">
-						<TrackVisibility once offset={385}>
+						<TrackVisibility once >
 							{({ isVisible }) => (
 								<div className={`iphone1 animated ${isVisible ? "fadeInRightBig" : ""}`}>
 									<GatsbyImage image={iphone1} alt="Fiinu Mobile" />
 								</div>
 							)}
 						</TrackVisibility>
-						<TrackVisibility once offset={350}>
+						<TrackVisibility once >
 							{({ isVisible }) => (
 								<div className={`iphone2 animated ${isVisible ? "fadeInRightBig" : ""}`}>
 									<GatsbyImage image={iphone2} alt="Fiinu Mobile" />
@@ -745,6 +746,7 @@ const BankingSolutionsPage = ({ data }) => {
 					</div>
 				</div>
 			</Research>
+			<BankingAnimate3 />
 		</Layout>
 	);
 };

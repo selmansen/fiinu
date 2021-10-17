@@ -95,7 +95,7 @@ const BankingAnimate1 = () => {
 	};
 
 	return (
-		<First id="first" className="moving-area" data-child="3">
+		<First id="first" data-child="3">
 			<FirstDisplay>
 				<FirstOverflow>
 					<div className="container">

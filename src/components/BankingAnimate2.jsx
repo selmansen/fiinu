@@ -238,7 +238,7 @@ const BankingAnimate2 = () => {
 	};
 
 	return (
-		<Second id="second" className="moving-area" data-child="4">
+		<Second id="second" data-child="4">
 			<SecondDisplay>
 				<SecondOverflow>
 					<div className="container">
