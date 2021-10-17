@@ -10,8 +10,15 @@ import { H2, H3 } from "./Typography";
 const Market = styled.section`
 	height: calc(${SHeight}* 5.6);
 	min-height: calc(676px * 5.6);
+	margin-bottom:-150px;
 	@media (max-width: ${ScreenMd}) {
 		min-height: calc(630px * 5.6);
+	}
+	@media (max-width: ${ScreenSm}) {
+		margin-bottom:-220px;
+	}
+	@media (max-width:${ScreenXs}){
+		margin-bottom: -70px;
 	}
 `;
 
@@ -90,6 +97,7 @@ const Imgs = styled.div`
 	height: 676px;
 	position: absolute;
 	width: 1495px;
+	margin-top:-100px;
 	@media (max-width: ${ScreenXs}) {
 		height: 690px;
 		width: 360px;
@@ -98,6 +106,7 @@ const Imgs = styled.div`
 		transform: scale(0.75);
 	}
 	@media (max-width: ${ScreenSm}) {
+		margin-top:-150px;
 		transform: scale(0.5);
 	}
 	@media (max-width: ${ScreenXs}) {
@@ -552,7 +561,7 @@ const BankingAnimate3 = () => {
 								{isMobile ? (
 									<>
 										<span className={`s7 b1 ${scale > 7.7 ? "animate" : ""}`}></span>
-										<span className={`s8 b3 ${scale > 6.6 ? "animate" : ""}`}></span>
+										<span className={`s8 b1 ${scale > 6.6 ? "animate" : ""}`}></span>
 										<span className={`s10 b3 ${scale > 7.4 ? "animate" : ""}`}></span>
 										<span className={`s11 b2 ${scale > 7.6 ? "animate" : ""}`}></span>
 									</>

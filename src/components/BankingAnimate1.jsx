@@ -18,7 +18,6 @@ const First = styled.section`
 	h2 {
 		text-align: center;
 		position: absolute;
-		padding-top: 90px;
 		left:0;
 		right:0;
 		@media (max-width: ${ScreenXs}) {
