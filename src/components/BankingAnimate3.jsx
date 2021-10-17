@@ -100,7 +100,7 @@ const Imgs = styled.div`
 	margin-top:-100px;
 	@media (max-width: ${ScreenXs}) {
 		height: 690px;
-		width: 360px;
+		width: 320px;
 	}
 	@media (max-width: ${ScreenMd}) {
 		transform: scale(0.75);
