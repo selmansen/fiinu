@@ -263,17 +263,17 @@ const SlickNext = styled(SlickPrev)`
 	margin-left: 20px;
 	margin-right: 25px;
 	&:before {
-		border: 0;
-		border-right: 2px solid #dad9d7;
-		border-top: 2px solid #dad9d7;
-		left: auto;
-		right: 0;
-		top: 3px;
-		transform: rotate(45deg);
+		border: 0 !important;
+		border-right: 2px solid #dad9d7 !important;
+		border-top: 2px solid #dad9d7 !important;
+		left: auto !important;
+		right: 0 !important;
+		top: 3px !important;
+		transform: rotate(45deg) !important;
 	}
 	&:after {
-		left: 1px;
-		top: 9px;
+		left: 1px !important;
+		top: 9px !important;
 	}
 `;
 const Holdings = styled.section`
@@ -284,8 +284,23 @@ const Holdings = styled.section`
 	@media (max-width: ${Variables.ScreenMd}) {
 		padding: 45px 0 56px;
 	}
+	@media (max-width: ${Variables.ScreenXs}) {
+		padding: 45px 0 0;
+	}
 	.container {
 		display: flex;
+		@media (max-width: ${Variables.ScreenMd}) {
+			display: block;
+		}
+		@media (max-width: ${Variables.ScreenXs}) {
+			padding:0;
+		}
+		>div{
+			width:50%;
+			@media (max-width: ${Variables.ScreenMd}) {
+				width: 100%;
+			}
+		}
 		&:before {
 			content: "";
 			height: 1px;
@@ -298,9 +313,6 @@ const Holdings = styled.section`
 				top: -45px;
 			}
 		}
-		@media (max-width: ${Variables.ScreenMd}) {
-			display: block;
-		}
 	}
 	a {
 		margin-top: 45px;
@@ -311,11 +323,12 @@ const Holdings = styled.section`
 `;
 const HoldingsContent = styled.div`
 	padding-right: 40px;
-	width: 50%;
 	@media (max-width: ${Variables.ScreenMd}) {
-		width: 100%;
 		padding-right: 0;
 	}
+	@media (max-width: ${Variables.ScreenXs}) {
+        padding:0 10px;
+    }
 	p {
 		margin-top: 35px;
 		@media (max-width: ${Variables.ScreenMd}) {

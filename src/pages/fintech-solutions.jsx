@@ -200,6 +200,7 @@ const Data = styled.section`
 		margin: auto;
 		max-width: 100%;
 		height: auto;
+		width: auto;
 		@media (max-width: ${Variables.ScreenSm}) {
 			margin-top: 24px;
 		}

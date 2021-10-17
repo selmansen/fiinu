@@ -13,11 +13,12 @@ const InfoStyle = styled.div`
 	background: ${ColorFantasy};
 	border-radius: 16px;
 	padding: 64px;
-	width: 50%;
 	@media (max-width: ${ScreenMd}) {
-		width: 100%;
 		margin-top: 36px;
 		padding: 24px 20px;
+	}
+	@media (max-width: ${ScreenXs}) {
+		border-radius:0;
 	}
 	@media (max-width: ${ScreenXs}) {
 		padding:24px 10px 36px 10px;
