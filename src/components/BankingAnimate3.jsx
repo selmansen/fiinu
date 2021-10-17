@@ -8,10 +8,10 @@ import { ScreenMd, ScreenSm, ScreenXs, SHeight, ColorTuna, ColorGoldenYellow } f
 import { H2, H3 } from "./Typography";
 
 const Market = styled.section`
-	height: calc(${SHeight}* 4);
-	min-height: calc(676px * 4);
+	height: calc(${SHeight}* 5.6);
+	min-height: calc(676px * 5.6);
 	@media (max-width: ${ScreenMd}) {
-		min-height: calc(630px * 4);
+		min-height: calc(630px * 5.6);
 	}
 `;
 
@@ -474,88 +474,87 @@ const BankingAnimate3 = () => {
 	}, [animateRatio]);
 
 	const a1 = {
-		width: `${width > 34 ? (width < 125 ? width - 25 : width < 218 ? 225 - width : "7") : "9"}%`
+		width: `${width > 234 ? (width < 325 ? width - 225 : width < 418 ? 425 - width : "7") : "9"}%`
 	};
 	const a2 = {
-		transform: `scale( ${scale > 3 ? (scale < 4 ? 4 - scale : "0") : "1"} )`
+		transform: `scale( ${scale > 5.5 ? (scale < 6.5 ? 6.5 - scale : "0") : "1"} )`
 	};
-
 	return (
 		<>
-			<Title>
-				<div className="container">
-					<H3>Ultimately, our technology will create a new market where unbundled overdraft has increased financial fairness and freedom for...</H3>
-				</div>
-			</Title>
-			<Market id="market" data-child="4">
+			<Market id="market" data-child="5">
+				<Title>
+					<div className="container">
+						<H3>Ultimately, our technology will create a new market where unbundled overdraft has increased financial fairness and freedom for...</H3>
+					</div>
+				</Title>
 				<Display>
 					<Overflow>
 						<div className="container">
 							<BigTitle style={a2}>
-								<span style={a1}></span> {width < 126 ? "everyone" : "everywhere"}
+								<span style={a1}></span> {width < 326 ? "everyone" : "everywhere"}
 							</BigTitle>
 							<Imgs>
-								<ImgWrap className={scale > 4.7 ? "animate" : false}>
+								<ImgWrap className={scale > 7.2 ? "animate" : false}>
 									<GatsbyImage image={marketImg1} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.3 ? "animate" : false}>
+								<ImgWrap className={scale > 6.8 ? "animate" : false}>
 									<GatsbyImage image={marketImg2} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.9 ? "animate" : false}>
+								<ImgWrap className={scale > 7.4 ? "animate" : false}>
 									<GatsbyImage image={marketImg3} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 5.1 ? "animate" : false}>
+								<ImgWrap className={scale > 7.6 ? "animate" : false}>
 									<GatsbyImage image={marketImg4} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.5 ? "animate" : false}>
+								<ImgWrap className={scale > 7 ? "animate" : false}>
 									<GatsbyImage image={marketImg5} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.1 ? "animate" : false}>
+								<ImgWrap className={scale > 6.6 ? "animate" : false}>
 									<GatsbyImage image={marketImg6} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.4 ? "animate" : false}>
+								<ImgWrap className={scale > 6.9 ? "animate" : false}>
 									<GatsbyImage image={marketImg7} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 5.2 ? "animate" : false}>
+								<ImgWrap className={scale > 7.7 ? "animate" : false}>
 									<GatsbyImage image={marketImg8} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 5 ? "animate" : false}>
+								<ImgWrap className={scale > 7.5 ? "animate" : false}>
 									<GatsbyImage image={marketImg9} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 5.5 ? "animate" : false}>
+								<ImgWrap className={scale > 8 ? "animate" : false}>
 									<GatsbyImage image={marketImg10} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 5.6 ? "animate" : false}>
+								<ImgWrap className={scale > 8.1 ? "animate" : false}>
 									<GatsbyImage image={marketImg11} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.2 ? "animate" : false}>
+								<ImgWrap className={scale > 6.7 ? "animate" : false}>
 									<GatsbyImage image={marketImg12} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 5.4 ? "animate" : false}>
+								<ImgWrap className={scale > 7.9 ? "animate" : false}>
 									<GatsbyImage image={marketImg13} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.8 ? "animate" : false}>
+								<ImgWrap className={scale > 7.3 ? "animate" : false}>
 									<GatsbyImage image={marketImg14} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 4.6 ? "animate" : false}>
+								<ImgWrap className={scale > 7.1 ? "animate" : false}>
 									<GatsbyImage image={marketImg15} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 5.3 ? "animate" : false}>
+								<ImgWrap className={scale > 7.8 ? "animate" : false}>
 									<GatsbyImage image={marketImg16} alt="Everywhere" />
 								</ImgWrap>
-								<span className={`s1 b1 ${scale > 4.3 ? "animate" : ""}`}></span>
-								<span className={`s2 b1 ${scale > 5 ? "animate" : ""}`}></span>
-								<span className={`s3 b2 ${scale > 4.8 ? "animate" : ""}`}></span>
-								<span className={`s4 b3 ${scale > 5.6 ? "animate" : ""}`}></span>
-								<span className={`s5 b3 ${scale > 4.2 ? "animate" : ""}`}></span>
-								<span className={`s6 b2 ${scale > 4.7 ? "animate" : ""}`}></span>
-								<span className={`s9 b2 ${scale > 4.4 ? "animate" : ""}`}></span>
+								<span className={`s1 b1 ${scale > 6.8 ? "animate" : ""}`}></span>
+								<span className={`s2 b1 ${scale > 7.5 ? "animate" : ""}`}></span>
+								<span className={`s3 b2 ${scale > 7.3 ? "animate" : ""}`}></span>
+								<span className={`s4 b3 ${scale > 8.1 ? "animate" : ""}`}></span>
+								<span className={`s5 b3 ${scale > 6.7 ? "animate" : ""}`}></span>
+								<span className={`s6 b2 ${scale > 7.3 ? "animate" : ""}`}></span>
+								<span className={`s9 b2 ${scale > 6.9 ? "animate" : ""}`}></span>
 								{isMobile ? (
 									<>
-										<span className={`s7 b1 ${scale > 5.2 ? "animate" : ""}`}></span>
-										<span className={`s8 b3 ${scale > 4.1 ? "animate" : ""}`}></span>
-										<span className={`s10 b3 ${scale > 4.9 ? "animate" : ""}`}></span>
-										<span className={`s11 b2 ${scale > 5.1 ? "animate" : ""}`}></span>
+										<span className={`s7 b1 ${scale > 7.7 ? "animate" : ""}`}></span>
+										<span className={`s8 b3 ${scale > 6.6 ? "animate" : ""}`}></span>
+										<span className={`s10 b3 ${scale > 7.4 ? "animate" : ""}`}></span>
+										<span className={`s11 b2 ${scale > 7.6 ? "animate" : ""}`}></span>
 									</>
 								) : (
 									false
