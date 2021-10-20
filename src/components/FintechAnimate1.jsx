@@ -212,7 +212,7 @@ const BankingAnimate2 = () => {
 	};
 
 	return (
-		<Solutions id="first" data-child="3">
+		<Solutions id="first" data-child={isMobile ? "3" : "4"}>
 			<SolutionsDisplay>
 				<SolutionsOverflow>
 					<div className="container">
