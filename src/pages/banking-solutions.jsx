@@ -502,7 +502,9 @@ const BankingSolutionsPage = ({ data }) => {
 		speed: 300,
 		slidesToShow: 1,
 		adaptiveHeight: true,
-		arrows: false
+		swipeToSlide: true,
+		touchThreshold: 100,
+		arrows: false,
 	};
 
 	const iphone1 = getImage(data.iphone1);
