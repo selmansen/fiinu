@@ -3,22 +3,22 @@ import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
-import { Animate, IsMobile } from "./Function";
+import { Animate } from "./Function";
 import { ScreenMd, ScreenSm, ScreenXs, SHeight, ColorTuna, ColorGoldenYellow } from "./Variables";
 import { H2, H3 } from "./Typography";
 
 const Market = styled.section`
-	height: calc(${SHeight}* 5.6);
-	min-height: calc(676px * 5.6);
-	margin-bottom:-150px;
+	height: calc(${SHeight}* 5.5);
+	min-height: calc(676px * 5.5);
+	margin-bottom: -150px;
 	@media (max-width: ${ScreenMd}) {
-		min-height: calc(630px * 5.6);
+		min-height: calc(630px * 5.5);
 	}
 	@media (max-width: ${ScreenSm}) {
-		margin-bottom:-220px;
+		margin-bottom: -220px;
 	}
-	@media (max-width:${ScreenXs}){
-		margin-bottom: -70px;
+	@media (max-width: ${ScreenXs}) {
+		margin-bottom: 0px;
 	}
 `;
 
@@ -45,26 +45,19 @@ const Overflow = styled.div`
 	}
 `;
 
-const Title = styled.div`
-	position: relative;
-	height: calc(${SHeight} * 1.5);
-	.container {
-		height: 100%;
+const Title = styled(H3)`
+	font-size: 72px;
+	text-align: center;
+	position: absolute;
+	max-width: 1260px;
+	opacity: 1;
+	@media (max-width: ${ScreenSm}) {
+		font-size: 36px;
+		line-height: 44px;
 	}
-	h3 {
-		align-items: center;
-		display: flex;
-		font-size: 72px;
-		height: ${SHeight};
-		justify-content: center;
-		line-height: 64px;
-		position: sticky;
-		text-align: center;
-		top: 0;
-		@media (max-width: ${ScreenSm}) {
-			font-size: 36px;
-			line-height: 44px;
-		}
+	@media (max-width: ${ScreenSm}) {
+		right:10px;
+		left:10px;
 	}
 `;
 
@@ -73,6 +66,12 @@ const BigTitle = styled(H2)`
 	padding: 0 43px;
 	position: relative;
 	z-index: 1;
+	opacity: 0;
+	@media (max-width: ${ScreenSm}) {
+		font-size: 77px;
+		line-height: 77px;
+		padding: 0 18px;
+	}
 	@media (max-width: ${ScreenXs}) {
 		font-size: 44px;
 		line-height: 56px;
@@ -86,6 +85,10 @@ const BigTitle = styled(H2)`
 		top: -28px;
 		width: 64px;
 		z-index: -1;
+		@media (max-width: ${ScreenSm}) {
+			height: calc(100% + 40px);
+			top: -20px;
+		}
 		@media (max-width: ${ScreenXs}) {
 			height: calc(100% + 9px);
 			top: -5px;
@@ -97,7 +100,7 @@ const Imgs = styled.div`
 	height: 676px;
 	position: absolute;
 	width: 1495px;
-	margin-top:-100px;
+	margin-top: -100px;
 	@media (max-width: ${ScreenXs}) {
 		height: 690px;
 		width: 320px;
@@ -106,7 +109,7 @@ const Imgs = styled.div`
 		transform: scale(0.75);
 	}
 	@media (max-width: ${ScreenSm}) {
-		margin-top:-150px;
+		margin-top: -60px;
 		transform: scale(0.5);
 	}
 	@media (max-width: ${ScreenXs}) {
@@ -139,48 +142,48 @@ const Imgs = styled.div`
 			background: #f79714;
 		}
 		&.s1 {
-			left: 229px;
-			top: 595px;
+			left: 146px;
+			top: 631px;
 			@media (max-width: ${ScreenXs}) {
 				left: 290px;
 				top: 260px;
 			}
 		}
 		&.s2 {
-			left: 382px;
-			top: 563px;
+			left: 279px;
+			top: 579px;
 			@media (max-width: ${ScreenXs}) {
 				left: 138px;
 				top: 225px;
 			}
 		}
 		&.s3 {
-			left: 365px;
-			top: 724px;
+			left: 617px;
+			top: 185px;
 			@media (max-width: ${ScreenXs}) {
 				left: 130px;
 				top: 167px;
 			}
 		}
 		&.s4 {
-			left: 477px;
-			top: 255px;
+			left: 81px;
+			top: 171px;
 			@media (max-width: ${ScreenXs}) {
 				left: 45px;
 				top: 280px;
 			}
 		}
 		&.s5 {
-			left: 564px;
-			top: 480px;
+			left: 479px;
+			top: 564px;
 			@media (max-width: ${ScreenXs}) {
 				left: 98px;
 				top: 340px;
 			}
 		}
 		&.s6 {
-			left: 617px;
-			top: 180px;
+			left: 900px;
+			top: 780px;
 			@media (max-width: ${ScreenXs}) {
 				left: 313px;
 				top: 160px;
@@ -195,8 +198,8 @@ const Imgs = styled.div`
 			top: 694px;
 		}
 		&.s9 {
-			left: 982px;
-			top: 188px;
+			left: 1174px;
+			top: 56px;
 			@media (max-width: ${ScreenXs}) {
 				left: 125px;
 				top: 440px;
@@ -224,17 +227,17 @@ const ImgWrap = styled.div`
 		transform: scale(1);
 	}
 	&:nth-child(1) {
-		left: 68px;
-		top: 234px;
+		left: -90px;
+		top: 350px;
 		@media (max-width: ${ScreenXs}) {
 			left: -60px;
-			top: 399px;
+			top: 422px;
 			width: 123px;
 		}
 	}
 	&:nth-child(2) {
-		left: 268px;
-		top: 84px;
+		left: 240px;
+		top: 32px;
 		@media (max-width: ${ScreenXs}) {
 			left: -10px;
 			top: 181px;
@@ -242,8 +245,8 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(3) {
-		left: 423px;
-		top: 587px;
+		left: 340px;
+		top: 666px;
 		@media (max-width: ${ScreenXs}) {
 			left: 176px;
 			top: 534px;
@@ -251,8 +254,8 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(4) {
-		left: 418px;
-		top: 423px;
+		left: 389px;
+		top: 498px;
 		@media (max-width: ${ScreenXs}) {
 			left: 82px;
 			top: 477px;
@@ -260,17 +263,17 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(5) {
-		left: 477px;
-		top: 280px;
+		left: 81px;
+		top: 191px;
 		@media (max-width: ${ScreenXs}) {
-			left: 20px;
+			left: -40px;
 			top: 305px;
 			width: 54px;
 		}
 	}
 	&:nth-child(6) {
-		left: 514px;
-		top: 507px;
+		left: 505px;
+		top: 641px;
 		@media (max-width: ${ScreenXs}) {
 			left: 103px;
 			top: 583px;
@@ -278,8 +281,8 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(7) {
-		left: 689px;
-		top: 136px;
+		left: 617px;
+		top: 67px;
 		@media (max-width: ${ScreenXs}) {
 			left: 80px;
 			top: 134px;
@@ -287,17 +290,17 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(8) {
-		left: 698px;
-		top: 458px;
+		left: 695px;
+		top: 506px;
 		@media (max-width: ${ScreenXs}) {
-			left: 183px;
-			top: 440px;
+			left: 123px;
+			top: 265px;
 			width: 59px;
 		}
 	}
 	&:nth-child(9) {
-		left: 751px;
-		top: 204px;
+		left: 684px;
+		top: 143px;
 		@media (max-width: ${ScreenXs}) {
 			left: 300px;
 			top: 200px;
@@ -305,8 +308,8 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(10) {
-		left: 796px;
-		top: 613px;
+		left: 793px;
+		top: 661px;
 		@media (max-width: ${ScreenXs}) {
 			left: 240px;
 			top: 530px;
@@ -314,8 +317,8 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(11) {
-		left: 843px;
-		top: 351px;
+		left: 957px;
+		top: 514px;
 		@media (max-width: ${ScreenXs}) {
 			left: 10px;
 			top: 125px;
@@ -324,7 +327,7 @@ const ImgWrap = styled.div`
 	}
 	&:nth-child(12) {
 		left: 858px;
-		top: 51px;
+		top: 46px;
 		@media (max-width: ${ScreenXs}) {
 			left: 118px;
 			top: 64px;
@@ -332,20 +335,20 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(13) {
-		left: 880px;
-		top: 515px;
+		left: 877px;
+		top: 573px;
 		@media (max-width: ${ScreenXs}) {
-			left: 263px;
-			top: 460px;
+			left: 163px;
+			top: 420px;
 			width: 43px;
 		}
 	}
 	&:nth-child(14) {
-		left: 994px;
-		top: 189px;
+		left: 1240px;
+		top: 184px;
 		@media (max-width: ${ScreenXs}) {
-			left: 103px;
-			top: 258px;
+			left: 233px;
+			top: 388px;
 			width: 140px;
 		}
 	}
@@ -359,11 +362,11 @@ const ImgWrap = styled.div`
 		}
 	}
 	&:nth-child(16) {
-		left: 1273px;
-		top: 148px;
+		left: 1194px;
+		top: 51px;
 		@media (max-width: ${ScreenXs}) {
-			left: 298px;
-			top: 385px;
+			left: 278px;
+			top: 295px;
 			width: 40px;
 		}
 	}
@@ -459,7 +462,7 @@ const BankingAnimate3 = () => {
 	`);
 
 	const animateRatio = Animate("market");
-	const isMobile = IsMobile();
+
 	const marketImg1 = getImage(data.marketImg1);
 	const marketImg2 = getImage(data.marketImg2);
 	const marketImg3 = getImage(data.marketImg3);
@@ -482,92 +485,82 @@ const BankingAnimate3 = () => {
 		setScale(animateRatio);
 	}, [animateRatio]);
 
+	const a3 = {
+		opacity: scale > 1.5 ? "0" : 1.5 - scale
+	};
+
 	const a1 = {
 		width: `${width > 234 ? (width < 325 ? width - 225 : width < 418 ? 425 - width : "7") : "9"}%`
 	};
 	const a2 = {
-		transform: `scale( ${scale > 5.5 ? (scale < 6.5 ? 6.5 - scale : "0") : "1"} )`
+		opacity: scale > 2.5 ? "1" : scale < 1.5 ? "0" : scale - 1.5
 	};
 	return (
 		<>
 			<Market id="market" data-child="5">
-				<Title>
-					<div className="container">
-						<H3>Ultimately, our technology will create a new market where unbundled overdraft has increased financial fairness and freedom for...</H3>
-					</div>
-				</Title>
 				<Display>
 					<Overflow>
 						<div className="container">
+							<Title style={a3}>Ultimately, our technology will create a new market where unbundled overdraft has increased financial fairness and freedom for...</Title>
 							<BigTitle style={a2}>
 								<span style={a1}></span> {width < 326 ? "everyone" : "everywhere"}
 							</BigTitle>
 							<Imgs>
-								<ImgWrap className={scale > 7.2 ? "animate" : false}>
+								<ImgWrap className={scale > 6.2 ? "animate" : false}>
 									<GatsbyImage image={marketImg1} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 6.8 ? "animate" : false}>
+								<ImgWrap className={scale > 5.8 ? "animate" : false}>
 									<GatsbyImage image={marketImg2} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.4 ? "animate" : false}>
+								<ImgWrap className={scale > 6.4 ? "animate" : false}>
 									<GatsbyImage image={marketImg3} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.6 ? "animate" : false}>
+								<ImgWrap className={scale > 6.6 ? "animate" : false}>
 									<GatsbyImage image={marketImg4} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7 ? "animate" : false}>
+								<ImgWrap className={scale > 6 ? "animate" : false}>
 									<GatsbyImage image={marketImg5} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 6.6 ? "animate" : false}>
+								<ImgWrap className={scale > 5.6 ? "animate" : false}>
 									<GatsbyImage image={marketImg6} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 6.9 ? "animate" : false}>
+								<ImgWrap className={scale > 5.9 ? "animate" : false}>
 									<GatsbyImage image={marketImg7} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.7 ? "animate" : false}>
+								<ImgWrap className={scale > 6.7 ? "animate" : false}>
 									<GatsbyImage image={marketImg8} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.5 ? "animate" : false}>
+								<ImgWrap className={scale > 6.5 ? "animate" : false}>
 									<GatsbyImage image={marketImg9} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 8 ? "animate" : false}>
+								<ImgWrap className={scale > 6 ? "animate" : false}>
 									<GatsbyImage image={marketImg10} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 8.1 ? "animate" : false}>
+								<ImgWrap className={scale > 7.1 ? "animate" : false}>
 									<GatsbyImage image={marketImg11} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 6.7 ? "animate" : false}>
+								<ImgWrap className={scale > 5.7 ? "animate" : false}>
 									<GatsbyImage image={marketImg12} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.9 ? "animate" : false}>
+								<ImgWrap className={scale > 6.9 ? "animate" : false}>
 									<GatsbyImage image={marketImg13} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.3 ? "animate" : false}>
+								<ImgWrap className={scale > 6.3 ? "animate" : false}>
 									<GatsbyImage image={marketImg14} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.1 ? "animate" : false}>
+								<ImgWrap className={scale > 6.1 ? "animate" : false}>
 									<GatsbyImage image={marketImg15} alt="Everywhere" />
 								</ImgWrap>
-								<ImgWrap className={scale > 7.8 ? "animate" : false}>
+								<ImgWrap className={scale > 6.8 ? "animate" : false}>
 									<GatsbyImage image={marketImg16} alt="Everywhere" />
 								</ImgWrap>
-								<span className={`s1 b1 ${scale > 6.8 ? "animate" : ""}`}></span>
-								<span className={`s2 b1 ${scale > 7.5 ? "animate" : ""}`}></span>
-								<span className={`s3 b2 ${scale > 7.3 ? "animate" : ""}`}></span>
-								<span className={`s4 b3 ${scale > 8.1 ? "animate" : ""}`}></span>
+								<span className={`s1 b1 ${scale > 5.8 ? "animate" : ""}`}></span>
+								<span className={`s2 b1 ${scale > 6.5 ? "animate" : ""}`}></span>
+								<span className={`s3 b2 ${scale > 6.3 ? "animate" : ""}`}></span>
+								<span className={`s4 b3 ${scale > 7.1 ? "animate" : ""}`}></span>
 								<span className={`s5 b3 ${scale > 6.7 ? "animate" : ""}`}></span>
-								<span className={`s6 b2 ${scale > 7.3 ? "animate" : ""}`}></span>
-								<span className={`s9 b2 ${scale > 6.9 ? "animate" : ""}`}></span>
-								{isMobile ? (
-									<>
-										<span className={`s7 b1 ${scale > 7.7 ? "animate" : ""}`}></span>
-										<span className={`s8 b1 ${scale > 6.6 ? "animate" : ""}`}></span>
-										<span className={`s10 b3 ${scale > 7.4 ? "animate" : ""}`}></span>
-										<span className={`s11 b2 ${scale > 7.6 ? "animate" : ""}`}></span>
-									</>
-								) : (
-									false
-								)}
+								<span className={`s6 b1 ${scale > 6.3 ? "animate" : ""}`}></span>
+								<span className={`s9 b3 ${scale > 5.9 ? "animate" : ""}`}></span>
 							</Imgs>
 						</div>
 					</Overflow>

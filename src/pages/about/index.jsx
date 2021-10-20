@@ -43,7 +43,7 @@ const Content = styled.section`
 `;
 
 const ContentFirst = styled(Content)`
-	padding-top: 338px;
+	padding-top: 218px;
     padding-bottom:100px;
 	@media (max-width: ${ScreenSm}) {
 		padding-top: 122px;

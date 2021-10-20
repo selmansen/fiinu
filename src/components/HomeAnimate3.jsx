@@ -129,6 +129,7 @@ const TunaButton = styled(Link)`
 		padding: 8px 20px;
 		font-size: 16px;
 		line-height: 24px;
+		width:100%;
 	}
 	svg {
 		margin-left: 15px;

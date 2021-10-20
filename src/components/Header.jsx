@@ -10,16 +10,28 @@ import LogoBlack from "../images/fiinu-logo-black.svg";
 
 const HeaderStyle = styled.header`
 	min-width: 360px;
-	position: absolute;
+	position: fixed;
 	top: 36px;
+	transition-timing-function: ease-in-out;
+	transition: top 0.4s;
 	width: 100%;
 	z-index: 99;
+	&.menuUp {
+		top: 36px;
+		.menu {
+			backdrop-filter: blur(24px);
+			background: rgba(255, 255, 255, 0.7);
+			a {
+				color: ${ColorTuna};
+			}
+		}
+	}
+	&.menuDown {
+		top: -61px;
+	}
 `;
 
 const Logo = styled(Link)`
-	left: 15px;
-	position: absolute;
-	top: 0;
 	@media (max-width: ${ScreenSm}) {
 		img {
 			height: auto;
@@ -32,24 +44,24 @@ const Menu = styled.div`
 	border-radius: 32px;
 	display: flex;
 	padding: 16px 36px;
-	position: fixed;
-	top: 36px;
+	transition: background 0.4s, backdrop-filter 0.4s;
 	@media (max-width: ${ScreenSm}) and (min-width: calc(${ScreenXs} + 1px)) {
 		align-items: center;
 		justify-content: center;
 	}
 	@media (max-width: ${ScreenSm}) {
 		backdrop-filter: blur(21px);
-		background: rgba(255, 255, 255, 0.8);
+		background: rgba(255, 255, 255, 0.8) !important;
 		border-radius: 0;
 		flex-direction: column;
 		height: 100%;
 		left: -100%;
-		min-width: 360px;
+		min-width: 320px;
 		padding: 24px 30px;
 		top: 0;
+		position: fixed;
 		transition-timing-function: ease-in-out;
-		transition: left 0.4s;
+		transition: left 0.4s !important;
 		width: 100%;
 		z-index: 99;
 		a {
@@ -57,7 +69,7 @@ const Menu = styled.div`
 			font-size: 24px;
 			line-height: 36px;
 			margin-left: 0;
-			a + {
+			+ a{
 				margin-top: 26px;
 			}
 			&:before {
@@ -70,21 +82,6 @@ const Menu = styled.div`
 	}
 	@media (max-width: ${ScreenXs}) {
 		width: calc(100% - 40px);
-	}
-	&.menuUp {
-		backdrop-filter: blur(24px);
-		background: rgba(255, 255, 255, 0.7);
-		top: 36px;
-		transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-		transition: top 0.4s, background 0.4s;
-		a {
-			color: ${ColorTuna};
-		}
-	}
-	&.menuDown {
-		top: -61px;
-		transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-		transition: top 0.4s;
 	}
 `;
 
@@ -119,10 +116,16 @@ const Hamburger = styled.div`
 		&.active {
 			&:before {
 				transform: rotate(225deg);
+				@media (max-width: ${ScreenSm}) and (min-width: calc(${ScreenXs} + 1px)) {
+					background: ${ColorTuna};
+				}
 			}
 			&:after {
 				transform: rotate(-225deg);
 				top: 13px;
+				@media (max-width: ${ScreenSm}) and (min-width: calc(${ScreenXs} + 1px)) {
+					background: ${ColorTuna};
+				}
 			}
 		}
 	}
@@ -131,7 +134,7 @@ const Hamburger = styled.div`
 const Container = styled.div`
 	align-items: center;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 `;
 
 const Header = ({ logo }) => {
@@ -149,7 +152,7 @@ const Header = ({ logo }) => {
 		const handleScroll = () => {
 			if (window.scrollY > 50) {
 				const currentScrollY = window.scrollY;
-				if (prevScrollY.current < currentScrollY) {
+				if (prevScrollY.current < currentScrollY && !hamMenu) {
 					setMenuUp("menuDown");
 				}
 				if (prevScrollY.current > currentScrollY) {
@@ -165,14 +168,14 @@ const Header = ({ logo }) => {
 		window.addEventListener("scroll", handleScroll, { passive: true });
 
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [menuUp]);
+	}, [menuUp, hamMenu]);
 
-	useEffect(() => {
-		hamMenu ? document.querySelector("html").classList.add("lock") : document.querySelector("html").classList.remove("lock");
-	}, [hamMenu]);
+	// useEffect(() => {
+	// 	hamMenu ? document.querySelector("html").classList.add("lock") : document.querySelector("html").classList.remove("lock");
+	// }, [hamMenu]);
 
 	return (
-		<HeaderStyle>
+		<HeaderStyle className={menuUp}>
 			<Container className="container">
 				<Logo to="/">
 					<img src={logo || LogoBlack} alt="Fiinu Logo" width="165" height="57" />
@@ -180,7 +183,7 @@ const Header = ({ logo }) => {
 
 				{!isTablet ? <Hamburger className={`hamb-menu ${hamMenu ? "active" : ""} ${logo ? "white" : ""}`} onClick={menuToggle} /> : false}
 
-				<Menu className={`${menuUp} ${hamMenu ? "open" : ""}`}>
+				<Menu className={hamMenu ? "open menu" : "menu"}>
 					<MenuLink color={logo ? "#fff" : ColorTuna} />
 				</Menu>
 			</Container>

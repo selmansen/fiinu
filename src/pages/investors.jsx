@@ -38,6 +38,12 @@ const Holdings = styled.section`
 			@media (max-width: ${ScreenMd}) {
 				width: 100%;
 			}
+			@media (min-width: calc(${ScreenMd} + 1px)) {
+			&:first-child{
+				height:100%;
+				position:sticky;
+				top:60px;
+			}
 		}
 	}
 	a {

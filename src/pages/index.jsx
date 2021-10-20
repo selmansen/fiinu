@@ -161,11 +161,19 @@ const Leadership = styled.section`
 `;
 const Carousel = styled(Slider)`
 	margin-top: 120px;
+	margin-left:calc(50% - 762px);
+	@media (max-width: ${Variables.ScreenLg}) {
+		margin-left:calc(50% - 660px);
+	}
 	@media (max-width: ${Variables.ScreenMd}) {
 		margin-top: 36px;
+		margin-left:calc(50% - 492px);
+	}
+	@media (max-width: ${Variables.ScreenSm}) {
+		margin-left:calc(50% - 364px);
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-		margin-left: -15px;
+		margin-left: 10px;
 	}
 	.slick-track {
 		display: flex;
@@ -174,10 +182,10 @@ const Carousel = styled(Slider)`
 const Slide = styled(Link)`
 	color: ${Variables.ColorTuna};
 	width: 336px !important;
-	margin-left: 50px;
+	margin-right: 50px;
 	@media (max-width: ${Variables.ScreenMd}) {
 		width: 220px !important;
-		margin-left: 24px;
+		margin-right: 24px;
 	}
 	.gatsby-image-wrapper {
 		border-radius: 16px;

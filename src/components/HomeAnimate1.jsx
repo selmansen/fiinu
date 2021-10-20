@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { Animate } from "./Function";
+import { Animate, IsMobile } from "./Function";
 import { ScreenLg, ScreenMd, ScreenXs, SHeight, ColorFantasy } from "./Variables";
 import { H2, H4 } from "./Typography";
 import NextContent from "./NextContent";
@@ -92,6 +92,7 @@ const HomeAnimate1 = () => {
 	const [transform, setTransform] = useState(0);
 
 	const animateRatio = Animate("second");
+	const isMobile = IsMobile();
 
 	useEffect(() => {
 		setOpacity(animateRatio);
@@ -99,7 +100,7 @@ const HomeAnimate1 = () => {
 	}, [animateRatio]);
 
     const a1 = {
-		opacity: opacity  > 1 ? "1" : opacity < 0 ? "0" : opacity
+		opacity: isMobile ? (opacity  > 1 ? "1" : opacity < 0 ? "0" : opacity) : "1"
 	};
 	const a2 = {
 		opacity: opacity > 2 ? "1" : opacity < 1 ? "0" : opacity - 1

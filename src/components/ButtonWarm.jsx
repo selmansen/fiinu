@@ -18,6 +18,7 @@ const WarmButton = styled(Link)`
 		padding: 6px 20px;
 		font-size: 16px;
 		line-height: 24px;
+		width:100%;
 	}
 	&:hover {
 		background: ${ColorWarmBlue};

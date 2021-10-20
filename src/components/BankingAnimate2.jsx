@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
-import { Animate } from "./Function";
+import { Animate, IsMobile } from "./Function";
 import { ScreenLg, ScreenMd, ScreenSm, ScreenXs, SHeight, ColorTuna } from "./Variables";
 import { H3, H5, P } from "./Typography";
 
@@ -214,6 +214,7 @@ const BankingAnimate2 = () => {
 	`);
 
 	const animateRatio = Animate("second");
+	const isMobile = IsMobile();
 	const margotImage = getImage(data.margotImage);
 
 	useEffect(() => {
@@ -234,7 +235,7 @@ const BankingAnimate2 = () => {
 	};
 	const a4 = {
 		transform: `translateY(${transform > 75 ? (transform < 175 ? 175 - transform : "0") : "100"}vh)`,
-		opacity: opacity > 4.5 ? "1" : opacity < 2.5 ? "0" : (opacity - 2.5) / 2
+		opacity: isMobile ? (opacity > 4.5 ? "1" : opacity < 2.5 ? "0" : (opacity - 2.5) / 2) : 1
 	};
 
 	return (

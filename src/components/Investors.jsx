@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { ColorTuna, ScreenMd } from "./Variables";
+import { ColorTuna, ScreenMd, ScreenXs } from "./Variables";
 import { H3, P } from "./Typography";
 
 import IconLink from "../images/icon-target-link.svg";
@@ -14,7 +14,7 @@ const InvestorsStyle = styled.section`
 	padding: 120px 0px;
 	z-index: 1;
 	@media (max-width: ${ScreenMd}) {
-		padding:36px 0px;
+		padding: 36px 0px;
 	}
 	p {
 		margin-top: 16px;
@@ -33,6 +33,10 @@ const Links = styled.a`
 	display: block;
 	padding: 24px 50px 24px 0px;
 	transition: 0.4s;
+	@media (max-width: ${ScreenXs}) {
+		font-size: 18px;
+		line-height: 28px;
+	}
 	&:hover {
 		color: #cbf4f0;
 	}
@@ -58,6 +62,12 @@ const WhiteButton = styled(Link)`
 	margin-bottom: 48px;
 	text-align: center;
 	transition: 0.4s;
+	@media (max-width:${ScreenXs}){
+		width:100%;
+		font-size:16px;
+		line-height:24px;
+		padding: 6px 20px;
+	}
 	&:hover {
 		background: #fff;
 		color: ${ColorTuna};
@@ -68,7 +78,7 @@ const H6 = styled.h6`
 	line-height: 24px;
 	margin-top: 64px;
 	@media (max-width: ${ScreenMd}) {
-		margin-top:36px;
+		margin-top: 36px;
 	}
 `;
 

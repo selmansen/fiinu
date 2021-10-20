@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
-import { Animate } from "./Function";
+import { Animate, IsMobile } from "./Function";
 import { ScreenLg, ScreenMd, ScreenSm, ScreenXs, SHeight, ColorWarmBlue } from "./Variables";
 import { H2, H3, P } from "./Typography";
 
@@ -17,7 +17,7 @@ const Solutions = styled.section`
 		min-height: calc(630px * 3);
 	}
 	@media (max-width: ${ScreenSm}) {
-		min-height: calc(1085px * 3);
+		min-height: calc(1217px * 3);
 	}
 	@media (max-width: ${ScreenXs}) {
 		min-height: auto;
@@ -37,7 +37,7 @@ const SolutionsDisplay = styled.div`
 		min-height: 630px;
 	}
 	@media (max-width: ${ScreenSm}) {
-		min-height: 1085px;
+		min-height: 1217px;
 	}
 	@media (max-width: ${ScreenXs}) {
 		height: auto;
@@ -191,6 +191,7 @@ const BankingAnimate2 = () => {
 	`);
 
 	const animateRatio = Animate("first");
+	const isMobile = IsMobile();
 	const solutionsImage = getImage(data.solutionsImage);
 
 	useEffect(() => {
@@ -199,7 +200,7 @@ const BankingAnimate2 = () => {
 	}, [animateRatio]);
 
 	const a1 = {
-		opacity: opacity > 1 ? "1" : opacity < 0 ? "0" : opacity,
+		opacity: opacity > 1 ? "1" : opacity < 0 ? "0" : isMobile ? opacity : opacity * 2,
 		transform: `translateX(${transform > 1 ? (transform < 100 ? transform : "100") : "0"}vw)`
 	};
 	const a2 = {
@@ -207,7 +208,7 @@ const BankingAnimate2 = () => {
 	};
 	const a3 = {
 		transform: `translateY(${transform > 25 ? (transform < 125 ? 125 - transform : "0") : "100"}vh)`,
-		opacity: opacity > 3.5 ? "1" : opacity < 1.5 ? "0" : (opacity - 1.5) / 2
+		opacity: isMobile ? (opacity > 3.5 ? "1" : opacity < 1.5 ? "0" : (opacity - 1.5) / 2) : 1,
 	};
 
 	return (

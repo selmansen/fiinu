@@ -111,6 +111,7 @@ const ReadMoreBtn = styled.span`
 		padding: 8px 20px;
 		font-size: 16px;
 		line-height: 24px;
+		width:100%;
 		svg {
 			height: 21px;
 		}
@@ -153,6 +154,9 @@ const Data = styled.section`
 			img {
 				@media (min-width: calc(${Variables.ScreenMd} + 1px)) {
 					margin-top: 46px;
+				}
+				@media (max-width:${Variables.ScreenSm}){
+					margin-top:72px;
 				}
 			}
 		}
@@ -200,7 +204,6 @@ const Data = styled.section`
 		margin: auto;
 		max-width: 100%;
 		height: auto;
-		width: auto;
 		@media (max-width: ${Variables.ScreenSm}) {
 			margin-top: 24px;
 		}
