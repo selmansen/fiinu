@@ -196,9 +196,6 @@ const Header = ({ logo }) => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, [menuUp, hamMenu]);
 
-	// useEffect(() => {
-	// 	hamMenu ? document.querySelector("html").classList.add("lock") : document.querySelector("html").classList.remove("lock");
-	// }, [hamMenu]);
 	return (
 		<HeaderStyle className={menuUp}>
 			<div className="container">
