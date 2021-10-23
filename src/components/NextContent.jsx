@@ -1,8 +1,7 @@
-
-import * as React from 'react';
-import styled from 'styled-components';
-import scrollTo from 'gatsby-plugin-smoothscroll';
-
+import * as React from "react";
+import styled from "styled-components";
+import scrollTo from "gatsby-plugin-smoothscroll";
+import { ColorWarmBlue } from "./Variables";
 
 const NextSection = styled.div`
 	align-items: center;
@@ -13,20 +12,23 @@ const NextSection = styled.div`
 	left: 0;
 	position: absolute;
 	width: 100%;
-	z-index:3;
+	z-index: 3;
 `;
 const NextSectionButton = styled.span`
 	font-size: 24px;
 	justify-content: flex-start;
 	cursor: pointer;
+	transition: 0.4s;
 	line-height: 36px;
 	svg {
 		margin-left: 15px;
 	}
+	&:hover {
+		color: ${ColorWarmBlue} !important;
+	}
 `;
 
 const NextContent = ({ nextContent, background, children }) => {
-
 	return (
 		<NextSection background={background}>
 			<div className="container">
@@ -42,4 +44,4 @@ const NextContent = ({ nextContent, background, children }) => {
 	);
 };
 
-export default NextContent
+export default NextContent;

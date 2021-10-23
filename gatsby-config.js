@@ -40,10 +40,10 @@ module.exports = {
 				name: `Fiinu`,
 				short_name: `Fiinu`,
 				start_url: `/`,
-				background_color: `#333D47`,
+				background_color: `#fff`,
 				theme_color: `#fff`,
 				display: `standalone`,
-				icon: `src/images/favicon.svg`
+				icon: `src/images/favicon-dark.svg`
 			}
 		},
 		`gatsby-plugin-offline`

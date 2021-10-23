@@ -104,8 +104,8 @@ const InvestorsPage = () => {
 			<Holdings>
 				<div className="container">
 					<HoldingsContent>
-						<H3>Fiinu Holdings Plc</H3>
-						<P>Fiinu Holdings Plc is a group holding company which will operate in the field of fintech, big data and digital banking. Subject to the London Stock Exchange admission approval, the group will enter the AIM with a ticker ‘BANK’.</P>
+						<H3>Fiinu Group Plc</H3>
+						<P>Fiinu Group Plc is a group holding company which will operate in the field of fintech, big data and digital banking. Subject to the London Stock Exchange admission approval, the group will enter the AIM with a ticker ‘BANK’.</P>
 						<P>The group has two subsidiaries; </P>
 						<ul>
 							<Li>Fiinu Services Ltd developing intellectual property and fintech modules, which will include a range of innovative new products including big data insights, and;</Li>

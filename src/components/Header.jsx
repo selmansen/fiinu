@@ -11,56 +11,60 @@ import LogoBlack from "../images/fiinu-logo-black.svg";
 const HeaderStyle = styled.header`
 	min-width: 360px;
 	position: fixed;
-	top: 36px;
+	top: 23px;
 	transition-timing-function: ease-in-out;
 	transition: top 0.4s;
 	width: 100%;
 	z-index: 99;
 	.wrap {
 		padding: 12px 24px;
-		position:relative;
-		z-index:1;
-		img {
-			width: 90px;
-			height: auto;
-		}
-		&:before{
-			content:"";
-			width:100%;
-			height:100%;
+		position: relative;
+		z-index: 1;
+		&:before {
+			content: "";
+			width: 100%;
+			height: 100%;
 			border-radius: 32px;
 			transition: backdrop-filter 0.4s, background 0.4s;
-			position:absolute;
-			left:0;
-			top:0;
-			z-index:-1;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: -1;
 		}
 	}
 	&.menuUp {
-		top: 36px;
-		.wrap:before {
-			backdrop-filter: blur(14px);
-			background: rgba(255, 255, 255, 0.7);
+		top: 23px;
+		.wrap {
+			&:before {
+				backdrop-filter: blur(14px);
+				background: rgba(255, 255, 255, 0.7);
+			}
+			img {
+				width: 90px;
+				height: auto;
+			}
 		}
 		.menu {
 			a {
 				color: ${ColorTuna};
 			}
 		}
-		.hamb-menu{
-			&:before, &:after{
-				background:${ColorTuna};
+		.hamb-menu {
+			&:before,
+			&:after {
+				background: ${ColorTuna};
 			}
 		}
 	}
 	&.menuDown {
-		top: -61px;
+		top: -70px;
 	}
 `;
 
 const Logo = styled(Link)`
-	@media (max-width: ${ScreenSm}) {
-		img {
+	img {
+		transition: 0.4s;
+		@media (max-width: ${ScreenSm}) {
 			height: auto;
 			width: 100px;
 		}
@@ -138,7 +142,7 @@ const Hamburger = styled.div`
 		&.active {
 			&:before {
 				transform: rotate(225deg);
-				@media (max-width: ${ScreenSm})  {
+				@media (max-width: ${ScreenSm}) {
 					background: ${ColorTuna};
 				}
 			}

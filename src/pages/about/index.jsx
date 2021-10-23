@@ -60,6 +60,9 @@ const ContentFirst = styled(Content)`
 			top: 0;
 			width: calc(50% + 95px);
 			z-index: -1;
+			@media (max-width: ${ScreenSm}) {
+				min-width:700px;
+			}
 		}
 		@media (max-width: ${ScreenSm}) {
 			margin-top: 13px;

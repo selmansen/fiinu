@@ -17,7 +17,7 @@ const Second = styled.section`
 		min-height: calc(650px * 3);
 	}
 	@media (max-width: ${ScreenSm}) {
-		min-height: calc(840px * 3);
+		min-height: calc(980px * 3);
 	}
 	@media (max-width: ${ScreenXs}) {
 		min-height: auto;
@@ -37,7 +37,7 @@ const SecondDisplay = styled.div`
 		min-height: 650px;
 	}
 	@media (max-width: ${ScreenSm}) {
-		min-height: 840px;
+		min-height: 980px;
 	}
 	@media (max-width: ${ScreenXs}) {
 		height: auto;
@@ -265,17 +265,17 @@ const BankingAnimate2 = () => {
 
 	const a1 = {
 		opacity: opacity > 1 ? "1" : opacity < 0 ? "0" : opacity,
-		transform: `translateX(${transform > 50 ? (transform < 150 ? transform - 50 : "100") : "0"}vw)`
+		transform: `translateY(${transform > 50 ? (transform < 150 ? 50 - (transform)  : "100") : "0"}vh)`
 	};
 	const a2 = {
 		opacity: opacity > 2 ? "1" : opacity < 1 ? "0" : opacity - 1,
-		transform: `translateX(${transform > 50 ? (transform < 150 ? transform - 50 : "100") : "0"}vw)`
+		transform: `translateY(${transform > 50 ? (transform < 150 ? 50 - transform : "100") : "0"}vh)`
 	};
 	const a3 = {
-		transform: `translateX(${transform > 50 ? (transform < 150 ? 150 - transform : "0") : "100"}vw)`
+		transform: `translateY(${transform > 50 ? (transform < 150 ? 150 - transform : "0") : "100"}vh)`
 	};
 	const a4 = {
-		transform: `translateX(${transform > 50 ? (transform < 150 ? 150 - transform : "0") : "100"}vw)`
+		transform: `translateY(${transform > 50 ? (transform < 150 ? 150 - transform : "0") : "100"}vh)`
 	};
 	const a5 = {
 		transform: `scale(${transform > 150 ? (transform < 200 ? 1.5 - (transform - 150) / 50 / 2 : "1") : "1.5"})`
