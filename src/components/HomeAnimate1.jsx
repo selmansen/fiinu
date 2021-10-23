@@ -99,8 +99,8 @@ const HomeAnimate1 = () => {
 		setTransform(animateRatio * 150 - 150);
 	}, [animateRatio]);
 
-    const a1 = {
-		opacity: isMobile ? (opacity  > 1 ? "1" : opacity < 0 ? "0" : opacity) : "1"
+	const a1 = {
+		opacity: isMobile ? (opacity > 1 ? "1" : opacity < 0 ? "0" : opacity) : "1"
 	};
 	const a2 = {
 		opacity: opacity > 2 ? "1" : opacity < 1 ? "0" : opacity - 1
@@ -116,7 +116,7 @@ const HomeAnimate1 = () => {
 				<SecondOverflow>
 					<div className="container">
 						<H4 style={a1}>Fiinu is a pre-IPO fintech group with an expected deposit-taking banking licence from the Bank of England regulators. </H4>
-						<H4 style={a2}>Subject to the London Stock Exchange admission approval the group will enter the AIM-market with a ticker ‘BANK’ </H4>
+						<H4 style={a2}>Subject to the London Stock Exchange admission approval, the Group will enter the AIM-market with the ticker ‘BANK’.</H4>
 						<H2 style={a3}>Pre-IPO fintech with an expected bank licence</H2>
 						<NextContent nextContent="third">Next—Services</NextContent>
 					</div>

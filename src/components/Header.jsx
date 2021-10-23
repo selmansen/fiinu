@@ -16,13 +16,40 @@ const HeaderStyle = styled.header`
 	transition: top 0.4s;
 	width: 100%;
 	z-index: 99;
+	.wrap {
+		padding: 12px 24px;
+		position:relative;
+		z-index:1;
+		img {
+			width: 90px;
+			height: auto;
+		}
+		&:before{
+			content:"";
+			width:100%;
+			height:100%;
+			border-radius: 32px;
+			transition: backdrop-filter 0.4s, background 0.4s;
+			position:absolute;
+			left:0;
+			top:0;
+			z-index:-1;
+		}
+	}
 	&.menuUp {
 		top: 36px;
-		.menu {
-			backdrop-filter: blur(24px);
+		.wrap:before {
+			backdrop-filter: blur(14px);
 			background: rgba(255, 255, 255, 0.7);
+		}
+		.menu {
 			a {
 				color: ${ColorTuna};
+			}
+		}
+		.hamb-menu{
+			&:before, &:after{
+				background:${ColorTuna};
 			}
 		}
 	}
@@ -43,15 +70,13 @@ const Logo = styled(Link)`
 const Menu = styled.div`
 	border-radius: 32px;
 	display: flex;
-	padding: 16px 36px;
-	transition: background 0.4s, backdrop-filter 0.4s;
 	@media (max-width: ${ScreenSm}) and (min-width: calc(${ScreenXs} + 1px)) {
 		align-items: center;
 		justify-content: center;
 	}
 	@media (max-width: ${ScreenSm}) {
-		backdrop-filter: blur(21px);
-		background: rgba(255, 255, 255, 0.8) !important;
+		backdrop-filter: blur(14px);
+		background: rgba(255, 255, 255, 0.7);
 		border-radius: 0;
 		flex-direction: column;
 		height: 100%;
@@ -61,7 +86,7 @@ const Menu = styled.div`
 		top: 0;
 		position: fixed;
 		transition-timing-function: ease-in-out;
-		transition: left 0.4s !important;
+		transition: left 0.4s;
 		width: 100%;
 		z-index: 99;
 		a {
@@ -69,7 +94,7 @@ const Menu = styled.div`
 			font-size: 24px;
 			line-height: 36px;
 			margin-left: 0;
-			+ a{
+			+ a {
 				margin-top: 26px;
 			}
 			&:before {
@@ -80,16 +105,13 @@ const Menu = styled.div`
 			left: 0;
 		}
 	}
-	@media (max-width: ${ScreenXs}) {
-		width: calc(100% - 40px);
-	}
 `;
 
 const Hamburger = styled.div`
 	@media (max-width: ${ScreenSm}) {
 		cursor: pointer;
 		height: 10px;
-		padding: 18.5px 15px;
+		padding: 17px 15px;
 		position: relative;
 		width: 22px;
 		z-index: 100;
@@ -116,14 +138,14 @@ const Hamburger = styled.div`
 		&.active {
 			&:before {
 				transform: rotate(225deg);
-				@media (max-width: ${ScreenSm}) and (min-width: calc(${ScreenXs} + 1px)) {
+				@media (max-width: ${ScreenSm})  {
 					background: ${ColorTuna};
 				}
 			}
 			&:after {
 				transform: rotate(-225deg);
 				top: 13px;
-				@media (max-width: ${ScreenSm}) and (min-width: calc(${ScreenXs} + 1px)) {
+				@media (max-width: ${ScreenSm}) {
 					background: ${ColorTuna};
 				}
 			}
@@ -173,20 +195,21 @@ const Header = ({ logo }) => {
 	// useEffect(() => {
 	// 	hamMenu ? document.querySelector("html").classList.add("lock") : document.querySelector("html").classList.remove("lock");
 	// }, [hamMenu]);
-
 	return (
 		<HeaderStyle className={menuUp}>
-			<Container className="container">
-				<Logo to="/">
-					<img src={logo || LogoBlack} alt="Fiinu Logo" width="165" height="57" />
-				</Logo>
+			<div className="container">
+				<Container className="wrap">
+					<Logo to="/">
+						<img src={menuUp === undefined ? logo || LogoBlack : menuUp === "menuDown" ? logo || LogoBlack : LogoBlack} alt="Fiinu Logo" width="165" height="57" />
+					</Logo>
 
-				{!isTablet ? <Hamburger className={`hamb-menu ${hamMenu ? "active" : ""} ${logo ? "white" : ""}`} onClick={menuToggle} /> : false}
+					{!isTablet ? <Hamburger className={`hamb-menu ${hamMenu ? "active" : ""} ${logo ? "white" : ""}`} onClick={menuToggle} /> : false}
 
-				<Menu className={hamMenu ? "open menu" : "menu"}>
-					<MenuLink color={logo ? "#fff" : ColorTuna} />
-				</Menu>
-			</Container>
+					<Menu className={hamMenu ? "open menu" : "menu"}>
+						<MenuLink color={logo ? "#fff" : ColorTuna} />
+					</Menu>
+				</Container>
+			</div>
 		</HeaderStyle>
 	);
 };

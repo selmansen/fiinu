@@ -26,6 +26,6 @@ const WarmButton = styled(Link)`
 	}
 `;
 
-const List = ({ toLink, children }) => <WarmButton to={toLink}>{children}</WarmButton>;
+const List = ({ toLink, children, className }) => <WarmButton className={className} to={toLink}>{children}</WarmButton>;
 
 export default List;

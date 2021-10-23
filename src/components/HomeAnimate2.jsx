@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import TrackVisibility from "react-on-screen";
 
 import { Animate } from "./Function";
 import { ScreenLg, ScreenMd, ScreenXs, SHeight, ColorGoldenYellow, ColorTuna, SDeadHeight } from "./Variables";
@@ -107,6 +108,9 @@ const ThirdContent = styled.div`
 			margin-top: 36px;
 		}
 	}
+	.animated{
+		opacity:0;
+	}
 `;
 
 const HomeAnimate2 = () => {
@@ -131,10 +135,16 @@ const HomeAnimate2 = () => {
 			</ThirdBgCover>
 			<div className="container h100">
 				<ThirdContent>
-					<H3>R&D firm developing intelligent fintech and alternative data insight solutions.</H3>
-					<P>Our technology arm will generate revenue from licencing Open Banking enabled technology and alternative data solutions. </P>
-					<List data={ThirdContent_Data} />
-					<ButtonWarm toLink="/fintech-solutions">Fintech solutions</ButtonWarm>
+					<TrackVisibility once>{({ isVisible }) => <H3 className={`animated ${isVisible ? "fadeInUp" : ""}`}>R&D firm developing intelligent fintech and alternative data insight solutions.</H3>}</TrackVisibility>
+					<TrackVisibility once>{({ isVisible }) => <P className={`animated ${isVisible ? "fadeInUp" : ""}`}>Our technology arm will generate revenue from licencing Open Banking enabled technology and alternative data solutions. </P>}</TrackVisibility>
+					<TrackVisibility once>{({ isVisible }) => <List data={ThirdContent_Data} className={`animated ${isVisible ? "fadeInUp" : ""}`} />}</TrackVisibility>
+					<TrackVisibility once>
+						{({ isVisible }) => (
+							<ButtonWarm toLink="/fintech-solutions" className={`animated ${isVisible ? "fadeInUp" : ""}`}>
+								Fintech solutions
+							</ButtonWarm>
+						)}
+					</TrackVisibility>
 				</ThirdContent>
 			</div>
 		</Third>

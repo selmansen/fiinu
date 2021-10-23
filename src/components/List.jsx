@@ -43,8 +43,8 @@ const Li = styled.li`
 	}
 `;
 
-const List = ({ data }) => (
-	<ul>
+const List = ({ data, className }) => (
+	<ul className={className}>
 		{data.map((li, i) => (
 			<Li key={i}>{li}</Li>
 		))}

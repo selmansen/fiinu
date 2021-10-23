@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import Layout from "../../components/Layout";
 import Seo from "../../components/Seo";
-import { ScreenMd, ScreenSm, ColorFantasy, ColorLightGray, ColorTuna, ColorWarmBlue, ScreenLg } from "../../components/Variables";
+import { ScreenMd, ScreenSm, ColorFantasy, ColorTuna, ColorWarmBlue, ScreenLg } from "../../components/Variables";
 import { H3, P } from "../../components/Typography";
 
 const Content = styled.section`
@@ -29,7 +29,7 @@ const Content = styled.section`
 	.left {
 		padding-right: 150px;
 		@media (max-width: ${ScreenSm}) {
-			padding-right:0;
+			padding-right: 0;
 		}
 	}
 	.right {
@@ -44,10 +44,10 @@ const Content = styled.section`
 
 const ContentFirst = styled(Content)`
 	padding-top: 218px;
-    padding-bottom:100px;
+	padding-bottom: 100px;
 	@media (max-width: ${ScreenSm}) {
 		padding-top: 122px;
-        padding-bottom:0;
+		padding-bottom: 0;
 	}
 	position: relative;
 	.right {
@@ -75,36 +75,24 @@ const ContentFirst = styled(Content)`
 			}
 		}
 	}
+	br{
+		@media (max-width:${ScreenMd}){
+			display:none;
+		}
+	}
 `;
 
 const Members = styled.section`
 	overflow: hidden;
 	.container {
-		padding-bottom: 112px;
+		padding-bottom: 82px;
 		@media (max-width: ${ScreenSm}) {
 			padding-bottom: 36px;
-		}
-		&:before,
-		&:after {
-			border-top: 1px solid ${ColorLightGray};
-			content: "";
-			left: 15px;
-			position: absolute;
-			right: 15px;
-			top: 0;
-			@media (max-width: ${ScreenSm}) {
-				left: 10px;
-				right: 10px;
-			}
-		}
-		&:after {
-			top: auto;
-			bottom: 0;
 		}
 		> div {
 			display: flex;
 			flex-wrap: wrap;
-			margin-top: 120px;
+			margin-top: 70px;
 			width: calc(100% + 50px);
 			@media (max-width: ${ScreenSm}) {
 				width: calc(100% + 20px);
@@ -167,7 +155,10 @@ const About = ({ data }) => {
 			<ContentFirst>
 				<div className="container">
 					<div className="left">
-						<H3>We’ve done this before</H3>
+						<H3>
+							We have done <br />
+							this before
+						</H3>
 					</div>
 					<div className="right">
 						<P>
@@ -180,7 +171,7 @@ const About = ({ data }) => {
 			<Content>
 				<div className="container">
 					<div className="left">
-						<H3>And we’re supported by a world-class board</H3>
+						<H3>And we’re <br />supported by a <br />world-class board</H3>
 					</div>
 					<div className="right">
 						<P>

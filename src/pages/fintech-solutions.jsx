@@ -313,7 +313,7 @@ const FintechSolutionsPage = ({ data }) => {
 						<H3>R&D firm developing intelligent fintech and alternative data insight solutions.</H3>
 					</div>
 					<div>
-						<P className="first">Technology licensing and alternative data. Fiinu Services Limited will be developing fintech modules utilising Open Banking APi’s including connectivity and collection methods of transactional banking data. It will anonymise, aggregate, enrich, and improve credit underwriting and provide alternative data insights to its customers.</P>
+						<P className="first">Technology licensing and alternative data. Fiinu Services Limited will be developing fintech modules utilising Open Banking API’s including connectivity and collection methods of transactional banking data. It will anonymise, aggregate, enrich, and improve credit underwriting and provide alternative data insights to its customers.</P>
 						<List data={yellowListData} />
 						<div className={`hidden ${readMore ? "show" : false}`} style={readHeightOpen}>
 							<P>The UK alternative data insights market is projected to grow 62,000% between 2020 and 2028, an average 67.5% compound annual growth rate. The global alternative data market size in 2021 is $2.76 billion and it is expected to expand at a compound annual growth rate of 58.5% from 2021 to 2028 to about $70 billion market. Fiinu Services will become a leader in this growing market opportunity. The company is uniquely positioned to source anonymised transactional data from its sister.</P>
@@ -385,7 +385,7 @@ const FintechSolutionsPage = ({ data }) => {
 			<CreditUnderwriting>
 				<div className="container">
 					<H5>Credit Underwriting</H5>
-					<P>Our retail credit underwriting module will provide you a pre-configured, near-live overview of customers financial health. The solution will use agile processes to adapt to changing customer behaviour and it can used for all credit underwriting purposes, including creditworthiness and affordability assessments. </P>
+					<P>Our retail credit underwriting module will provide you with a pre-configured, near-live overview of the a customers financial health.  The solution will use agile processes to adapt to changing customer behaviour and it can be used for all credit underwriting purposes, including creditworthiness and affordability assessments.</P>
 					{isMobile ? <CreditUnderTable src={creditUnderwritingImage} width="1495" height="1039" alt="Template Report" /> : <CreditImage image={creditUnderwritingImageMobile} alt="Template Report" />}
 				</div>
 			</CreditUnderwriting>

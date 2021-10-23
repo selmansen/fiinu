@@ -7,8 +7,8 @@ const TypeH2 = styled.h2`
 	font-family: "Acta Display";
 	color: #fff;
 	font-size: 160px;
-	line-height: 130px;
-	color: "white";
+	line-height: 150px;
+	color: white;
 	letter-spacing: 0.02em;
 	@media (max-width: ${ScreenMd}) {
 		font-size: 108px;

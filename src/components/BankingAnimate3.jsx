@@ -9,26 +9,27 @@ import { H2, H3 } from "./Typography";
 
 const Market = styled.section`
 	height: calc(${SHeight}* 5.5);
-	min-height: calc(676px * 5.5);
-	margin-bottom: -150px;
+	min-height: calc(900px * 5.5);
+	margin-bottom: -100px;
 	@media (max-width: ${ScreenMd}) {
-		min-height: calc(630px * 5.5);
+		min-height: calc(650px * 5.5);
+		margin-bottom: -50px;
 	}
 	@media (max-width: ${ScreenSm}) {
-		margin-bottom: -220px;
+		margin-bottom: -120px;
 	}
 	@media (max-width: ${ScreenXs}) {
-		margin-bottom: 0px;
+		margin-bottom: -30px;
 	}
 `;
 
 const Display = styled.div`
 	height: ${SHeight};
-	min-height: 676px;
+	min-height: 900px;
 	position: sticky;
 	top: 0;
 	@media (max-width: ${ScreenMd}) {
-		min-height: 630px;
+		min-height: 650px;
 	}
 `;
 
@@ -47,6 +48,7 @@ const Overflow = styled.div`
 
 const Title = styled(H3)`
 	font-size: 72px;
+	line-height:64px;
 	text-align: center;
 	position: absolute;
 	max-width: 1260px;
@@ -97,19 +99,20 @@ const BigTitle = styled(H2)`
 `;
 
 const Imgs = styled.div`
-	height: 676px;
+	height: 876px;
 	position: absolute;
 	width: 1495px;
-	margin-top: -100px;
+	margin-top: 140px;
 	@media (max-width: ${ScreenXs}) {
 		height: 690px;
 		width: 320px;
 	}
 	@media (max-width: ${ScreenMd}) {
+		margin-top: 80px;
 		transform: scale(0.75);
 	}
 	@media (max-width: ${ScreenSm}) {
-		margin-top: -60px;
+		margin-top: 60px;
 		transform: scale(0.5);
 	}
 	@media (max-width: ${ScreenXs}) {
@@ -227,7 +230,7 @@ const ImgWrap = styled.div`
 		transform: scale(1);
 	}
 	&:nth-child(1) {
-		left: -90px;
+		left: -45px;
 		top: 350px;
 		@media (max-width: ${ScreenXs}) {
 			left: -60px;
@@ -255,7 +258,7 @@ const ImgWrap = styled.div`
 	}
 	&:nth-child(4) {
 		left: 389px;
-		top: 498px;
+		top: 528px;
 		@media (max-width: ${ScreenXs}) {
 			left: 82px;
 			top: 477px;
@@ -291,7 +294,7 @@ const ImgWrap = styled.div`
 	}
 	&:nth-child(8) {
 		left: 695px;
-		top: 506px;
+		top: 525px;
 		@media (max-width: ${ScreenXs}) {
 			left: 123px;
 			top: 265px;
@@ -348,8 +351,8 @@ const ImgWrap = styled.div`
 		top: 184px;
 		@media (max-width: ${ScreenXs}) {
 			left: 233px;
-			top: 388px;
-			width: 140px;
+			top: 412px;
+			width: 110px;
 		}
 	}
 	&:nth-child(15) {
@@ -490,7 +493,7 @@ const BankingAnimate3 = () => {
 	};
 
 	const a1 = {
-		width: `${width > 234 ? (width < 325 ? width - 225 : width < 418 ? 425 - width : "7") : "9"}%`
+		width: `${width > 234 ? (width < 325 ? width - 225 : width < 418 ? width - 319 : "100") : "9"}%`
 	};
 	const a2 = {
 		opacity: scale > 2.5 ? "1" : scale < 1.5 ? "0" : scale - 1.5
@@ -502,8 +505,8 @@ const BankingAnimate3 = () => {
 					<Overflow>
 						<div className="container">
 							<Title style={a3}>Ultimately, our technology will create a new market where unbundled overdraft has increased financial fairness and freedom for...</Title>
-							<BigTitle style={a2}>
-								<span style={a1}></span> {width < 326 ? "everyone" : "everywhere"}
+							<BigTitle color={ColorTuna} style={a2}>
+								<span style={a1}></span> {width < 325 ? "everyone" : "everywhere"}
 							</BigTitle>
 							<Imgs>
 								<ImgWrap className={scale > 6.2 ? "animate" : false}>

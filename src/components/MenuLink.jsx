@@ -49,7 +49,7 @@ const MenuLinks = ({ color }) => {
 	const handleLeave = () => setBlur(false);
 
 	const handleStyle = {
-		filter: `blur(${blur ? "2px" : "0px"})`
+		filter: `blur(${blur ? "1px" : "0px"})`
 	};
 
 	const theme = {

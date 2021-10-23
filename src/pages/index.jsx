@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BgImage } from "gbimage-bridge";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 
@@ -19,28 +19,6 @@ import * as Variables from "../components/Variables";
 import { H2, H3, P } from "../components/Typography";
 
 import Logo from "../images/fiinu-logo-white.svg";
-
-//KEYFRAMES
-const frameScale = keyframes`
-  from {
-	filter: blur(24px);
-	transform:scale(1.2);
-  }
-
-  to {
-	filter: blur(0px);
-	transform:scale(1);
-  }
-`;
-const frameTransformY = keyframes`
-  from {
-    transform: translateY(360px);
-  }
-
-  to {
-    transform: translateY(0px);
-  }
-`;
 
 //SECTION
 const Section = styled.section`
@@ -63,12 +41,9 @@ const First = styled(Section)`
 		padding-bottom: 75px;
 	}
 	.bg {
-		filter: blur(24px);
 		height: 100%;
 		position: absolute !important;
 		top: 0;
-		transform: scale(1.2);
-		transition: 0.4s;
 		width: 100%;
 		z-index: -1;
 		@media (max-width: ${Variables.ScreenXs}) {
@@ -78,20 +53,8 @@ const First = styled(Section)`
 			min-height: 274px;
 		}
 	}
-	&.started {
-		.bg {
-			animation: ${frameScale} 0.8s ease-in-out;
-			animation-fill-mode: both;
-		}
-		h2 {
-			span {
-				animation: ${frameTransformY} 0.4s ease-in-out;
-				animation-fill-mode: both;
-			}
-		}
-	}
 	h2 {
-		bottom: 57px;
+		bottom: 101px;
 		font-size: 120px;
 		left: 15px;
 		line-height: 96px;
@@ -100,7 +63,7 @@ const First = styled(Section)`
 		@media (max-width: ${Variables.ScreenMd}) {
 			font-size: 88px;
 			line-height: 72px;
-			bottom: 60px;
+			bottom: 100px;
 		}
 		@media (max-width: ${Variables.ScreenXs}) {
 			font-size: 56px;
@@ -118,18 +81,6 @@ const First = styled(Section)`
 				br {
 					display: none;
 				}
-			}
-			&:nth-child(1) {
-				animation-delay: 0.4s;
-				transform: translateY(360px);
-			}
-			&:nth-child(2) {
-				animation-delay: 0.55s;
-				transform: translateY(260px);
-			}
-			&:nth-child(3) {
-				animation-delay: 0.7s;
-				transform: translateY(168px);
 			}
 		}
 	}
@@ -161,16 +112,16 @@ const Leadership = styled.section`
 `;
 const Carousel = styled(Slider)`
 	margin-top: 120px;
-	margin-left:calc(50% - 762px);
+	margin-left: calc(50% - 762px);
 	@media (max-width: ${Variables.ScreenLg}) {
-		margin-left:calc(50% - 660px);
+		margin-left: calc(50% - 660px);
 	}
 	@media (max-width: ${Variables.ScreenMd}) {
 		margin-top: 36px;
-		margin-left:calc(50% - 492px);
+		margin-left: calc(50% - 492px);
 	}
 	@media (max-width: ${Variables.ScreenSm}) {
-		margin-left:calc(50% - 364px);
+		margin-left: calc(50% - 364px);
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
 		margin-left: 10px;
@@ -301,10 +252,10 @@ const Holdings = styled.section`
 			display: block;
 		}
 		@media (max-width: ${Variables.ScreenXs}) {
-			padding:0;
+			padding: 0;
 		}
-		>div{
-			width:50%;
+		> div {
+			width: 50%;
 			@media (max-width: ${Variables.ScreenMd}) {
 				width: 100%;
 			}
@@ -335,8 +286,8 @@ const HoldingsContent = styled.div`
 		padding-right: 0;
 	}
 	@media (max-width: ${Variables.ScreenXs}) {
-        padding:0 10px;
-    }
+		padding: 0 10px;
+	}
 	p {
 		margin-top: 35px;
 		@media (max-width: ${Variables.ScreenMd}) {
@@ -347,12 +298,7 @@ const HoldingsContent = styled.div`
 
 const HomePage = ({ data }) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
-	const [pageLoad, setPageLoad] = useState(false);
 	const slider = useRef(null);
-
-	useEffect(() => {
-		setPageLoad(true);
-	}, [pageLoad]);
 
 	const settings = {
 		dots: false,
@@ -371,7 +317,7 @@ const HomePage = ({ data }) => {
 	return (
 		<Layout logo={Logo}>
 			<Seo title="Home" />
-			<First className={pageLoad ? "started" : false}>
+			<First>
 				<BgImage image={easeBackground} className="bg" />
 				<div className="container h100">
 					<H2>
@@ -394,7 +340,7 @@ const HomePage = ({ data }) => {
 			<Leadership>
 				<div className="container">
 					<H3>Leadership team</H3>
-					<P>An independent board of directors with deep strategy, retail banking and UK / international regulatory experience including two former members of the Bank of England and a Financial Services Authority supervisor.</P>
+					<P>An independent board of directors with deep strategy, retail banking and UK / international regulatory experience, including two former members of the Bank of England and a Financial Services Authority supervisor.</P>
 				</div>
 				<Carousel ref={slider} {...settings}>
 					{data.allMdx.nodes.map((node) => (
@@ -418,11 +364,11 @@ const HomePage = ({ data }) => {
 					<HoldingsContent>
 						<H3>Fiinu Holdings Ltd </H3>
 						<P>
-							<b>Fiinu Holdings Ltd is a group holding company which will operate in the field of fintech, big data and digital banking. Subject to the London Stock Exchange admission approval, the group will enter the AIM with a ticker ‘BANK’.</b>
+							<b>Fiinu Holdings Ltd is a group holding company which will operate in the field of fintech, big data and digital banking. Subject to the London Stock Exchange admission approval, the group will enter the AIM with the ticker ‘BANK’.</b>
 						</P>
 						<P>The group has two subsidiaries;</P>
-						<P>Fiinu Services Ltd developing intellectual property and fintech modules, which will include a range of innovative new products including big data insights, and; </P>
-						<P>Fiinu 2 Ltd is which is expected to receive a deposit-taking banking licence from the Bank of England regulators and soft-launch in 2022. The firm will on successful completion of the authorisation process be renamed as Fiinu Bank Ltd. </P>
+						<P>Fiinu Services Ltd developing intellectual property and fintech modules, which will include a range of innovative new products including big data insights, and;</P>
+						<P>Fiinu 2 Ltd is which is expected to receive a deposit-taking banking licence from the Bank of England regulators and soft-launch in 2022. On successful completion of the authorisation process, the firm will be renamed Fiinu Bank Ltd.</P>
 						<ButtonWarm toLink="/investors">More Info</ButtonWarm>
 					</HoldingsContent>
 					<Information />
@@ -454,7 +400,7 @@ export const query = graphql`
 		}
 		easeBackground: file(relativePath: { eq: "ease-banner.jpg" }) {
 			childImageSharp {
-				gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF], quality: 100)
+				gatsbyImageData(formats: [AUTO, WEBP, AVIF], quality: 100)
 			}
 		}
 	}

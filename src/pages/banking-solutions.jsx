@@ -504,7 +504,7 @@ const BankingSolutionsPage = ({ data }) => {
 		adaptiveHeight: true,
 		swipeToSlide: true,
 		touchThreshold: 100,
-		arrows: false,
+		arrows: false
 	};
 
 	const iphone1 = getImage(data.iphone1);
@@ -574,7 +574,7 @@ const BankingSolutionsPage = ({ data }) => {
 						<TrackVisibility once offset={200}>
 							{({ isVisible }) => (
 								<div className={`animated ${isVisible ? "fadeInUp" : ""}`}>
-									<P>A new phenomenon. The regulation became effective in November 2020: Banks are not allowed to charge fixed fees on overdrafts, all fees must be included in interest. </P>
+									<P>A new phenomenon caused by the regulation that became effective in November 2020. Banks are not allowed to charge fixed fees on overdrafts – all fees must be included in interest. </P>
 									<P>Arranged and unarranged overdrafts have to be charged at the same rate. All existing banks removed access to unarranged overdrafts.</P>
 								</div>
 							)}
@@ -633,9 +633,9 @@ const BankingSolutionsPage = ({ data }) => {
 								<H3 className={`animated ${isVisible ? "fadeInUp" : ""}`}>
 									Consumers are <br />
 									increasingly forced to <br />
-									use alternative which <br />
+									use alternatives which <br />
 									can damage their <br />
-									credit score{" "}
+									credit score
 								</H3>
 							)}
 						</TrackVisibility>
@@ -644,8 +644,8 @@ const BankingSolutionsPage = ({ data }) => {
 						<TrackVisibility once offset={200}>
 							{({ isVisible }) => (
 								<div className={`animated ${isVisible ? "fadeInUp" : ""}`}>
-									<P>Use of these alternatives result in a 10% drop in credit score, and a leave negative mark in credit file for 6 years, resulting in 65% probability of new mortgage application being declined.</P>
-									<P>Our research shows that 75% of consumers find card rejection embarrassing and 69% find it very stressful. </P>
+									<P>Use of these alternatives result in a 10% drop in credit scores and leave a negative mark in the credit file for 6 years, resulting in a 65% probability of new mortgage applications being declined.</P>
+									<P>Our research shows that 75% of consumers find card rejection embarrassing and 69% find it very stressful.</P>
 								</div>
 							)}
 						</TrackVisibility>
@@ -653,7 +653,7 @@ const BankingSolutionsPage = ({ data }) => {
 					{isTablet ? (
 						<ConsumersList>
 							{ConsumersContent.map((item, i) => (
-								<ConsumersBox key={i} >
+								<ConsumersBox key={i}>
 									<TrackVisibility once offset={100}>
 										{({ isVisible }) => (
 											<div className={`animated ${isVisible ? "fadeInRightBig" : ""}`}>
@@ -687,7 +687,7 @@ const BankingSolutionsPage = ({ data }) => {
 							{({ isVisible }) => (
 								<div className={`animated ${isVisible ? "fadeInUp" : ""}`}>
 									<P>An unbundled overdraft solution, without changing your bank, that helps you build credit rather than erode it.</P>
-									<P>Fiinu’s bank and retailer agnostic solution helps to avoid rejection stress and embarrassment. It plugs in seamlessly through Open Banking to customers main bank account. The customer continues to use main account as before. </P>
+									<P>Fiinu’s bank and retailer agnostic solution helps to avoid rejection stress and embarrassment. It plugs in seamlessly through Open Banking to the customers main bank account. The customer continues to use their main account as before. </P>
 								</div>
 							)}
 						</TrackVisibility>
