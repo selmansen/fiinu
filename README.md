@@ -9,18 +9,18 @@
 <h1>Usage </h1>
 
 1.  **Install the Gatsby CLI.**
-  ```shell
-    npm install -g gatsby-cli
-    ```
+```shell
+npm install -g gatsby-cli
+```
 
-1.  **Install NPM packages.**
-  ```shell
-    npm install
-    ```
+2.  **Install NPM packages.**
+```shell
+npm install
+```
 
 3.  **Install NPM packages.**
-  ```shell
-    npm run dev
-    ```
-
-    Your site is now running at http://localhost:8000!
+```shell
+npm run dev
+```
+    
+Your site is now running at http://localhost:8000!
