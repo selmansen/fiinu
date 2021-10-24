@@ -90,7 +90,6 @@ const SecondOverflow = styled.div`
 const HomeAnimate1 = () => {
 	const [opacity, setOpacity] = useState(0);
 	const [transform, setTransform] = useState(0);
-
 	const animateRatio = Animate("second");
 	const isMobile = IsMobile();
 

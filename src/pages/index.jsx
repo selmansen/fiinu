@@ -16,11 +16,11 @@ import HomeAnimate1 from "../components/HomeAnimate1";
 import HomeAnimate2 from "../components/HomeAnimate2";
 import HomeAnimate3 from "../components/HomeAnimate3";
 import * as Variables from "../components/Variables";
+
 import { H2, H3, P } from "../components/Typography";
 
 import Logo from "../images/fiinu-logo-white.svg";
 
-//SECTION
 const Section = styled.section`
 	background: ${({ background }) => background};
 	background-position: center center;

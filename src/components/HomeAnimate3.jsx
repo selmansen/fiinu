@@ -129,7 +129,7 @@ const TunaButton = styled(Link)`
 		padding: 8px 20px;
 		font-size: 16px;
 		line-height: 24px;
-		width:100%;
+		width: 100%;
 	}
 	svg {
 		margin-left: 15px;
@@ -147,6 +147,8 @@ const IphoneImage = styled.div`
 
 const HomeAnimate3 = () => {
 	const [transform, setTransform] = useState(0);
+	const animateRatio = Animate("fourth");
+	const isMobile = IsMobile();
 
 	const data = useStaticQuery(graphql`
 		query {
@@ -158,8 +160,6 @@ const HomeAnimate3 = () => {
 		}
 	`);
 
-	const animateRatio = Animate("fourth");
-	const isMobile = IsMobile();
 	const iphoneBig = getImage(data.iphoneBig);
 
 	useEffect(() => {

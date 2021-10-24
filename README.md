@@ -1,54 +1,26 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://fiinu.com/">
+    <img alt="Fiinu" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY1IiBoZWlnaHQ9IjU3IiB2aWV3Qm94PSIwIDAgMTY1IDU3IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTk2Ljc1NjQgOC43MjUzNEM5Ny43OTAxIDguNzI1MzQgOTguNTY1NSA5LjQ5MjE3IDk4LjU2NTUgMTAuNTE0NkM5OC41NjU1IDExLjUzNzEgOTcuNzkwMSAxMi4zMDM5IDk2Ljc1NjQgMTIuMzAzOUg5My4yNjczQzg3Ljk2OTEgMTIuMzAzOSA4My43MDQ3IDE2LjUyMTUgODMuNzA0NyAyMS43NjE1VjI1LjIxMjJIOTYuODg1NkM5Ny45MTk0IDI1LjIxMjIgOTguNjk0NyAyNS45NzkgOTguNjk0NyAyNy4wMDE1Qzk4LjY5NDcgMjguMDIzOSA5Ny45MTk0IDI4Ljc5MDggOTYuODg1NiAyOC43OTA4SDgzLjcwNDdWNDMuNDg4M0M4My43MDQ3IDQ0LjM4MyA4Mi45Mjk0IDQ1LjE0OTggODIuMDI0OCA0NS4yNzc2SDgxLjg5NTZDODAuODYxOCA0NS4yNzc2IDgwLjA4NjQgNDQuNTEwOCA4MC4wODY0IDQzLjQ4ODNWMjEuNzYxNUM4MC4wODY0IDE0LjYwNDQgODYuMDMwNyA4LjcyNTM0IDkzLjM5NjUgOC43MjUzNEg5Ni43NTY0WiIgZmlsbD0iIzMzM0Q0NyIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEwNi43MDcgMjMuODA2NEMxMDcuNzQgMjMuODA2NCAxMDguNTE2IDI0LjU3MzIgMTA4LjUxNiAyNS41OTU2VjQzLjc0NEMxMDguNTE2IDQ0LjYzODYgMTA3Ljc0IDQ1LjQwNTQgMTA2LjgzNiA0NS41MzMySDEwNi43MDdDMTA1LjY3MyA0NS41MzMyIDEwNC44OTcgNDQuNzY2NCAxMDQuODk3IDQzLjc0NFYyNS41OTU2QzEwNC43NjggMjQuNTczMiAxMDUuNjczIDIzLjgwNjQgMTA2LjcwNyAyMy44MDY0Wk0xMDYuNzA3IDE1LjQ5OUMxMDcuODcgMTUuNDk5IDEwOC43NzQgMTYuMzkzNyAxMDguNzc0IDE3LjU0MzlDMTA4Ljc3NCAxOC42OTQyIDEwNy44NyAxOS41ODg4IDEwNi43MDcgMTkuNTg4OEgxMDYuNTc3QzEwNS40MTQgMTkuNTg4OCAxMDQuNTEgMTguNjk0MiAxMDQuNTEgMTcuNTQzOUMxMDQuNTEgMTYuMzkzNyAxMDUuNDE0IDE1LjQ5OSAxMDYuNTc3IDE1LjQ5OUgxMDYuNzA3WiIgZmlsbD0iIzMzM0Q0NyIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTExNy4wNDQgMjMuODA2NEMxMTguMDc4IDIzLjgwNjQgMTE4Ljg1NCAyNC41NzMyIDExOC44NTQgMjUuNTk1NlY0My43NDRDMTE4Ljg1NCA0NC42Mzg2IDExOC4wNzggNDUuNDA1NCAxMTcuMTc0IDQ1LjUzMzJIMTE3LjA0NEMxMTYuMDExIDQ1LjUzMzIgMTE1LjIzNSA0NC43NjY0IDExNS4yMzUgNDMuNzQ0VjI1LjU5NTZDMTE1LjEwNiAyNC41NzMyIDExNi4wMTEgMjMuODA2NCAxMTcuMDQ0IDIzLjgwNjRaTTExNy4wNDQgMTUuNDk5QzExOC4yMDcgMTUuNDk5IDExOS4xMTIgMTYuMzkzNyAxMTkuMTEyIDE3LjU0MzlDMTE5LjExMiAxOC42OTQyIDExOC4yMDcgMTkuNTg4OCAxMTcuMDQ0IDE5LjU4ODhIMTE2LjkxNUMxMTUuNzUyIDE5LjU4ODggMTE0Ljg0OCAxOC42OTQyIDExNC44NDggMTcuNTQzOUMxMTQuODQ4IDE2LjM5MzcgMTE1Ljc1MiAxNS40OTkgMTE2LjkxNSAxNS40OTlIMTE3LjA0NFoiIGZpbGw9IiMzMzNENDciLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNDEuMDggNDUuNTMzMkMxNDAuMDQ3IDQ1LjUzMzIgMTM5LjI3MSA0NC43NjYzIDEzOS4yNzEgNDMuNzQzOVYzMy4xMzYxQzEzOS4yNzEgMzAuNzA3OCAxMzcuMzMzIDI4Ljc5MDcgMTM0Ljg3OCAyOC43OTA3SDEyOC42NzVWNDMuNjE2MUMxMjguNjc1IDQ0LjYzODUgMTI3LjkgNDUuNDA1NCAxMjYuODY2IDQ1LjQwNTRDMTI1LjgzMiA0NS40MDU0IDEyNS4wNTcgNDQuNjM4NSAxMjUuMDU3IDQzLjYxNjFWMjUuMjEyMkgxMzUuMDA3QzEzOS41MyAyNS4yMTIyIDE0My4xNDggMjguNzkwNyAxNDMuMTQ4IDMzLjEzNjFWNDMuNzQzOUMxNDIuODkgNDQuNzY2MyAxNDEuOTg1IDQ1LjUzMzIgMTQxLjA4IDQ1LjUzMzJaIiBmaWxsPSIjMzMzRDQ3Ii8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTU3LjEwNCA0NS43ODg5SDE1NC41MkMxNDkuOTk3IDQ1Ljc4ODkgMTQ2LjM3OCA0Mi4yMTA0IDE0Ni4zNzggMzcuODY1VjI3LjM4NUMxNDYuMzc4IDI2LjM2MjUgMTQ3LjE1NCAyNS41OTU3IDE0OC4xODggMjUuNTk1N0MxNDkuMjIxIDI1LjU5NTcgMTQ5Ljk5NyAyNi4zNjI1IDE0OS45OTcgMjcuMzg1VjM3Ljg2NUMxNDkuOTk3IDQwLjI5MzMgMTUxLjkzNSA0Mi4yMTA0IDE1NC4zOSA0Mi4yMTA0SDE1Ni45NzVDMTU5LjQzIDQyLjIxMDQgMTYxLjM2OCA0MC4yOTMzIDE2MS4zNjggMzcuODY1VjI3LjM4NUMxNjEuMzY4IDI2LjM2MjUgMTYyLjE0NCAyNS41OTU3IDE2My4xNzggMjUuNTk1N0MxNjQuMjExIDI1LjU5NTcgMTY0Ljk4NyAyNi4zNjI1IDE2NC45ODcgMjcuMzg1VjM3Ljg2NUMxNjUuMjQ1IDQyLjIxMDQgMTYxLjYyNyA0NS43ODg5IDE1Ny4xMDQgNDUuNzg4OVoiIGZpbGw9IiMzMzNENDciLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00Ni44NzU5IDAuNTQ1ODI2QzczLjYyNTMgNi4xNjkyNSA1OS4xNTIyIDQ3LjgzMzcgNDUuMTk2IDU0LjQ3OTZDMjcuNzUwNyA2Mi45MTQ3IC05LjU5NTE0IDM3LjczNzEgMi4yOTM0OSAxNy4wMzI3QzguNjI1NDggNi4xNjkyNSAzNC4wODI3IC0yLjI2NTg5IDQ2Ljg3NTkgMC41NDU4MjZaTTQwLjE1NjIgMTAuMjU5SDM1LjUwNDFDMjguNTI2IDEwLjI1OSAyMi44NDAyIDE1Ljc1NDYgMjIuODQwMiAyMi42NTYxVjQzLjEwNDlIMjMuMDk4NkMyNS45NDE1IDQyLjk3NzEgMjguMjY3NiA0MC42NzY2IDI4LjI2NzYgMzcuNzM3MVYyMi42NTYxQzI4LjI2NzYgMTguODIyIDMxLjQ5ODIgMTUuNjI2OCAzNS41MDQxIDE1LjYyNjhINDAuMTU2MlYxMC4yNTlaTTM0Ljk4NzIgMjUuMjEyMkMzMi4xNDQzIDI1LjIxMjIgMjkuOTQ3NSAyNy4yNTcxIDI5Ljk0NzUgMjcuMjU3MUMyOS45NDc1IDI3LjI1NzEgMzIuMjczNSAyOS4xNzQyIDM1LjExNjUgMjkuMTc0MkMzNy45NTk0IDI5LjE3NDIgNDAuMTU2MiAyNy4xMjkzIDQwLjE1NjIgMjcuMTI5M0M0MC4xNTYyIDI3LjEyOTMgMzcuODMwMiAyNS4yMTIyIDM0Ljk4NzIgMjUuMjEyMloiIGZpbGw9IiMzMzNENDciLz4KPC9zdmc+Cg==" width="120" />
   </a>
 </p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
 
-## 🚀 Quick start
+> Developed with Gatsby
 
-1.  **Create a Gatsby site.**
+<h1>Usage </h1>
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
-
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+1.  **Install the Gatsby CLI.**
+  ```shell
+    npm install -g gatsby-cli
     ```
 
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
+1.  **Install NPM packages.**
+  ```shell
+    npm install
     ```
 
-3.  **Open the code and start customizing!**
+3.  **Install NPM packages.**
+  ```shell
+    npm run dev
+    ```
 
     Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)

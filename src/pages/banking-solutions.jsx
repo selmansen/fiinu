@@ -125,7 +125,6 @@ const Carousel = styled(Slider)`
 		}
 	}
 `;
-
 const Location = styled(Container)`
 	padding-top: 240px;
 	backdrop-filter: opacity(1);
@@ -223,7 +222,6 @@ const BankBox = styled.div`
 		margin-top: 45px;
 	}
 `;
-
 const Consumers = styled(Container)`
 	padding-top: 100px;
 	margin-top: 200px;
@@ -328,7 +326,6 @@ const ConsumersBox = styled.div`
 		}
 	}
 `;
-
 const Wellcome = styled(Container)`
 	margin-top: 270px;
 	padding-top: 145px;
@@ -380,7 +377,6 @@ const Wellcome = styled(Container)`
 		}
 	}
 `;
-
 const Research = styled(Container)`
 	padding: 240px 0 150px;
 	background: ${Variables.ColorFantasy};
@@ -447,7 +443,6 @@ const BanksContent = [
 		height: 34
 	}
 ];
-
 const ConsumersContent = [
 	{
 		title: "Consumer makes purchase.",
@@ -483,10 +478,12 @@ const ConsumersContent = [
 
 const BankingSolutionsPage = ({ data }) => {
 	const [section, setSection] = useState([]);
-
 	const scrollTop = ScrollTop();
 	const isMobile = IsMobile();
 	const isTablet = IsTablet();
+
+	const iphone1 = getImage(data.iphone1);
+	const iphone2 = getImage(data.iphone2);
 
 	useEffect(() => {
 		const allSection = document.querySelectorAll("main > section");
@@ -507,9 +504,6 @@ const BankingSolutionsPage = ({ data }) => {
 		arrows: false
 	};
 
-	const iphone1 = getImage(data.iphone1);
-	const iphone2 = getImage(data.iphone2);
-
 	return (
 		<Layout>
 			<Seo title="Banking Solutions" />
@@ -522,7 +516,6 @@ const BankingSolutionsPage = ({ data }) => {
 			) : null}
 			<BankingAnimate1 />
 			<BankingAnimate2 />
-
 			<Location id="location">
 				<div className="container">
 					<div className="left">

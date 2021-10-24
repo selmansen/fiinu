@@ -18,11 +18,11 @@ const First = styled.section`
 	h2 {
 		text-align: center;
 		position: absolute;
-		left:0;
-		right:0;
+		left: 0;
+		right: 0;
 		@media (max-width: ${ScreenXs}) {
-			left:10px;
-			right:10px;
+			left: 10px;
+			right: 10px;
 		}
 	}
 `;
@@ -69,7 +69,6 @@ const FirstsBg = styled.div`
 const BankingAnimate1 = () => {
 	const [opacity, setOpacity] = useState(0);
 	const [transform, setTransform] = useState(0);
-
 	const animateRatio = Animate("first");
 	const scrollTop = ScrollTop();
 	const isMobile = IsMobile();

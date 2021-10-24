@@ -113,7 +113,7 @@ const InvestorsPage = () => {
 						</ul>
 					</HoldingsContent>
 					<div>
-						<Information theme="white" />
+						<Information />
 						{isMobile ? <Table src={TableImg} alt="Fiinu Plc" width="727" height="641" /> : <Table src={TableImgMobile} alt="Fiinu Plc" width="320" height="903" />}
 					</div>
 				</div>

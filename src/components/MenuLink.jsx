@@ -59,13 +59,7 @@ const MenuLinks = ({ color }) => {
 	return (
 		<ThemeProvider theme={theme}>
 			{MenuText.map((text, i) => (
-				<MenuLink
-					key={i}
-					activeClassName="active"
-					onMouseEnter={handleEnter}
-					onMouseLeave={handleLeave}
-					style={handleStyle}
-					to={`/${text.toLowerCase().replace(" ", "-")}`}>
+				<MenuLink key={i} activeClassName="active" onMouseEnter={handleEnter} onMouseLeave={handleLeave} style={handleStyle} to={`/${text.toLowerCase().replace(" ", "-")}`}>
 					{text}
 				</MenuLink>
 			))}

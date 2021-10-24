@@ -244,7 +244,7 @@ const Location = styled.div`
 const BankingAnimate2 = () => {
 	const [opacity, setOpacity] = useState(0);
 	const [transform, setTransform] = useState(0);
-
+	const animateRatio = Animate("second");
 	const data = useStaticQuery(graphql`
 		query {
 			margotImage: file(relativePath: { eq: "margot-img.jpg" }) {
@@ -255,7 +255,6 @@ const BankingAnimate2 = () => {
 		}
 	`);
 
-	const animateRatio = Animate("second");
 	const margotImage = getImage(data.margotImage);
 
 	useEffect(() => {
@@ -265,7 +264,7 @@ const BankingAnimate2 = () => {
 
 	const a1 = {
 		opacity: opacity > 1 ? "1" : opacity < 0 ? "0" : opacity,
-		transform: `translateY(${transform > 50 ? (transform < 150 ? 50 - (transform)  : "100") : "0"}vh)`
+		transform: `translateY(${transform > 50 ? (transform < 150 ? 50 - transform : "100") : "0"}vh)`
 	};
 	const a2 = {
 		opacity: opacity > 2 ? "1" : opacity < 1 ? "0" : opacity - 1,

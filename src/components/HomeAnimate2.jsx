@@ -108,14 +108,13 @@ const ThirdContent = styled.div`
 			margin-top: 36px;
 		}
 	}
-	.animated{
-		opacity:0;
+	.animated {
+		opacity: 0;
 	}
 `;
 
 const HomeAnimate2 = () => {
 	const [transform, setTransform] = useState(0);
-
 	const animateRatio = Animate("third");
 
 	useEffect(() => {

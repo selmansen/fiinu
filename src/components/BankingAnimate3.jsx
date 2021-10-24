@@ -378,7 +378,7 @@ const ImgWrap = styled.div`
 const BankingAnimate3 = () => {
 	const [width, setWidth] = useState(0);
 	const [scale, setScale] = useState(0);
-
+	const animateRatio = Animate("market");
 	const data = useStaticQuery(graphql`
 		query {
 			marketImg1: file(relativePath: { eq: "market-a-img-1.png" }) {
@@ -463,9 +463,7 @@ const BankingAnimate3 = () => {
 			}
 		}
 	`);
-
-	const animateRatio = Animate("market");
-
+	
 	const marketImg1 = getImage(data.marketImg1);
 	const marketImg2 = getImage(data.marketImg2);
 	const marketImg3 = getImage(data.marketImg3);

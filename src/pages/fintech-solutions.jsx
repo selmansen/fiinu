@@ -111,7 +111,7 @@ const ReadMoreBtn = styled.span`
 		padding: 8px 20px;
 		font-size: 16px;
 		line-height: 24px;
-		width:100%;
+		width: 100%;
 		svg {
 			height: 21px;
 		}
@@ -155,8 +155,8 @@ const Data = styled.section`
 				@media (min-width: calc(${Variables.ScreenMd} + 1px)) {
 					margin-top: 46px;
 				}
-				@media (max-width:${Variables.ScreenSm}){
-					margin-top:72px;
+				@media (max-width: ${Variables.ScreenSm}) {
+					margin-top: 72px;
 				}
 			}
 		}
@@ -268,8 +268,8 @@ const CreditImage = styled(GatsbyImage)`
 const FintechSolutionsPage = ({ data }) => {
 	const [readMore, setReadMore] = useState(false);
 	const [readHeight, setReadHeight] = useState(0);
-
 	const isMobile = IsMobile();
+
 	const devBackground = getImage(data.devBackground);
 	const creditUnderwritingImageMobile = getImage(data.creditUnderwritingImageMobile);
 
@@ -329,7 +329,7 @@ const FintechSolutionsPage = ({ data }) => {
 					</div>
 				</div>
 			</YellowContent>
-			
+
 			<FintechAnimate1 />
 
 			<Data>
@@ -385,7 +385,7 @@ const FintechSolutionsPage = ({ data }) => {
 			<CreditUnderwriting>
 				<div className="container">
 					<H5>Credit Underwriting</H5>
-					<P>Our retail credit underwriting module will provide you with a pre-configured, near-live overview of the a customers financial health.  The solution will use agile processes to adapt to changing customer behaviour and it can be used for all credit underwriting purposes, including creditworthiness and affordability assessments.</P>
+					<P>Our retail credit underwriting module will provide you with a pre-configured, near-live overview of the a customers financial health. The solution will use agile processes to adapt to changing customer behaviour and it can be used for all credit underwriting purposes, including creditworthiness and affordability assessments.</P>
 					{isMobile ? <CreditUnderTable src={creditUnderwritingImage} width="1495" height="1039" alt="Template Report" /> : <CreditImage image={creditUnderwritingImageMobile} alt="Template Report" />}
 				</div>
 			</CreditUnderwriting>
