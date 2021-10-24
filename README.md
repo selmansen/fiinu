@@ -18,7 +18,7 @@ npm install -g gatsby-cli
 npm install
 ```
 
-3.  **Install NPM packages.**
+3.  **Start the site in dev mode.**
 ```shell
 npm run dev
 ```
