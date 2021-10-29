@@ -89,7 +89,7 @@ const Leadership = styled.section`
 	background: #fff;
 	padding: 130px 0 120px;
 	position: relative;
-	z-index: 1;
+	z-index: 5;
 	@media (max-width: ${Variables.ScreenMd}) {
 		padding: 56px 0 45px;
 	}
@@ -239,7 +239,7 @@ const Holdings = styled.section`
 	background: #fff;
 	position: relative;
 	padding: 120px 0px 113px;
-	z-index: 1;
+	z-index: 6;
 	@media (max-width: ${Variables.ScreenMd}) {
 		padding: 45px 0 56px;
 	}

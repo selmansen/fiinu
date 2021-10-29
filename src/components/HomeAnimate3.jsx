@@ -12,6 +12,7 @@ const Fourth = styled.section`
 	background: #e5e7e9;
 	height: calc(${SHeight} * 2 + ${SDeadHeight});
 	position: relative;
+	z-index:4;
 	&:before {
 		opacity: 0;
 	}

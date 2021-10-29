@@ -3,37 +3,37 @@ import styled from "styled-components";
 import TrackVisibility from "react-on-screen";
 
 import { Animate } from "./Function";
-import { ScreenLg, ScreenMd, ScreenXs, SHeight, ColorGoldenYellow, ColorTuna, SDeadHeight } from "./Variables";
+import { ScreenLg, ScreenMd, ScreenXs, ColorGoldenYellow, ColorTuna } from "./Variables";
 import List from "../components/List";
 import { H3, P } from "./Typography";
 import ButtonWarm from "./ButtonWarm";
 
 import DevelopmentBanner from "../images/development-banner.jpg";
 
-const Third = styled.section`
-	background: ${ColorGoldenYellow};
-	margin-bottom: ${SDeadHeight};
-	height: ${SHeight};
+const ThirdWrapper = styled.section`
+	height:150vh;
 	min-height: 780px;
-	position: sticky;
-	top: 0;
 	@media (max-height: 780px) and (min-width: calc( ${ScreenLg} + 1px )) {
-		position: relative;
-		margin-bottom: 0;
+		height:100vh;
 	}
 	@media (max-width: ${ScreenLg}) {
 		min-height: 724px;
 		@media (max-height: 724px) {
-			position: relative;
-			margin-bottom: 0;
+			height:100vh;
 		}
 	}
 	@media (max-width: ${ScreenMd}) {
-		position: relative;
-		margin-bottom: 0;
 		height: auto;
 		min-height: auto;
 	}
+`;
+
+const Third = styled.section`
+	background: ${ColorGoldenYellow};
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	
 `;
 const ThirdBgCover = styled.div`
 	height: 100%;
@@ -128,25 +128,27 @@ const HomeAnimate2 = () => {
 	};
 
 	return (
-		<Third data-child="1" id="third">
-			<ThirdBgCover>
-				<div className="s3_a1" style={a1}></div>
-			</ThirdBgCover>
-			<div className="container h100">
-				<ThirdContent>
-					<TrackVisibility once>{({ isVisible }) => <H3 className={`animated ${isVisible ? "fadeInUp" : ""}`}>R&D firm developing intelligent fintech and alternative data insight solutions.</H3>}</TrackVisibility>
-					<TrackVisibility once>{({ isVisible }) => <P className={`animated ${isVisible ? "fadeInUp" : ""}`}>Our technology arm will generate revenue from licencing Open Banking enabled technology and alternative data solutions. </P>}</TrackVisibility>
-					<TrackVisibility once>{({ isVisible }) => <List data={ThirdContent_Data} className={`animated ${isVisible ? "fadeInUp" : ""}`} />}</TrackVisibility>
-					<TrackVisibility once>
-						{({ isVisible }) => (
-							<ButtonWarm toLink="/fintech-solutions" className={`animated ${isVisible ? "fadeInUp" : ""}`}>
-								Fintech solutions
-							</ButtonWarm>
-						)}
-					</TrackVisibility>
-				</ThirdContent>
-			</div>
-		</Third>
+		<ThirdWrapper>
+			<Third data-child="1" id="third">
+				<ThirdBgCover>
+					<div className="s3_a1" style={a1}></div>
+				</ThirdBgCover>
+				<div className="container h100">
+					<ThirdContent>
+						<TrackVisibility once>{({ isVisible }) => <H3 className={`animated ${isVisible ? "fadeInUp" : ""}`}>R&D firm developing intelligent fintech and alternative data insight solutions.</H3>}</TrackVisibility>
+						<TrackVisibility once>{({ isVisible }) => <P className={`animated ${isVisible ? "fadeInUp" : ""}`}>Our technology arm will generate revenue from licencing Open Banking enabled technology and alternative data solutions. </P>}</TrackVisibility>
+						<TrackVisibility once>{({ isVisible }) => <List data={ThirdContent_Data} className={`animated ${isVisible ? "fadeInUp" : ""}`} />}</TrackVisibility>
+						<TrackVisibility once>
+							{({ isVisible }) => (
+								<ButtonWarm toLink="/fintech-solutions" className={`animated ${isVisible ? "fadeInUp" : ""}`}>
+									Fintech solutions
+								</ButtonWarm>
+							)}
+						</TrackVisibility>
+					</ThirdContent>
+				</div>
+			</Third>
+		</ThirdWrapper>
 	);
 };
 
