@@ -333,6 +333,9 @@ const Wellcome = styled(Container)`
 	@media (max-width: ${Variables.ScreenMd}) {
 		margin-top: 36px;
 		padding-top: 46px;
+		padding-bottom: 112px;
+		overflow: hidden;
+		margin-bottom: -40px;
 	}
 	p {
 		margin-top: 36px;
@@ -381,7 +384,7 @@ const Research = styled(Container)`
 	padding: 240px 0 150px;
 	background: ${Variables.ColorFantasy};
 	@media (max-width: ${Variables.ScreenMd}) {
-		padding: 72px 0 36px;
+		padding: 0 0 36px;
 	}
 	p {
 		margin-top: 36px;

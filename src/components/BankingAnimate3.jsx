@@ -112,9 +112,9 @@ const Imgs = styled.div`
 		transform: scale(0.5);
 	}
 	@media (max-width: ${ScreenXs}) {
-		margin-top: -58px;
+		margin-top: 0;
 		transform: scale(1);
-		height: 690px;
+		height: 750px;
 		width: 320px;
 	}
 	span {

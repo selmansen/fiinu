@@ -211,10 +211,10 @@ const SlickPrev = styled.div`
 	}
 	&:hover {
 		&:before {
-			border-color: ${Variables.ColorTuna};
+			border-color: ${Variables.ColorTuna} !important;
 		}
 		&:after {
-			background: ${Variables.ColorTuna};
+			background: ${Variables.ColorTuna} !important;
 		}
 	}
 `;
