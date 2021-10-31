@@ -103,10 +103,6 @@ const Imgs = styled.div`
 	position: absolute;
 	width: 1495px;
 	margin-top: 140px;
-	@media (max-width: ${ScreenXs}) {
-		height: 690px;
-		width: 320px;
-	}
 	@media (max-width: ${ScreenMd}) {
 		margin-top: 80px;
 		transform: scale(0.75);
@@ -118,6 +114,8 @@ const Imgs = styled.div`
 	@media (max-width: ${ScreenXs}) {
 		margin-top: -58px;
 		transform: scale(1);
+		height: 690px;
+		width: 320px;
 	}
 	span {
 		animation-timing-function: ease-in-out;
