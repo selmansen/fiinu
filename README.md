@@ -24,3 +24,5 @@ npm run dev
 ```
     
 Your site is now running at http://localhost:8000!
+
+Demo: https://fiinu.gatsbyjs.io/
